@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Intern.Nation - Professional Login Portal</title>
+<title>Intern.Nation</title>
 <style>
 :root {
   --primary-color: #1F1F4E;
@@ -183,14 +183,14 @@ input, select {
 
 <div class="login-container">
   <div class="login-header">
-    <h2 id="form-title">Student Login</h2>
+    <h2>Student Login</h2>
   </div>
   
   <div class="form-container">
     <div class="role-selector">
-      <button class="role-btn active" onclick="switchRole('student')">Student</button>
-      <button class="role-btn" onclick="switchRole('admin')">Admin</button>
-      <button class="role-btn" onclick="switchRole('company')">Company</button>
+      <button class="role-btn active">Student</button>
+      <button class="role-btn">Admin</button>
+      <button class="role-btn">Company</button>
     </div>
 
     <form id="login-form" class="form active">
@@ -211,7 +211,7 @@ input, select {
       <button type="submit" class="submit-btn">Sign In</button>
       
       <div class="links">
-        New here? <a href="#" onclick="showSignup()">Create account</a>
+        New here? <a href="#">Create account</a>
       </div>
     </form>
 
@@ -243,36 +243,11 @@ input, select {
       <button type="submit" class="submit-btn">Create Account</button>
       
       <div class="links">
-        Have an account? <a href="#" onclick="showLogin()">Sign in</a>
+        Have an account? <a href="#">Sign in</a>
       </div>
     </form>
   </div>
 </div>
-
-<script>
-let currentRole = "student";
-
-function switchRole(role) {
-  currentRole = role;
-  document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById("form-title").innerText = 
-    role.charAt(0).toUpperCase() + role.slice(1) + " Login";
-}
-
-function showSignup() {
-  document.getElementById("login-form").classList.remove("active");
-  document.getElementById("signup-form").classList.add("active");
-  document.getElementById("form-title").innerText = "Create Account";
-}
-
-function showLogin() {
-  document.getElementById("signup-form").classList.remove("active");
-  document.getElementById("login-form").classList.add("active");
-  document.getElementById("form-title").innerText = 
-    currentRole.charAt(0).toUpperCase() + currentRole.slice(1) + " Login";
-}
-</script>
 
 </body>
 </html>
