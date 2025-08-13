@@ -102,8 +102,21 @@ body {
   padding: 0.2rem;
 }
 
-.role-btn {
+.role-option {
   flex: 1;
+  position: relative;
+}
+
+.role-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.role-btn {
+  display: block;
+  width: 100%;
   padding: 0.5rem;
   border: none;
   background: transparent;
@@ -111,11 +124,14 @@ body {
   font-size: 0.85rem;
   border-radius: 4px;
   cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.role-btn.active {
+.role-option input[type="radio"]:checked + .role-btn {
   background: var(--accent-color);
   color: var(--primary-color);
+  font-weight: 600;
 }
 
 .form-group {
@@ -149,6 +165,10 @@ input, select {
   margin-top: 0.5rem;
 }
 
+.submit-btn:hover {
+  background: #161640;
+}
+
 .links {
   text-align: center;
   margin-top: 1rem;
@@ -160,12 +180,194 @@ input, select {
   text-decoration: none;
 }
 
-.form {
+.form-section {
   display: none;
 }
 
-.form.active {
+/* Show forms based on selected role */
+#student-radio:checked ~ .student-form,
+#admin-radio:checked ~ .admin-form,
+#company-radio:checked ~ .company-form {
   display: block;
+}
+
+/* Dynamic title updates */
+#student-radio:checked ~ .login-header h2::before {
+  content: "Student Login";
+}
+
+#admin-radio:checked ~ .login-header h2::before {
+  content: "Admin Login";
+}
+
+#company-radio:checked ~ .login-header h2::before {
+  content: "Company Login";
+}
+
+/* Role-specific form styling */
+.role-form {
+  display: none;
+}
+
+#student-radio:checked ~ .form-container .role-form.student-form,
+#admin-radio:checked ~ .form-container .role-form.admin-form,
+#company-radio:checked ~ .form-container .role-form.company-form {
+  display: block;
+}
+
+/* Hide all forms by default */
+.role-form {
+  display: none;
+}
+
+/* Show specific form based on radio selection */
+#student-radio:checked ~ .form-container .student-form,
+#admin-radio:checked ~ .form-container .admin-form,
+#company-radio:checked ~ .form-container .company-form {
+  display: block;
+}
+
+/* Update header text based on selected role */
+.login-header h2.student::before { content: "Student Login"; }
+.login-header h2.admin::before { content: "Admin Login"; }
+.login-header h2.company::before { content: "Company Login"; }
+
+/* Role-specific forms */
+.form-section {
+  display: none;
+}
+
+#student:checked ~ .form-container .student-section,
+#admin:checked ~ .form-container .admin-section,
+#company:checked ~ .form-container .company-section {
+  display: block;
+}
+
+/* Radio button styling */
+.role-radio {
+  display: none;
+}
+
+.role-label {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.role-radio:checked + .role-label {
+  background: var(--accent-color);
+  color: var(--primary-color);
+}
+
+/* Form visibility control */
+.form-content {
+  display: none;
+}
+
+#student-tab:checked ~ .form-container .student-content,
+#admin-tab:checked ~ .form-container .admin-content,
+#company-tab:checked ~ .form-container .company-content {
+  display: block;
+}
+
+/* Update header text */
+.login-header h2[data-title="student"]::before { content: "Student Login"; }
+.login-header h2[data-title="admin"]::before { content: "Admin Login"; }
+.login-header h2[data-title="company"]::before { content: "Company Login"; }
+
+/* Form visibility */
+.form-content {
+  display: none;
+}
+
+.form-content.active {
+  display: block;
+}
+
+/* Use radio buttons for role selection */
+.role-radio {
+  display: none;
+}
+
+.role-selector {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 0.2rem;
+}
+
+.role-label {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.role-radio:checked + .role-label {
+  background: var(--accent-color);
+  color: var(--primary-color);
+}
+
+/* Form visibility based on radio selection */
+#student-radio:checked ~ .form-container .student-form,
+#admin-radio:checked ~ .form-container .admin-form,
+#company-radio:checked ~ .form-container .company-form {
+  display: block;
+}
+
+#student-radio:not(:checked) ~ .form-container .student-form,
+#admin-radio:not(:checked) ~ .form-container .admin-form,
+#company-radio:not(:checked) ~ .form-container .company-form {
+  display: none;
+}
+
+/* Hide radio buttons */
+input[type="radio"][name="role"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Form display control */
+.form-content {
+  display: none;
+}
+
+input[value="student"]:checked ~ .form-container .student-form,
+input[value="admin"]:checked ~ .form-container .admin-form,
+input[value="company"]:checked ~ .form-container .company-form {
+  display: block;
+}
+
+/* Simplified approach using radio buttons */
+input[name="role"][value="student"]:checked ~ .form-container .student-form,
+input[name="role"][value="admin"]:checked ~ .form-container .admin-form,
+input[name="role"][value="company"]:checked ~ .form-container .company-form {
+  display: block;
+}
+
+input[name="role"][value="student"]:checked ~ .form-container .admin-form,
+input[name="role"][value="student"]:checked ~ .form-container .company-form,
+input[name="role"][value="admin"]:checked ~ .form-container .student-form,
+input[name="role"][value="admin"]:checked ~ .form-container .company-form,
+input[name="role"][value="company"]:checked ~ .form-container .student-form,
+input[name="role"][value="company"]:checked ~ .form-container .admin-form {
+  display: none;
 }
 </style>
 </head>
@@ -181,73 +383,173 @@ input, select {
   </div>
 </div>
 
+<!-- Hidden radio buttons for role selection -->
+<input type="radio" id="student" name="role" value="student" checked>
+<input type="radio" id="admin" name="role" value="admin">
+<input type="radio" id="company" name="role" value="company">
+
 <div class="login-container">
   <div class="login-header">
-    <h2>Student Login</h2>
+    <h2 id="login-title">Student Login</h2>
   </div>
   
   <div class="form-container">
     <div class="role-selector">
-      <button class="role-btn active">Student</button>
-      <button class="role-btn">Admin</button>
-      <button class="role-btn">Company</button>
+      <label for="student" class="role-label">Student</label>
+      <label for="admin" class="role-label">Admin</label>
+      <label for="company" class="role-label">Company</label>
     </div>
 
-    <form id="login-form" class="form active">
+    <!-- Student Form -->
+    <form id="student-form" class="student-form form-content" action="/login/student" method="POST">
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="Enter email" required>
+        <input type="email" name="email" placeholder="Enter email" required>
       </div>
       
       <div class="form-group">
         <label>Password</label>
-        <input type="password" placeholder="Enter password" required>
+        <input type="password" name="password" placeholder="Enter password" required>
       </div>
       
       <div class="links">
         <a href="#">Forgot password?</a>
       </div>
       
-      <button type="submit" class="submit-btn">Sign In</button>
+      <button type="submit" class="submit-btn">Sign In as Student</button>
       
       <div class="links">
         New here? <a href="#">Create account</a>
       </div>
     </form>
 
-    <form id="signup-form" class="form">
+    <!-- Admin Form -->
+    <form id="admin-form" class="admin-form form-content" action="/login/admin" method="POST">
       <div class="form-group">
-        <label>First Name</label>
-        <input type="text" placeholder="First name" required>
-      </div>
-
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" placeholder="Last name" required>
+        <label>Admin Email</label>
+        <input type="email" name="email" placeholder="Enter admin email" required>
       </div>
       
       <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="Email address" required>
-      </div>
-
-      <div class="form-group">
-        <label>Account Type</label>
-        <select required>
-          <option value="">Select type</option>
-          <option value="student">Student</option>
-          <option value="recruiter">Recruiter</option>
-        </select>
+        <label>Admin Password</label>
+        <input type="password" name="password" placeholder="Enter admin password" required>
       </div>
       
-      <button type="submit" class="submit-btn">Create Account</button>
+      <div class="form-group">
+        <label>Admin Code</label>
+        <input type="text" name="admin_code" placeholder="Enter admin code" required>
+      </div>
+      
+      <button type="submit" class="submit-btn">Sign In as Admin</button>
+    </form>
+
+    <!-- Company Form -->
+    <form id="company-form" class="company-form form-content" action="/login/company" method="POST">
+      <div class="form-group">
+        <label>Company Email</label>
+        <input type="email" name="email" placeholder="Enter company email" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Company ID</label>
+        <input type="text" name="company_id" placeholder="Enter company ID" required>
+      </div>
+      
+      <button type="submit" class="submit-btn">Sign In as Company</button>
       
       <div class="links">
-        Have an account? <a href="#">Sign in</a>
+        <a href="#">Register your company</a>
       </div>
     </form>
   </div>
 </div>
+
+<style>
+/* Additional CSS for role switching without JavaScript */
+input[type="radio"][name="role"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.role-selector {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 0.2rem;
+}
+
+.role-label {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+#student:checked ~ .login-container .role-label[for="student"],
+#admin:checked ~ .login-container .role-label[for="admin"],
+#company:checked ~ .login-container .role-label[for="company"] {
+  background: var(--accent-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Form visibility control */
+.student-form,
+.admin-form,
+.company-form {
+  display: none;
+}
+
+#student:checked ~ .login-container .student-form {
+  display: block;
+}
+
+#admin:checked ~ .login-container .admin-form {
+  display: block;
+}
+
+#company:checked ~ .login-container .company-form {
+  display: block;
+}
+
+/* Dynamic title updates */
+#student:checked ~ .login-container .login-header h2::before {
+  content: "Student Login";
+}
+
+#admin:checked ~ .login-container .login-header h2::before {
+  content: "Admin Login";
+}
+
+#company:checked ~ .login-container .login-header h2::before {
+  content: "Company Login";
+}
+
+.login-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.login-header h2::before {
+  content: "Student Login";
+}
+</style>
 
 </body>
 </html>
