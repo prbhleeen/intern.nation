@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intern.Nation Login & Signup</title>
+<style>
+:root {
+  --primary-color: #1F1F4E;  /* Deep Indigo Navy */
+  --accent-color: #CBB88B;   /* Soft Beige/Tan */
+  --background-color: #FFFFFF;
+  --text-color: #1F1F4E;
+  --hover-beige: rgb(232, 225, 208); /* Lighter beige for hovers */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  margin: 50px auto;
+  background: var(--background-color);
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+
+h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.tab-buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  border-radius: 6px;
+  margin: 0 5px;
+  transition: background 0.3s;
+}
+
+.tab-buttons button:hover {
+  background: var(--hover-beige);
+}
+
+form {
+  display: none;
+  flex-direction: column;
+}
+
+form.active {
+  display: flex;
+}
+
+label {
+  margin: 8px 0 4px;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+button.submit-btn {
+  padding: 10px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+button.submit-btn:hover {
+  background: #2e2e6b;
+}
+
+.links {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2 id="form-title">Student Login</h2>
+  
+  <!-- Role Selection for Login -->
+  <div class="tab-buttons">
+    <button onclick="switchRole('student')">Student Login</button>
+    <button onclick="switchRole('company')">Company Login</button>
+    <button onclick="switchRole('admin')">Admin Login</button>
+  </div>
+
+  <!-- Login Form -->
+  <form id="login-form" class="active">
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email" required>
+    
+    <label>Password</label>
+    <input type="password" placeholder="Enter your password" required>
+    
+    <div class="links">
+      <a href="#">Forgot Password?</a>
+    </div>
+    
+    <button class="submit-btn">Login</button>
+    <div class="links">
+      New to Intern.Nation? <a href="#" onclick="showSignup()">Sign up</a>
+    </div>
+  </form>
+
+  <!-- Signup Form -->
+  <form id="signup-form">
+    <label>First Name</label>
+    <input type="text" placeholder="Enter your first name" required>
+
+    <label>Last Name</label>
+    <input type="text" placeholder="Enter your last name" required>
+    
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email" required>
+
+    <label>Phone Number</label>
+    <input type="tel" placeholder="Enter your phone number" required>
+
+    <label>Set Password</label>
+    <input type="password" placeholder="Create a password" required>
+
+    <label>Account Type</label>
+    <select required>
+      <option value="">--Select--</option>
+      <option value="student">Student</option>
+      <option value="recruiter">Recruiter</option>
+    </select>
+    
+    <button class="submit-btn">Create Account</button>
+    <div class="links">
+      Already have an account? <a href="#" onclick="showLogin()">Login</a>
+    </div>
+  </form>
+</div>
+
+<script>
+let currentRole = "student";
+
+function switchRole(role) {
+  currentRole = role;
+  document.getElementById("form-title").innerText = 
+    role.charAt(0).toUpperCase() + role.slice(1) + " Login";
+}
+
+function showSignup() {
+  document.getElementById("login-form").classList.remove("active");
+  document.getElementById("signup-form").classList.add("active");
+  document.getElementById("form-title").innerText = "Create an Account";
+}
+
+function showLogin() {
+  document.getElementById("signup-form").classList.remove("active");
+  document.getElementById("login-form").classList.add("active");
+  document.getElementById("form-title").innerText = 
+    currentRole.charAt(0).toUpperCase() + currentRole.slice(1) + " Login";
+}
+</script>
+
+</body>
+</html>
