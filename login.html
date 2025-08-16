@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Intern.Nation</title>
+<title>LOGIN | intern.nation</title>
+  <link rel="icon" type="jpeg" href="logo.jpeg">
+
 <style>
 :root {
   --primary-color: #1F1F4E;
@@ -441,6 +443,11 @@ input[name="role"][value="company"]:checked ~ .form-container .admin-form {
         <label>Admin Code</label>
         <input type="text" name="admin_code" placeholder="Enter admin code" required>
       </div>
+
+            <div class="links">
+        <a href="#">Forgot password?</a>
+      </div>
+
       
       <button type="button" class="submit-btn" onclick="window.location.href='Admin_Dashboard.html'">
         Sign In as Admin
@@ -464,12 +471,16 @@ input[name="role"][value="company"]:checked ~ .form-container .admin-form {
         <input type="text" name="company_id" placeholder="Enter company ID" required>
       </div>
       
+            <div class="links">
+        <a href="#">Forgot password?</a>
+      </div>
+
       <button type="button" class="submit-btn" onclick="window.location.href='companydashboard.html'">
         Sign In as Company
       </button>
       
       <div class="links">
-        <a href="#">Register your company</a>
+        <a href="#">New here? Register your company</a>
       </div>
     </form>
   </div>
