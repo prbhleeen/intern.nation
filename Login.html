@@ -416,7 +416,9 @@ input[name="role"][value="company"]:checked ~ .form-container .admin-form {
         <a href="#">Forgot password?</a>
       </div>
       
-      <button type="submit" class="submit-btn">Sign In as Student</button>
+      <button type="button" class="submit-btn" onclick="window.location.href='student_dashboard.html'">
+        Sign In as Student
+      </button>
       
       <div class="links">
         New here? <a href="#">Create account</a>
@@ -440,7 +442,9 @@ input[name="role"][value="company"]:checked ~ .form-container .admin-form {
         <input type="text" name="admin_code" placeholder="Enter admin code" required>
       </div>
       
-      <button type="submit" class="submit-btn">Sign In as Admin</button>
+      <button type="button" class="submit-btn" onclick="window.location.href='Admin_Dashboard.html'">
+        Sign In as Admin
+      </button>
     </form>
 
     <!-- Company Form -->
@@ -460,7 +464,9 @@ input[name="role"][value="company"]:checked ~ .form-container .admin-form {
         <input type="text" name="company_id" placeholder="Enter company ID" required>
       </div>
       
-      <button type="submit" class="submit-btn">Sign In as Company</button>
+      <button type="button" class="submit-btn" onclick="window.location.href='companydashboard.html'">
+        Sign In as Company
+      </button>
       
       <div class="links">
         <a href="#">Register your company</a>
