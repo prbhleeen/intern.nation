@@ -39,7 +39,7 @@ It connects **students**, **companies**, and **administrators** on one platform,
 
 ---
 
-## 👩‍💻 Contributors  
+## Contributors  
 
 - **Prabhleen** – Student Dashboard, Project Management, Overall Structure & Integration  
 - **Shagun** – Intro Page, About Us, Contributors, T&C, Privacy Policy, Company Dashboard  
@@ -49,3 +49,6 @@ It connects **students**, **companies**, and **administrators** on one platform,
 ---
 
 ✨ *Intern.Nation – Connecting Talent With Opportunity* ✨
+
+## Live Demo
+Our project is live at ``https://prbhleeen.github.io/intern.nation/``
