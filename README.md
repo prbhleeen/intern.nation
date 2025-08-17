@@ -1,4 +1,4 @@
-# Intern.Nation – Campus Internship & Placement Portal
+# 💼 Intern.Nation – Campus Internship & Placement Portal
 
 **Intern.Nation** is a web-based platform designed to streamline campus internship and placement activities.  
 It connects **students**, **companies**, and **administrators** on one platform, making the recruitment process more transparent and efficient.  
@@ -22,7 +22,7 @@ It connects **students**, **companies**, and **administrators** on one platform,
 - Approve/reject company registrations  
 - Oversee placement statistics  
 
-### 🌐 General Pages  
+### General Pages  
 - Home Page  
 - About Us  
 - Our Contributors  
@@ -31,7 +31,7 @@ It connects **students**, **companies**, and **administrators** on one platform,
 
 ---
 
-## Tech Stack  
+## Tech Stack  💻
 
 - **Frontend:** HTML, CSS, JavaScript  
 - **Database:** MySQL  
@@ -48,7 +48,9 @@ It connects **students**, **companies**, and **administrators** on one platform,
 
 ---
 
-✨ *Intern.Nation – Connecting Talent With Opportunity* ✨
-
 ## Live Demo
 Our project is live at https://prbhleeen.github.io/intern.nation/
+
+---
+
+✨ *Intern.Nation – Connecting Talent With Opportunity* ✨
