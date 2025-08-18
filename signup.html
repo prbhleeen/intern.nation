@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Intern.Nation</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="icon" href="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg">
+</head>
+<body>
+  <section class="card">
+    <header class="logo-section">
+      <img src="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg" 
+           alt="Intern.Nation Logo" class="logo-img">
+      <div>
+        <h1 class="site-title">intern.nation</h1>
+        <p class="tagline">Connecting Talent with Opportunity</p>
+      </div>
+    </header>
+
+    <h2>Create Account</h2>
+
+    <div class="role-selector">
+      <button type="button" class="active" onclick="showForm('student')">Student</button>
+      <button type="button" onclick="showForm('admin')">Admin</button>
+      <button type="button" onclick="showForm('company')">Company</button>
+    </div>
+
+    <!-- Student Signup Form -->
+    <form class="form active" id="student" onsubmit="handleSignup(event, 'student')">
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter email address" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="Create password" required minlength="6">
+
+      <label>Confirm Password</label>
+      <input type="password" placeholder="Confirm password" required minlength="6">
+
+      <label>Student ID</label>
+      <input type="text" placeholder="Enter Student ID" required>
+
+      <label>University/College</label>
+      <input type="text" placeholder="Enter your institution name" required>
+
+      <label>Course</label>
+      <input type="text" placeholder="Enter your course/program" required>
+
+      <button type="submit">Create Account</button>
+      <p class="links">Already have an account? <a href="login.html">Sign In</a></p>
+    </form>
+
+    <!-- Admin Signup Form -->
+    <form class="form" id="admin" onsubmit="handleSignup(event, 'admin')">
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+
+      <label>Admin Email</label>
+      <input type="email" placeholder="Enter admin email" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="Create password" required minlength="6">
+
+      <label>Confirm Password</label>
+      <input type="password" placeholder="Confirm password" required minlength="6">
+
+      <label>Admin ID</label>
+      <input type="text" placeholder="Enter admin code" required>
+
+      <label>Department</label>
+      <input type="text" placeholder="Enter your department" required>
+
+      <label>Position</label>
+      <input type="text" placeholder="Enter your position" required>
+
+      <button type="submit">Create Account</button>
+      <p class="links">Already have an account? <a href="login.html">Sign In</a></p>
+    </form>
+
+    <!-- Company Signup Form -->
+    <form class="form" id="company" onsubmit="handleSignup(event, 'company')">
+      <label>Company Name</label>
+      <input type="text" placeholder="Enter company name" required>
+
+      <label>Company Email</label>
+      <input type="email" placeholder="Enter company email" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="Create password" required minlength="6">
+
+      <label>Confirm Password</label>
+      <input type="password" placeholder="Confirm password" required minlength="6">
+
+      <label>Company ID</label>
+      <input type="text" placeholder="Enter company registration ID" required>
+
+      <label>Industry</label>
+      <input type="text" placeholder="Enter your industry type" required>
+
+      <label>Company Size</label>
+      <select required>
+        <option value="">Select company size</option>
+        <option value="startup">Startup (1-10 employees)</option>
+        <option value="small">Small (11-50 employees)</option>
+        <option value="medium">Medium (51-200 employees)</option>
+        <option value="large">Large (200+ employees)</option>
+      </select>
+
+      <label>Location</label>
+      <input type="text" placeholder="Enter company location" required>
+
+      <button type="submit">Create Account</button>
+      <p class="links">Already have an account? <a href="login.html">Sign In</a></p>
+    </form>
+  </section>
+
+  <script>
+    function showForm(role) {
+      document.querySelectorAll(".form").forEach(f => f.classList.remove("active"));
+      document.querySelectorAll(".role-selector button").forEach(b => b.classList.remove("active"));
+      document.getElementById(role).classList.add("active");
+      event.target.classList.add("active");
+    }
+
+    function handleSignup(event, role) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const inputs = form.querySelectorAll('input[required], select[required]');
+      let isValid = true;
+      
+      // Check if all required fields are filled
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          isValid = false;
+          input.style.borderColor = '#ff4444';
+        } else {
+          input.style.borderColor = '#ccc';
+        }
+      });
+
+      // Check password match
+      const password = form.querySelector('input[type="password"]:nth-of-type(1)');
+      const confirmPassword = form.querySelector('input[type="password"]:nth-of-type(2)');
+      
+      if (password && confirmPassword && password.value !== confirmPassword.value) {
+        isValid = false;
+        confirmPassword.style.borderColor = '#ff4444';
+        alert('Passwords do not match!');
+        return;
+      }
+
+      if (isValid) {
+        // All fields are filled and passwords match, proceed with signup
+        alert(`Welcome to Intern.Nation! Your ${role} account has been created successfully.`);
+        
+        // Redirect to login page after successful signup
+        setTimeout(() => {
+          window.location.href = 'login.html';
+        }, 1500);
+      } else {
+        // Show validation message
+        alert('Please fill in all required fields before proceeding.');
+      }
+    }
+
+    // Add real-time validation feedback
+    document.querySelectorAll('input[required], select[required]').forEach(input => {
+      input.addEventListener('input', function() {
+        if (this.value.trim()) {
+          this.style.borderColor = '#ccc';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

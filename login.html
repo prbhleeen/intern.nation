@@ -21,14 +21,12 @@
 
     <h2 >Login</h2>
 
-    
     <div class="role-selector">
       <button type="button" class="active" onclick="showForm('student')">Student</button>
       <button type="button" onclick="showForm('admin')">Admin</button>
       <button type="button" onclick="showForm('company')">Company</button>
     </div>
 
-    
     <form class="form active" id="student" onsubmit="handleLogin(event, 'student')">
       <label>Email</label>
       <input type="email" placeholder="Enter email" required>
@@ -41,7 +39,7 @@
 
       <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
-      <p class="links">New here? <a href="#">Create account</a></p>
+      <p class="links">New here? <a href="signup.html">Create account</a></p>
     </form>
 
    
@@ -57,77 +55,73 @@
 
       <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
+      <p class="links">New here? <a href="signup.html">Create account</a></p>
     </form>
 
-
-    <form class="form" id="company" onsubmit="handleLogin(event, 'company')">
-      <label>Company Email</label>
-      <input type="email" placeholder="Enter company email" required>
-
-      <label>Password</label>
-      <input type="password" placeholder="Enter password" required>
-
-      <label>Company ID</label>
-      <input type="text" placeholder="Enter company ID" required>
-
-      <button type="submit">Sign In</button>
-      <p class="links"><a href="#">Forgot password?</a></p>
-      <p class="links">New here? <a href="#">Register your company</a></p>
-    </form>
+    
   </section>
 
   <script>
+    // Basic JavaScript - Data Types and Variables
+    let activeForm = 'student';
+    const forms = ['student', 'admin', 'company'];
+    
+    // Basic JavaScript - Functions
     function showForm(role) {
-      document.querySelectorAll(".form").forEach(f => f.classList.remove("active"));
-      document.querySelectorAll(".role-selector button").forEach(b => b.classList.remove("active"));
+      activeForm = role;
+      
+      // Basic JavaScript - Arrays and Control Flow
+      for (let i = 0; i < forms.length; i++) {
+        document.getElementById(forms[i]).classList.remove("active");
+      }
+      
+      const buttons = document.querySelectorAll(".role-selector button");
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      
       document.getElementById(role).classList.add("active");
       event.target.classList.add("active");
     }
 
+    // Basic JavaScript - Functions and Control Flow
     function handleLogin(event, role) {
       event.preventDefault();
       
+      // Basic JavaScript - Variables and Arrays
       const form = event.target;
       const inputs = form.querySelectorAll('input[required]');
       let isValid = true;
       
-      // Check if all required fields are filled
-      inputs.forEach(input => {
-        if (!input.value.trim()) {
+      // Basic JavaScript - Control Flow (for loop)
+      for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === '') {
           isValid = false;
-          input.style.borderColor = '#ff4444';
+          inputs[i].style.borderColor = '#ff4444';
         } else {
-          input.style.borderColor = '#ccc';
+          inputs[i].style.borderColor = '#ccc';
         }
-      });
-
-      if (isValid) {
-        // All fields are filled, proceed with redirection
-        switch(role) {
-          case 'student':
-            window.location.href = 'student_dashboard/student_dashboard.html';
-            break;
-          case 'admin':
-            window.location.href = 'Admin_Dashboard.html';
-            break;
-          case 'company':
-            window.location.href = 'companydashboard.html';
-            break;
-        }
-      } else {
-        // Show validation message
-        alert('Please fill in all required fields before proceeding.');
       }
+
+      // Basic JavaScript - JSON Objects
+      const redirectUrls = {
+        'student': 'student_dashboard/student_dashboard.html',
+        'admin': 'Admin_Dashboard.html',
+        'company': 'companydashboard.html'
+      };
+        
+      window.location.href = redirectUrls[role];
     }
 
-    // Add real-time validation feedback
-    document.querySelectorAll('input[required]').forEach(input => {
-      input.addEventListener('input', function() {
-        if (this.value.trim()) {
+    // Basic JavaScript - Arrays and Event Handling
+    const requiredInputs = document.querySelectorAll('input[required]');
+    for (let i = 0; i < requiredInputs.length; i++) {
+      requiredInputs[i].addEventListener('input', function() {
+        if (this.value.trim() !== '') {
           this.style.borderColor = '#ccc';
         }
       });
-    });
+    }
   </script>
 </body>
 </html>
