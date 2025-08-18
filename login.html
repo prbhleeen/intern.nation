@@ -1,573 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOGIN | intern.nation</title>
-  <link rel="icon" type="jpeg" href="logo.jpeg">
-
-<style>
-:root {
-  --primary-color: #1F1F4E;
-  --accent-color: #CBB88B;
-  --background-color: #FFFFFF;
-  --text-color: #1F1F4E;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: linear-gradient(135deg, var(--primary-color) 0%, #2a2a5e 100%);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.logo-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.logo {
-  width: 45px;
-  height: 45px;
-  background: var(--accent-color);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.3rem;
-  color: var(--primary-color);
-}
-
-.brand-info h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
-  margin: 0;
-}
-
-.tagline {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.9);
-}
-
-.login-container {
-  width: 100%;
-  max-width: 380px;
-  background: var(--background-color);
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  overflow: hidden;
-}
-
-.login-header {
-  background: var(--primary-color);
-  color: white;
-  padding: 1.25rem;
-  text-align: center;
-}
-
-.login-header h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.form-container {
-  padding: 1.5rem;
-}
-
-.role-selector {
-  display: flex;
-  gap: 0.25rem;
-  margin-bottom: 1.25rem;
-  background: #f8f9fa;
-  border-radius: 6px;
-  padding: 0.2rem;
-}
-
-.role-option {
-  flex: 1;
-  position: relative;
-}
-
-.role-option input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.role-btn {
-  display: block;
-  width: 100%;
-  padding: 0.5rem;
-  border: none;
-  background: transparent;
-  color: var(--text-color);
-  font-size: 0.85rem;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.role-option input[type="radio"]:checked + .role-btn {
-  background: var(--accent-color);
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.25rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-input, select {
-  width: 100%;
-  padding: 0.7rem;
-  border: 1px solid #e9ecef;
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 0.75rem;
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-
-.submit-btn:hover {
-  background: #161640;
-}
-
-.links {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.8rem;
-}
-
-.links a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.form-section {
-  display: none;
-}
-
-/* Show forms based on selected role */
-#student-radio:checked ~ .student-form,
-#admin-radio:checked ~ .admin-form,
-#company-radio:checked ~ .company-form {
-  display: block;
-}
-
-/* Dynamic title updates */
-#student-radio:checked ~ .login-header h2::before {
-  content: "Student Login";
-}
-
-#admin-radio:checked ~ .login-header h2::before {
-  content: "Admin Login";
-}
-
-#company-radio:checked ~ .login-header h2::before {
-  content: "Company Login";
-}
-
-/* Role-specific form styling */
-.role-form {
-  display: none;
-}
-
-#student-radio:checked ~ .form-container .role-form.student-form,
-#admin-radio:checked ~ .form-container .role-form.admin-form,
-#company-radio:checked ~ .form-container .role-form.company-form {
-  display: block;
-}
-
-/* Hide all forms by default */
-.role-form {
-  display: none;
-}
-
-/* Show specific form based on radio selection */
-#student-radio:checked ~ .form-container .student-form,
-#admin-radio:checked ~ .form-container .admin-form,
-#company-radio:checked ~ .form-container .company-form {
-  display: block;
-}
-
-/* Update header text based on selected role */
-.login-header h2.student::before { content: "Student Login"; }
-.login-header h2.admin::before { content: "Admin Login"; }
-.login-header h2.company::before { content: "Company Login"; }
-
-/* Role-specific forms */
-.form-section {
-  display: none;
-}
-
-#student:checked ~ .form-container .student-section,
-#admin:checked ~ .form-container .admin-section,
-#company:checked ~ .form-container .company-section {
-  display: block;
-}
-
-/* Radio button styling */
-.role-radio {
-  display: none;
-}
-
-.role-label {
-  flex: 1;
-  padding: 0.5rem;
-  border: none;
-  background: transparent;
-  color: var(--text-color);
-  font-size: 0.85rem;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.role-radio:checked + .role-label {
-  background: var(--accent-color);
-  color: var(--primary-color);
-}
-
-/* Form visibility control */
-.form-content {
-  display: none;
-}
-
-#student-tab:checked ~ .form-container .student-content,
-#admin-tab:checked ~ .form-container .admin-content,
-#company-tab:checked ~ .form-container .company-content {
-  display: block;
-}
-
-/* Update header text */
-.login-header h2[data-title="student"]::before { content: "Student Login"; }
-.login-header h2[data-title="admin"]::before { content: "Admin Login"; }
-.login-header h2[data-title="company"]::before { content: "Company Login"; }
-
-/* Form visibility */
-.form-content {
-  display: none;
-}
-
-.form-content.active {
-  display: block;
-}
-
-/* Use radio buttons for role selection */
-.role-radio {
-  display: none;
-}
-
-.role-selector {
-  display: flex;
-  gap: 0.25rem;
-  margin-bottom: 1.25rem;
-  background: #f8f9fa;
-  border-radius: 6px;
-  padding: 0.2rem;
-}
-
-.role-label {
-  flex: 1;
-  padding: 0.5rem;
-  border: none;
-  background: transparent;
-  color: var(--text-color);
-  font-size: 0.85rem;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.role-radio:checked + .role-label {
-  background: var(--accent-color);
-  color: var(--primary-color);
-}
-
-/* Form visibility based on radio selection */
-#student-radio:checked ~ .form-container .student-form,
-#admin-radio:checked ~ .form-container .admin-form,
-#company-radio:checked ~ .form-container .company-form {
-  display: block;
-}
-
-#student-radio:not(:checked) ~ .form-container .student-form,
-#admin-radio:not(:checked) ~ .form-container .admin-form,
-#company-radio:not(:checked) ~ .form-container .company-form {
-  display: none;
-}
-
-/* Hide radio buttons */
-input[type="radio"][name="role"] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* Form display control */
-.form-content {
-  display: none;
-}
-
-input[value="student"]:checked ~ .form-container .student-form,
-input[value="admin"]:checked ~ .form-container .admin-form,
-input[value="company"]:checked ~ .form-container .company-form {
-  display: block;
-}
-
-/* Simplified approach using radio buttons */
-input[name="role"][value="student"]:checked ~ .form-container .student-form,
-input[name="role"][value="admin"]:checked ~ .form-container .admin-form,
-input[name="role"][value="company"]:checked ~ .form-container .company-form {
-  display: block;
-}
-
-input[name="role"][value="student"]:checked ~ .form-container .admin-form,
-input[name="role"][value="student"]:checked ~ .form-container .company-form,
-input[name="role"][value="admin"]:checked ~ .form-container .student-form,
-input[name="role"][value="admin"]:checked ~ .form-container .company-form,
-input[name="role"][value="company"]:checked ~ .form-container .student-form,
-input[name="role"][value="company"]:checked ~ .form-container .admin-form {
-  display: none;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Intern.Nation</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="icon" href="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg">
 </head>
 <body>
+  <section class="card">
+    <header class="logo-section">
+     
+      <img src="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg" 
+           alt="Intern.Nation Logo" class="logo-img">
+      <div>
+        <h1 class="site-title">intern.nation</h1>
+        <p class="tagline">Connecting Talent with Opportunity</p>
+      </div>
+    </header>
 
-<div class="header">
-  <div class="logo-section">
-    <div class="logo">IN</div>
-    <div class="brand-info">
-      <h1>Intern.Nation</h1>
-      <div class="tagline">Connecting Talent with Opportunity</div>
-    </div>
-  </div>
-</div>
+    <h2 >Login</h2>
 
-<!-- Hidden radio buttons for role selection -->
-<input type="radio" id="student" name="role" value="student" checked>
-<input type="radio" id="admin" name="role" value="admin">
-<input type="radio" id="company" name="role" value="company">
-
-<div class="login-container">
-  <div class="login-header">
-    <h2 id="login-title"></h2>
-  </div>
-  
-  <div class="form-container">
+    
     <div class="role-selector">
-      <label for="student" class="role-label">Student</label>
-      <label for="admin" class="role-label">Admin</label>
-      <label for="company" class="role-label">Company</label>
+      <button type="button" class="active" onclick="showForm('student')">Student</button>
+      <button type="button" onclick="showForm('admin')">Admin</button>
+      <button type="button" onclick="showForm('company')">Company</button>
     </div>
 
-    <!-- Student Form -->
-    <form id="student-form" class="student-form form-content" action="/login/student" method="POST">
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="Enter email" required>
-      </div>
-      
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Enter password" required>
-      </div>
-      
-      <div class="links">
-        <a href="#">Forgot password?</a>
-      </div>
-      
-<button type="button" class="submit-btn" onclick="window.location.href='student_dashboard/student_dashboard.html'">
-  Sign In as Student
-</button>
+    
+    <form class="form active" id="student">
+      <label>Email</label>
+      <input type="email" placeholder="Enter email" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" required>
+
+      <label>Student ID</label>
+      <input type="text" placeholder="Enter Student ID" required>
+
+      <button type="button" onclick="window.location.href='student_dashboard/student_dashboard.html'">
+        Sign In
       </button>
-      
-      <div class="links">
-        New here? <a href="#">Create account</a>
-      </div>
+      <p class="links"><a href="#">Forgot password?</a></p>
+      <p class="links">New here? <a href="#">Create account</a></p>
     </form>
 
-    <!-- Admin Form -->
-    <form id="admin-form" class="admin-form form-content" action="/login/admin" method="POST">
-      <div class="form-group">
-        <label>Admin Email</label>
-        <input type="email" name="email" placeholder="Enter admin email" required>
-      </div>
-      
-      <div class="form-group">
-        <label>Admin Password</label>
-        <input type="password" name="password" placeholder="Enter admin password" required>
-      </div>
-      
-      <div class="form-group">
-        <label>Admin Code</label>
-        <input type="text" name="admin_code" placeholder="Enter admin code" required>
-      </div>
+   
+    <form class="form" id="admin">
+      <label>Admin Email</label>
+      <input type="email" placeholder="Enter admin email" required>
 
-            <div class="links">
-        <a href="#">Forgot password?</a>
-      </div>
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" required>
 
-      
-      <button type="button" class="submit-btn" onclick="window.location.href='Admin_Dashboard.html'">
-        Sign In as Admin
+      <label>Admin ID</label>
+      <input type="text" placeholder="Enter admin code" required>
+
+      <button type="button" onclick="window.location.href='Admin_Dashboard.html'">
+        Sign In
       </button>
+      <p class="links"><a href="#">Forgot password?</a></p>
     </form>
 
-    <!-- Company Form -->
-    <form id="company-form" class="company-form form-content" action="/login/company" method="POST">
-      <div class="form-group">
-        <label>Company Email</label>
-        <input type="email" name="email" placeholder="Enter company email" required>
-      </div>
-      
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Enter password" required>
-      </div>
-      
-      <div class="form-group">
-        <label>Company ID</label>
-        <input type="text" name="company_id" placeholder="Enter company ID" required>
-      </div>
-      
-            <div class="links">
-        <a href="#">Forgot password?</a>
-      </div>
 
-      <button type="button" class="submit-btn" onclick="window.location.href='companydashboard.html'">
-        Sign In as Company
+    <form class="form" id="company">
+      <label>Company Email</label>
+      <input type="email" placeholder="Enter company email" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" required>
+
+      <label>Company ID</label>
+      <input type="text" placeholder="Enter company ID" required>
+
+      <button type="button" onclick="window.location.href='companydashboard.html'">
+        Sign In
       </button>
-      
-      <div class="links">
-        <a href="#">New here? Register your company</a>
-      </div>
+      <p class="links"><a href="#">Forgot password?</a></p>
+      <p class="links">New here? <a href="#">Register your company</a></p>
     </form>
-  </div>
-</div>
+  </section>
 
-<style>
-/* Additional CSS for role switching without JavaScript */
-input[type="radio"][name="role"] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.role-selector {
-  display: flex;
-  gap: 0.25rem;
-  margin-bottom: 1.25rem;
-  background: #f8f9fa;
-  border-radius: 6px;
-  padding: 0.2rem;
-}
-
-.role-label {
-  flex: 1;
-  padding: 0.5rem;
-  border: none;
-  background: transparent;
-  color: var(--text-color);
-  font-size: 0.85rem;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-#student:checked ~ .login-container .role-label[for="student"],
-#admin:checked ~ .login-container .role-label[for="admin"],
-#company:checked ~ .login-container .role-label[for="company"] {
-  background: var(--accent-color);
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-/* Form visibility control */
-.student-form,
-.admin-form,
-.company-form {
-  display: none;
-}
-
-#student:checked ~ .login-container .student-form {
-  display: block;
-}
-
-#admin:checked ~ .login-container .admin-form {
-  display: block;
-}
-
-#company:checked ~ .login-container .company-form {
-  display: block;
-}
-
-/* Dynamic title updates */
-#student:checked ~ .login-container .login-header h2::before {
-  content: "Student Login";
-}
-
-#admin:checked ~ .login-container .login-header h2::before {
-  content: "Admin Login";
-}
-
-#company:checked ~ .login-container .login-header h2::before {
-  content: "Company Login";
-}
-
-.login-header h2 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.login-header h2::before {
-  content: "Student Login";
-}
-</style>
-
+  <script>
+    function showForm(role) {
+      document.querySelectorAll(".form").forEach(f => f.classList.remove("active"));
+      document.querySelectorAll(".role-selector button").forEach(b => b.classList.remove("active"));
+      document.getElementById(role).classList.add("active");
+      event.target.classList.add("active");
+    }
+  </script>
 </body>
 </html>

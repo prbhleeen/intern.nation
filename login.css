@@ -1,0 +1,128 @@
+:root {
+  --primary-color: #1F1F4E;
+  --accent-color: #CBB88B;
+  --background-color: #F3F3F9; 
+  --text-color: #1F1F4E;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  background: var(--primary-color);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  width: 350px;
+  text-align: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--primary-color);
+}
+
+.tagline {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.role-selector {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.role-selector button {
+  flex: 1;
+  padding: 0.5rem;
+  margin: 0 5px;
+  border: 1px solid var(--primary-color);
+  background: #fff;
+  color: var(--primary-color);
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.role-selector button.active,
+.role-selector button:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.form {
+  display: none;
+  text-align: left;
+}
+
+.form.active {
+  display: block;
+}
+
+.form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.form input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.form button {
+  width: 100%;
+  padding: 0.7rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form button:hover {
+  background: #2a2a70;
+}
+
+.links {
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
