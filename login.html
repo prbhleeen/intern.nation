@@ -29,7 +29,7 @@
     </div>
 
     
-    <form class="form active" id="student">
+    <form class="form active" id="student" onsubmit="handleLogin(event, 'student')">
       <label>Email</label>
       <input type="email" placeholder="Enter email" required>
 
@@ -39,15 +39,13 @@
       <label>Student ID</label>
       <input type="text" placeholder="Enter Student ID" required>
 
-      <button type="button" onclick="window.location.href='student_dashboard/student_dashboard.html'">
-        Sign In
-      </button>
+      <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
       <p class="links">New here? <a href="#">Create account</a></p>
     </form>
 
    
-    <form class="form" id="admin">
+    <form class="form" id="admin" onsubmit="handleLogin(event, 'admin')">
       <label>Admin Email</label>
       <input type="email" placeholder="Enter admin email" required>
 
@@ -57,14 +55,12 @@
       <label>Admin ID</label>
       <input type="text" placeholder="Enter admin code" required>
 
-      <button type="button" onclick="window.location.href='Admin_Dashboard.html'">
-        Sign In
-      </button>
+      <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
     </form>
 
 
-    <form class="form" id="company">
+    <form class="form" id="company" onsubmit="handleLogin(event, 'company')">
       <label>Company Email</label>
       <input type="email" placeholder="Enter company email" required>
 
@@ -74,9 +70,7 @@
       <label>Company ID</label>
       <input type="text" placeholder="Enter company ID" required>
 
-      <button type="button" onclick="window.location.href='companydashboard.html'">
-        Sign In
-      </button>
+      <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
       <p class="links">New here? <a href="#">Register your company</a></p>
     </form>
@@ -89,6 +83,51 @@
       document.getElementById(role).classList.add("active");
       event.target.classList.add("active");
     }
+
+    function handleLogin(event, role) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const inputs = form.querySelectorAll('input[required]');
+      let isValid = true;
+      
+      // Check if all required fields are filled
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          isValid = false;
+          input.style.borderColor = '#ff4444';
+        } else {
+          input.style.borderColor = '#ccc';
+        }
+      });
+
+      if (isValid) {
+        // All fields are filled, proceed with redirection
+        switch(role) {
+          case 'student':
+            window.location.href = 'student_dashboard/student_dashboard.html';
+            break;
+          case 'admin':
+            window.location.href = 'Admin_Dashboard.html';
+            break;
+          case 'company':
+            window.location.href = 'companydashboard.html';
+            break;
+        }
+      } else {
+        // Show validation message
+        alert('Please fill in all required fields before proceeding.');
+      }
+    }
+
+    // Add real-time validation feedback
+    document.querySelectorAll('input[required]').forEach(input => {
+      input.addEventListener('input', function() {
+        if (this.value.trim()) {
+          this.style.borderColor = '#ccc';
+        }
+      });
+    });
   </script>
 </body>
 </html>
