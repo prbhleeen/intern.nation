@@ -10,7 +10,6 @@
 <body>
   <section class="card">
     <header class="logo-section">
-     
       <img src="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg" 
            alt="Intern.Nation Logo" class="logo-img">
       <div>
@@ -19,7 +18,7 @@
       </div>
     </header>
 
-    <h2 >Login</h2>
+    <h2>Login</h2>
 
     <div class="role-selector">
       <button type="button" class="active" onclick="showForm('student')">Student</button>
@@ -29,36 +28,49 @@
 
     <form class="form active" id="student" onsubmit="handleLogin(event, 'student')">
       <label>Email</label>
-      <input type="email" placeholder="Enter email" required>
+      <input type="email" placeholder="Enter email" required name="email">
 
       <label>Password</label>
-      <input type="password" placeholder="Enter password" required>
+      <input type="password" placeholder="Enter password" required name="password">
 
       <label>Student ID</label>
-      <input type="text" placeholder="Enter Student ID" required>
+      <input type="text" placeholder="Enter Student ID" required name="studentId">
 
       <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
       <p class="links">New here? <a href="signup.html">Create account</a></p>
     </form>
 
-   
     <form class="form" id="admin" onsubmit="handleLogin(event, 'admin')">
       <label>Admin Email</label>
-      <input type="email" placeholder="Enter admin email" required>
+      <input type="email" placeholder="Enter admin email" required name="email">
 
       <label>Password</label>
-      <input type="password" placeholder="Enter password" required>
+      <input type="password" placeholder="Enter password" required name="password">
 
       <label>Admin ID</label>
-      <input type="text" placeholder="Enter admin code" required>
+      <input type="text" placeholder="Enter admin code" required name="adminId">
 
       <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
       <p class="links">New here? <a href="signup.html">Create account</a></p>
     </form>
 
-    
+    <form class="form" id="company" onsubmit="handleLogin(event, 'company')">
+      <label>Company Email</label>
+      <input type="email" placeholder="Enter company email" required name="email">
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" required name="password">
+
+      <label>Company ID</label>
+      <input type="text" placeholder="Enter company code" required name="companyId">
+
+      <button type="submit">Sign In</button>
+      <p class="links"><a href="#">Forgot password?</a></p>
+      <p class="links">New here? <a href="signup.html">Create account</a></p>
+    </form>
+
   </section>
 
   <script>
@@ -72,7 +84,10 @@
       
       // Basic JavaScript - Arrays and Control Flow
       for (let i = 0; i < forms.length; i++) {
-        document.getElementById(forms[i]).classList.remove("active");
+        const form = document.getElementById(forms[i]);
+        if (form) {
+          form.classList.remove("active");
+        }
       }
       
       const buttons = document.querySelectorAll(".role-selector button");
@@ -80,8 +95,16 @@
         buttons[i].classList.remove("active");
       }
       
-      document.getElementById(role).classList.add("active");
-      event.target.classList.add("active");
+      const targetForm = document.getElementById(role);
+      if (targetForm) {
+        targetForm.classList.add("active");
+      }
+      
+      // Fix: Use event properly
+      const clickedButton = document.querySelector(`[onclick="showForm('${role}')"]`);
+      if (clickedButton) {
+        clickedButton.classList.add("active");
+      }
     }
 
     // Basic JavaScript - Functions and Control Flow
@@ -98,9 +121,25 @@
         if (inputs[i].value.trim() === '') {
           isValid = false;
           inputs[i].style.borderColor = '#ff4444';
+          inputs[i].style.boxShadow = '0 0 5px rgba(255, 68, 68, 0.3)';
         } else {
           inputs[i].style.borderColor = '#ccc';
+          inputs[i].style.boxShadow = 'none';
         }
+      }
+
+      if (!isValid) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Basic validation for email format
+      const emailInput = form.querySelector('input[type="email"]');
+      if (emailInput && !isValidEmail(emailInput.value)) {
+        emailInput.style.borderColor = '#ff4444';
+        emailInput.style.boxShadow = '0 0 5px rgba(255, 68, 68, 0.3)';
+        alert('Please enter a valid email address.');
+        return;
       }
 
       // Basic JavaScript - JSON Objects
@@ -109,8 +148,23 @@
         'admin': 'Admin_Dashboard.html',
         'company': 'companydashboard.html'
       };
-        
-      window.location.href = redirectUrls[role];
+      
+      // Simulate authentication (in real app, this would be an API call)
+      console.log(`Login attempt for ${role}:`, {
+        email: form.querySelector('input[name="email"]').value,
+        id: form.querySelector('input[name$="Id"]').value
+      });
+      
+      // For demo purposes, redirect after successful validation
+      if (redirectUrls[role]) {
+        window.location.href = redirectUrls[role];
+      }
+    }
+
+    // Email validation helper function
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
     }
 
     // Basic JavaScript - Arrays and Event Handling
@@ -119,9 +173,20 @@
       requiredInputs[i].addEventListener('input', function() {
         if (this.value.trim() !== '') {
           this.style.borderColor = '#ccc';
+          this.style.boxShadow = 'none';
         }
       });
     }
+
+    // Add event listeners for role buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      const roleButtons = document.querySelectorAll('.role-selector button');
+      roleButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          showForm(this.textContent.toLowerCase());
+        });
+      });
+    });
   </script>
 </body>
 </html>
