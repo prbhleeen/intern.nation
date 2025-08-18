@@ -363,6 +363,7 @@ main h2 {
 .skills {
     padding: 3rem 2rem;
     text-align: center;
+    background-color: var(--hover-beige);
 }
 
 .skills h2 {
@@ -410,6 +411,29 @@ main h2 {
     color: var(--primary-color);
 }
 
+
+/* Learn With Us Button */
+.learn-btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.learn-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3f3d56; /* same theme as blog button */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.learn-btn:hover {
+    background-color: var(--primary-color);
+}
+
 /* MEDIA QUERIES for Skills */
 @media (max-width: 767px) {
     .skills-grid {
@@ -452,10 +476,6 @@ main h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.resource-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-}
 
 .resource-card h4 {
     font-size: 1.2rem;
@@ -468,6 +488,24 @@ main h2 {
     color: #6b7280;
     line-height: 1.5;
 }
+
+/* View Blog button styling */
+.resources-grid button {
+    background-color: #3f3d56; /* deep indigo tone matching your theme */
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    margin-top: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resources-grid button:hover {
+    background-color: var(--primary-color);
+}
+
 
 /* MEDIA QUERIES for Resources */
 @media (max-width: 767px) {
