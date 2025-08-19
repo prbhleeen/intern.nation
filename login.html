@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,6 @@
 
     <div class="role-selector">
       <button type="button" class="active" onclick="showForm('student')">Student</button>
-      <button type="button" onclick="showForm('admin')">Admin</button>
       <button type="button" onclick="showForm('company')">Company</button>
     </div>
 
@@ -35,21 +35,6 @@
 
       <label>Student ID</label>
       <input type="text" placeholder="Enter Student ID" required name="studentId">
-
-      <button type="submit">Sign In</button>
-      <p class="links"><a href="#">Forgot password?</a></p>
-      <p class="links">New here? <a href="signup.html">Create account</a></p>
-    </form>
-
-    <form class="form" id="admin" onsubmit="handleLogin(event, 'admin')">
-      <label>Admin Email</label>
-      <input type="email" placeholder="Enter admin email" required name="email">
-
-      <label>Password</label>
-      <input type="password" placeholder="Enter password" required name="password">
-
-      <label>Admin ID</label>
-      <input type="text" placeholder="Enter admin code" required name="adminId">
 
       <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
@@ -142,10 +127,9 @@
         return;
       }
 
-      // Basic JavaScript - JSON Objects
-      const redirectUrls = {
+    // Basic JavaScript - JSON Objects
+    const redirectUrls = {
         'student': 'student_dashboard/student_dashboard.html',
-        'admin': 'Admin_Dashboard.html',
         'company': 'companydashboard.html'
       };
       

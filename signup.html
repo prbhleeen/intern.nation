@@ -22,7 +22,6 @@
 
     <div class="role-selector">
       <button type="button" class="active" onclick="showForm('student')">Student</button>
-      <button type="button" onclick="showForm('admin')">Admin</button>
       <button type="button" onclick="showForm('company')">Company</button>
     </div>
 
@@ -53,33 +52,6 @@
       <p class="links">Already have an account? <a href="login.html">Sign In</a></p>
     </form>
 
-    <!-- Admin Signup Form -->
-    <form class="form" id="admin" onsubmit="handleSignup(event, 'admin')">
-      <label>Full Name</label>
-      <input type="text" placeholder="Enter your full name" required>
-
-      <label>Admin Email</label>
-      <input type="email" placeholder="Enter admin email" required>
-
-      <label>Password</label>
-      <input type="password" placeholder="Create password" required minlength="6">
-
-      <label>Confirm Password</label>
-      <input type="password" placeholder="Confirm password" required minlength="6">
-
-      <label>Admin ID</label>
-      <input type="text" placeholder="Enter admin code" required>
-
-      <label>Department</label>
-      <input type="text" placeholder="Enter your department" required>
-
-      <label>Position</label>
-      <input type="text" placeholder="Enter your position" required>
-
-      <button type="submit">Create Account</button>
-      <p class="links">Already have an account? <a href="login.html">Sign In</a></p>
-    </form>
-
     <!-- Company Signup Form -->
     <form class="form" id="company" onsubmit="handleSignup(event, 'company')">
       <label>Company Name</label>
@@ -100,14 +72,7 @@
       <label>Industry</label>
       <input type="text" placeholder="Enter your industry type" required>
 
-      <label>Company Size</label>
-      <select required>
-        <option value="">Select company size</option>
-        <option value="startup">Startup (1-10 employees)</option>
-        <option value="small">Small (11-50 employees)</option>
-        <option value="medium">Medium (51-200 employees)</option>
-        <option value="large">Large (200+ employees)</option>
-      </select>
+      <!-- Company Size field removed as requested -->
 
       <label>Location</label>
       <input type="text" placeholder="Enter company location" required>
