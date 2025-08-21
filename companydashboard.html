@@ -1,58 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COMPANY DASHBOARD | intern.nation</title>
-<link rel="stylesheet" href="companydashboard.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COMPANY DASHBOARD | intern.nation</title>
+  <link rel="stylesheet" href="companydashboard.css">
   <link rel="icon" type="jpeg" href="logo.jpeg">
-
 </head>
 <body>
-<header>
-    <img src="logo.jpeg" alt="intern.nation Logo"> <!-- Replace with your logo path -->
+  <header>
+    <img src="logo.jpeg" alt="intern.nation Logo">
     <h1>intern.nation - Company Dashboard</h1>
-</header>
+  </header>
 
-<div class="dashboard-container">
-
+  <div class="dashboard-container">
     <aside class="sidebar">
-        <ul>
-            <li><a href="#">📋 View Applicants</a></li>
-            <li><a href="#">📅 Schedule Interview</a></li>
-            <li><a href="#">✅ Approve Interviews</a></li>
-            <li><a href="#">✉️ Notify Results</a></li>
-            <li><a href="#">➕ Post Job/Internship</a></li>
-        </ul>
+      <ul>
+        <li><a href="#">📋 View Applicants</a></li>
+        <li><a href="#">📅 Schedule Interview</a></li>
+        <li><a href="#">✅ Approve Interviews</a></li>
+        <li><a href="#">✉️ Notify Results</a></li>
+        <li><a href="#">➕ Post Job/Internship</a></li>
+      </ul>
     </aside>
 
     <main class="main-content">
-        <h2>Dashboard Overview</h2>
-        <div class="stats">
-            <div class="stat-card">
-                <h3>120</h3>
-                <p>Applications Received</p>
-            </div>
-            <div class="stat-card">
-                <h3>45</h3>
-                <p>Interviews Scheduled</p>
-            </div>
-            <div class="stat-card">
-                <h3>20</h3>
-                <p>Students Hired</p>
-            </div>
-            <div class="stat-card">
-                <h3>8</h3>
-                <p>Active Job Posts</p>
-            </div>
+      <h2>Dashboard Overview</h2>
+      <div class="stats">
+        <div class="stat-card">
+          <h3>120</h3>
+          <p>Applications Received</p>
         </div>
+        <div class="stat-card">
+          <h3>45</h3>
+          <p>Interviews Scheduled</p>
+        </div>
+        <div class="stat-card">
+          <h3>20</h3>
+          <p>Students Hired</p>
+        </div>
+        <div class="stat-card">
+          <h3>8</h3>
+          <p>Active Job Posts</p>
+        </div>
+      </div>
+
+      <div class="table-section">
+        <h3>Applicants</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Applicant ID</th>
+              <th>Name</th>
+              <th>Course</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>101</td><td>Aarav Sharma</td><td>B.Tech CSE</td><td>Pending</td></tr>
+            <tr><td>102</td><td>Priya Singh</td><td>B.Tech IT</td><td>Shortlisted</td></tr>
+            <tr><td>103</td><td>Rohan Mehta</td><td>MCA</td><td>Rejected</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Scheduled Interviews</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Interview ID</th>
+              <th>Applicant</th>
+              <th>Date</th>
+              <th>Mode</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>201</td><td>Priya Singh</td><td>25 Aug 2025</td><td>Online</td></tr>
+            <tr><td>202</td><td>Aarav Sharma</td><td>27 Aug 2025</td><td>Offline</td></tr>
+            <tr><td>203</td><td>Riya Kapoor</td><td>29 Aug 2025</td><td>Online</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Job Posts</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Job ID</th>
+              <th>Role</th>
+              <th>Department</th>
+              <th>Openings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>301</td><td>Software Intern</td><td>Engineering</td><td>5</td></tr>
+            <tr><td>302</td><td>Marketing Associate</td><td>Marketing</td><td>3</td></tr>
+            <tr><td>303</td><td>HR Coordinator</td><td>Human Resources</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
     </main>
-</div>
+  </div>
 
-<!-- FOOTER -->
-<footer>
+  <footer>
     &copy; 2025 intern.nation | All Rights Reserved
-</footer>
-
+  </footer>
 </body>
 </html>
+
