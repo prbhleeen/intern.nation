@@ -29,13 +29,13 @@
 
     <form class="form active" id="student" onsubmit="handleLogin(event, 'student')">
       <label>Email</label>
-      <input type="email" placeholder="Enter email" required name="email">
+      <input type="email"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter email" required name="email">
 
       <label>Password</label>
-      <input type="password" placeholder="Enter password" required name="password">
+      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"  placeholder="Enter password" required name="password">
 
       <label>Student ID</label>
-      <input type="text" placeholder="Enter Student ID" required name="studentId">
+      <input type="text" pattern="[0-9]{10}" placeholder="Enter Student ID" required name="studentId">
 
       <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
@@ -44,13 +44,13 @@
 
     <form class="form" id="company" onsubmit="handleLogin(event, 'company')">
       <label>Company Email</label>
-      <input type="email" placeholder="Enter company email" required name="email">
+      <input type="email"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"  placeholder="Enter company email" required name="email">
 
       <label>Password</label>
-      <input type="password" placeholder="Enter password" required name="password">
+      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"  placeholder="Enter password" required name="password">
 
       <label>Company ID</label>
-      <input type="text" placeholder="Enter company code" required name="companyId">
+      <input type="text" pattern="[0-9]{10}" placeholder="Enter company code" required name="companyId">
 
       <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
@@ -59,13 +59,13 @@
 
     <form class="form" id="admin" onsubmit="handleLogin(event, 'admin')">
       <label>Admin Email</label>
-      <input type="email" placeholder="Enter admin email" required name="email">
+      <input type="email"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter admin email" required name="email">
 
       <label>Password</label>
-      <input type="password" placeholder="Enter password" required name="password">
+      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"  placeholder="Enter password" required name="password">
 
       <label>Admin ID</label>
-      <input type="text" placeholder="Enter admin ID" required name="adminId">
+      <input type="text"  pattern="[0-9]{10}" placeholder="Enter admin ID" required name="adminId">
 
       <button type="submit">Sign In</button>
       <p class="links"><a href="#">Forgot password?</a></p>
