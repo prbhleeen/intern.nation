@@ -4,6 +4,12 @@
     --background-color: #FFFFFF;
     --text-color: #1F1F4E;
     --hover-beige: rgb(232, 225, 208);  /* Lighter beige for hovers */
+    --light-gray: #f8f9fa;
+    --border-color: #e9ecef;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --font-family: 'Inter', sans-serif;
 }
 
 /* GENERAL STYLING */
@@ -11,7 +17,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: var(--font-family);
 }
 
 html {
@@ -38,7 +44,6 @@ header {
 
 header .logo {
     font-size: 2rem;
-    font-weight: bold;
     display: flex;
     align-items: center;
 }
@@ -77,7 +82,7 @@ nav.main-nav ul {
 nav.main-nav a {
     color: var(--primary-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
@@ -98,6 +103,7 @@ nav.secondary-nav ul {
     list-style: none;
     display: flex;
     gap: 2rem;
+
 }
 
 nav.secondary-nav a {
