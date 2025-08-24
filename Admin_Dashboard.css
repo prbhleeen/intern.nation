@@ -10,7 +10,7 @@
             --rejected-red: #dc3545;
         }
 
-        /* General Reset */
+        
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -53,7 +53,7 @@
         .sidebar {
             width: 220px;
             background: var(--primary-color);
-            min-height: 100%; /* Now takes full height of the parent flex container */
+            min-height: 100%; 
             padding-top: 20px;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
         }
@@ -67,7 +67,7 @@
         }
         .sidebar ul li a {
             text-decoration: none;
-            color: var(--accent-color);
+            color: var(--background-color);
             padding: 10px 15px;
             display: block;
             border-radius: 5px;
