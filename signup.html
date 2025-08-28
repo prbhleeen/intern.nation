@@ -5,7 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up | Intern.Nation</title>
   <link rel="stylesheet" href="login.css">
-  <link rel="icon" href="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg">
+  <link rel="icon" href="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg">    
+  <style>
+    
+    .forms .form { 
+      display: none; 
+    }
+    
+    .forms .form.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <section class="card">
@@ -20,126 +30,92 @@
 
     <h2>Create Account</h2>
 
+   
     <div class="role-selector">
-      <button type="button" class="active" onclick="showForm('student')">Student</button>
-      <button type="button" onclick="showForm('company')">Company</button>
+      <input type="radio" name="role" id="student-tab" checked>
+      <label for="student-tab">Student</label>
+
+      <input type="radio" name="role" id="company-tab">
+      <label for="company-tab">Company</label>
     </div>
 
-    <!-- Student Signup Form -->
-    <form class="form active" id="student" onsubmit="handleSignup(event, 'student')">
-      <label>Full Name</label>
-      <input type="text" placeholder="Enter your full name" required>
+    <div class="forms">
+     
+      <form class="form" id="student" action="student_dashboard/student_dashboard.html" method="get">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter Name" required name="name">
 
-      <label>Email</label>
-      <input type="email" placeholder="Enter email address" required>
+        <label>Email</label>
+        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter email" required name="email">
 
-      <label>Password</label>
-      <input type="password" placeholder="Create password" required minlength="6">
+        <label>Password</label>
+        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
 
-      <label>Confirm Password</label>
-      <input type="password" placeholder="Confirm password" required minlength="6">
+        <label>Confirm Password</label>
+        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Confirm password" required name="confirmPassword">
 
-      <label>Student ID</label>
-      <input type="text" placeholder="Enter Student ID" required>
+        <label>Student ID</label>
+        <input type="text" pattern="[0-9]{10}" placeholder="Enter Student ID" required name="studentId">
 
-      <label>University/College</label>
-      <input type="text" placeholder="Enter your institution name" required>
+        <label>University/College</label>
+        <input type="text" placeholder="Enter your Institution Name" required name="college">
 
-      <label>Course</label>
-      <input type="text" placeholder="Enter your course/program" required>
+        <label>Course</label>
+        <input type="text" placeholder="Enter your course/program" required name="course">
 
-      <button type="submit">Create Account</button>
-      <p class="links">Already have an account? <a href="login.html">Sign In</a></p>
-    </form>
+        <button type="submit">Create Account</button>
+        <p class="links"><a href="#">Forgot password?</a></p>
+        <p class="links">Already have an account? <a href="login.html">Sign In</a></p>
+      </form>
 
-    <!-- Company Signup Form -->
-    <form class="form" id="company" onsubmit="handleSignup(event, 'company')">
-      <label>Company Name</label>
-      <input type="text" placeholder="Enter company name" required>
+      
+      <form class="form" id="company" action="companydashboard.html" method="get">
+        <label>Company Name</label>
+        <input type="text" placeholder="Enter company name" required name="companyName">
 
-      <label>Company Email</label>
-      <input type="email" placeholder="Enter company email" required>
+        <label>Company Email</label>
+        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter company email" required name="email">
 
-      <label>Password</label>
-      <input type="password" placeholder="Create password" required minlength="6">
+        <label>Password</label>
+        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
 
-      <label>Confirm Password</label>
-      <input type="password" placeholder="Confirm password" required minlength="6">
+        <label>Confirm Password</label>
+        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Confirm password" required name="confirmPassword">
 
-      <label>Company ID</label>
-      <input type="text" placeholder="Enter company registration ID" required>
+        <label>Company ID</label>
+        <input type="text" pattern="[0-9]{10}" placeholder="Enter company code" required name="companyId">
 
-      <label>Industry</label>
-      <input type="text" placeholder="Enter your industry type" required>
+        <label>Industry</label>
+        <input type="text" placeholder="Enter your industry type" required name="industry">
 
-      <!-- Company Size field removed as requested -->
+        <label>Location</label>
+        <input type="text" placeholder="Enter company location" required name="location">
 
-      <label>Location</label>
-      <input type="text" placeholder="Enter company location" required>
-
-      <button type="submit">Create Account</button>
-      <p class="links">Already have an account? <a href="login.html">Sign In</a></p>
-    </form>
+        <button type="submit">Create Account</button>
+        <p class="links"><a href="#">Forgot password?</a></p>
+        <p class="links">Already have an account? <a href="login.html">Sign In</a></p>
+      </form>
+    </div>
   </section>
 
   <script>
+    const forms = document.querySelectorAll(".form");
+    const radios = document.querySelectorAll("input[name='role']");
+
     function showForm(role) {
-      document.querySelectorAll(".form").forEach(f => f.classList.remove("active"));
-      document.querySelectorAll(".role-selector button").forEach(b => b.classList.remove("active"));
+      forms.forEach(f => f.classList.remove("active"));
       document.getElementById(role).classList.add("active");
-      event.target.classList.add("active");
     }
 
-    function handleSignup(event, role) {
-      event.preventDefault();
-      
-      const form = event.target;
-      const inputs = form.querySelectorAll('input[required], select[required]');
-      let isValid = true;
-      
-      // Check if all required fields are filled
-      inputs.forEach(input => {
-        if (!input.value.trim()) {
-          isValid = false;
-          input.style.borderColor = '#ff4444';
-        } else {
-          input.style.borderColor = '#ccc';
-        }
-      });
-
-      // Check password match
-      const password = form.querySelector('input[type="password"]:nth-of-type(1)');
-      const confirmPassword = form.querySelector('input[type="password"]:nth-of-type(2)');
-      
-      if (password && confirmPassword && password.value !== confirmPassword.value) {
-        isValid = false;
-        confirmPassword.style.borderColor = '#ff4444';
-        alert('Passwords do not match!');
-        return;
-      }
-
-      if (isValid) {
-        // All fields are filled and passwords match, proceed with signup
-        alert(`Welcome to Intern.Nation! Your ${role} account has been created successfully.`);
-        
-        // Redirect to login page after successful signup
-        setTimeout(() => {
-          window.location.href = 'login.html';
-        }, 1500);
-      } else {
-        // Show validation message
-        alert('Please fill in all required fields before proceeding.');
-      }
-    }
-
-    // Add real-time validation feedback
-    document.querySelectorAll('input[required], select[required]').forEach(input => {
-      input.addEventListener('input', function() {
-        if (this.value.trim()) {
-          this.style.borderColor = '#ccc';
-        }
+    radios.forEach(radio => {
+      radio.addEventListener("change", () => {
+        if (radio.id === "student-tab") showForm("student");
+        if (radio.id === "company-tab") showForm("company");
       });
     });
+
+   
+    showForm("student");
   </script>
 </body>
 </html>

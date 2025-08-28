@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | Intern.Nation</title>
   <link rel="stylesheet" href="login.css">
-  <link rel="icon" href="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg">
+  <link rel="icon" href="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg">    
 </head>
 <body>
   <section class="card">
@@ -21,173 +20,90 @@
 
     <h2>Login</h2>
 
+  
     <div class="role-selector">
-      <button type="button" class="active" onclick="showForm('student')">Student</button>
-      <button type="button" onclick="showForm('admin')">Admin</button>
-      <button type="button" onclick="showForm('company')">Company</button>
+      <input type="radio" name="role" id="student-tab" checked>
+      <label for="student-tab">Student</label>
+
+      <input type="radio" name="role" id="admin-tab">
+      <label for="admin-tab">Admin</label>
+
+      <input type="radio" name="role" id="company-tab">
+      <label for="company-tab">Company</label>
     </div>
 
-    <form class="form active" id="student" onsubmit="handleLogin(event, 'student')">
-      <label>Email</label>
-      <input type="email"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter email" required name="email">
+    <div class="forms">
+      <!-- Student Form -->
+      <form class="form" id="student" action="student_dashboard/student_dashboard.html" method="get">
+        <label>Email</label>
+        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter email" required name="email">
 
-      <label>Password</label>
-      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"  placeholder="Enter password" required name="password">
+        <label>Password</label>
+        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
 
-      <label>Student ID</label>
-      <input type="text" pattern="[0-9]{10}" placeholder="Enter Student ID" required name="studentId">
+        <label>Student ID</label>
+        <input type="text" pattern="[0-9]{10}" placeholder="Enter Student ID" required name="studentId">
 
-      <button type="submit">Sign In</button>
-      <p class="links"><a href="#">Forgot password?</a></p>
-      <p class="links">New here? <a href="signup.html">Create account</a></p>
-    </form>
+        <button type="submit">Sign In</button>
+        <p class="links"><a href="#">Forgot password?</a></p>
+        <p class="links">New here? <a href="signup.html">Create account</a></p>
+      </form>
 
-    <form class="form" id="company" onsubmit="handleLogin(event, 'company')">
-      <label>Company Email</label>
-      <input type="email"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"  placeholder="Enter company email" required name="email">
+      <!-- Company Form -->
+      <form class="form" id="company" action="companydashboard.html" method="get">
+        <label>Company Email</label>
+        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter company email" required name="email">
 
-      <label>Password</label>
-      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"  placeholder="Enter password" required name="password">
+        <label>Password</label>
+        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
 
-      <label>Company ID</label>
-      <input type="text" pattern="[0-9]{10}" placeholder="Enter company code" required name="companyId">
+        <label>Company ID</label>
+        <input type="text" pattern="[0-9]{10}" placeholder="Enter company code" required name="companyId">
 
-      <button type="submit">Sign In</button>
-      <p class="links"><a href="#">Forgot password?</a></p>
-      <p class="links">New here? <a href="signup.html">Create account</a></p>
-    </form>
+        <button type="submit">Sign In</button>
+        <p class="links"><a href="#">Forgot password?</a></p>
+        <p class="links">New here? <a href="signup.html">Create account</a></p>
+      </form>
 
-    <form class="form" id="admin" onsubmit="handleLogin(event, 'admin')">
-      <label>Admin Email</label>
-      <input type="email"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter admin email" required name="email">
+      <!-- Admin Form -->
+      <form class="form" id="admin" action="Admin_Dashboard.html" method="get">
+        <label>Admin Email</label>
+        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter admin email" required name="email">
 
-      <label>Password</label>
-      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"  placeholder="Enter password" required name="password">
+        <label>Password</label>
+        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
 
-      <label>Admin ID</label>
-      <input type="text"  pattern="[0-9]{10}" placeholder="Enter admin ID" required name="adminId">
+        <label>Admin ID</label>
+        <input type="text" pattern="[0-9]{10}" placeholder="Enter admin ID" required name="adminId">
 
-      <button type="submit">Sign In</button>
-      <p class="links"><a href="#">Forgot password?</a></p>
-      <p class="links">New here? <a href="signup.html">Create account</a></p>
-    </form>
-
+        <button type="submit">Sign In</button>
+        <p class="links"><a href="#">Forgot password?</a></p>
+        <p class="links">New here? <a href="signup.html">Create account</a></p>
+      </form>
+    </div>
   </section>
-
   <script>
-    // Basic JavaScript - Data Types and Variables
-    let activeForm = 'student';
-    const forms = ['student', 'admin', 'company'];
-    
-    // Basic JavaScript - Functions
-    function showForm(role) {
-      activeForm = role;
-      
-      // Basic JavaScript - Arrays and Control Flow
-      for (let i = 0; i < forms.length; i++) {
-        const form = document.getElementById(forms[i]);
-        if (form) {
-          form.classList.remove("active");
-        }
-      }
-      
-      const buttons = document.querySelectorAll(".role-selector button");
-      for (let i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove("active");
-      }
-      
-      const targetForm = document.getElementById(role);
-      if (targetForm) {
-        targetForm.classList.add("active");
-      }
-      
-      // Fix: Use event properly
-      const clickedButton = document.querySelector(`[onclick="showForm('${role}')"]`);
-      if (clickedButton) {
-        clickedButton.classList.add("active");
-      }
-    }
+   
+  const forms = document.querySelectorAll(".form");
+  const radios = document.querySelectorAll("input[name='role']");
 
-    // Basic JavaScript - Functions and Control Flow
-    function handleLogin(event, role) {
-      event.preventDefault();
-      
-      // Basic JavaScript - Variables and Arrays
-      const form = event.target;
-      const inputs = form.querySelectorAll('input[required]');
-      let isValid = true;
-      
-      // Basic JavaScript - Control Flow (for loop)
-      for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].value.trim() === '') {
-          isValid = false;
-          inputs[i].style.borderColor = '#ff4444';
-          inputs[i].style.boxShadow = '0 0 5px rgba(255, 68, 68, 0.3)';
-        } else {
-          inputs[i].style.borderColor = '#ccc';
-          inputs[i].style.boxShadow = 'none';
-        }
-      }
+  function showForm(role) {
+    forms.forEach(f => f.style.display = "none");
+    document.getElementById(role).style.display = "block";
+  }
 
-      if (!isValid) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-
-      // Basic validation for email format
-      const emailInput = form.querySelector('input[type="email"]');
-      if (emailInput && !isValidEmail(emailInput.value)) {
-        emailInput.style.borderColor = '#ff4444';
-        emailInput.style.boxShadow = '0 0 5px rgba(255, 68, 68, 0.3)';
-        alert('Please enter a valid email address.');
-        return;
-      }
-
-    // Basic JavaScript - JSON Objects
-    const redirectUrls = {
-        'student': 'student_dashboard/student_dashboard.html',
-        'admin': 'Admin_Dashboard.html',
-        'company': 'companydashboard.html'
-      };
-      
-      // Simulate authentication (in real app, this would be an API call)
-      console.log(`Login attempt for ${role}:`, {
-        email: form.querySelector('input[name="email"]').value,
-        id: form.querySelector('input[name$="Id"]').value
-      });
-      
-      // For demo purposes, redirect after successful validation
-      if (redirectUrls[role]) {
-        window.location.href = redirectUrls[role];
-      }
-    }
-
-    // Email validation helper function
-    function isValidEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
-
-    // Basic JavaScript - Arrays and Event Handling
-    const requiredInputs = document.querySelectorAll('input[required]');
-    for (let i = 0; i < requiredInputs.length; i++) {
-      requiredInputs[i].addEventListener('input', function() {
-        if (this.value.trim() !== '') {
-          this.style.borderColor = '#ccc';
-          this.style.boxShadow = 'none';
-        }
-      });
-    }
-
-    // Add event listeners for role buttons
-    document.addEventListener('DOMContentLoaded', function() {
-      const roleButtons = document.querySelectorAll('.role-selector button');
-      roleButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-          showForm(this.textContent.toLowerCase());
-        });
-      });
+  radios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      if (radio.id === "student-tab") showForm("student");
+      if (radio.id === "company-tab") showForm("company");
+      if (radio.id === "admin-tab") showForm("admin");
     });
+  });
+
+
+  showForm("student");
+
+
   </script>
 </body>
 </html>

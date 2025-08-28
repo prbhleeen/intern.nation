@@ -44,7 +44,7 @@ It connects **students**, **companies**, and **administrators** on one platform,
 - **Prabhleen** – Student Dashboard
 - **Shagun** – Intro Page, About Us, Contributors, T&C, Privacy Policy, Company Dashboard  
 - **Shipra** – Admin Dashboard 
-- **Saksham** - Login and Sign Up Page for admin, company and students.
+- **Saksham** - Login Page for admin, company and students and sign up page for company and students.
 
 ---
 
