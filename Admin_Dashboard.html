@@ -8,152 +8,131 @@
 </head>
 <body>
 
+  
   <header>
     <img src="https://github.com/prbhleeen/intern.nation/blob/main/logo.jpeg?raw=true" alt="intern.nation Logo">
     <h1>intern.nation - Admin Dashboard</h1>
   </header>
 
-
   <div class="dashboard-container">
- 
+
+    
     <aside class="sidebar">
       <ul>
-        <li><a href="#">📊 View All Statistics</a></li>
-        <li><a href="#">👥 Manage Users</a></li>
-        <li><a href="#">🏢 Manage Companies</a></li>
-        <li><a href="#">📝 Approve Job Posts</a></li>
-        <li><a href="#">📅 View Schedules</a></li>
-        <li><a href="#">⚙ System Settings</a></li>
+        <li><a href="#profile-section">👤 Profile</a></li>
+        <li><a href="#statistics">📊 View All Statistics</a></li>
+        <li><a href="#users">👥 Manage Users</a></li>
+        <li><a href="#companies">🏢 Manage Companies</a></li>
+        <li><a href="#jobs">📝 Approve Job Posts</a></li>
+        <li><a href="#schedules">📅 View Schedules</a></li>
+        <li><a href="Admin_Settings.html">⚙ System Settings</a></li>
         <li><a href="#logout-confirm">🚪 Logout</a></li>
       </ul>
     </aside>
 
+    
     <main class="main-content">
-      <h2>Admin Overview</h2>
 
-      <div class="stats">
-        <div class="stat-card"><h3>320</h3><p>Total Applications</p></div>
-        <div class="stat-card"><h3>85</h3><p>Active Companies</p></div>
-        <div class="stat-card"><h3>540</h3><p>Registered Students</p></div>
-        <div class="stat-card"><h3>25</h3><p>Pending Approvals</p></div>
-      </div>
+      
+      <section id="statistics">
+        <h2>Admin Overview</h2>
+        <div class="stats">
+          <div class="stat-card"><h3>320</h3><p>Total Applications</p></div>
+          <div class="stat-card"><h3>85</h3><p>Active Companies</p></div>
+          <div class="stat-card"><h3>540</h3><p>Registered Students</p></div>
+          <div class="stat-card"><h3>25</h3><p>Pending Approvals</p></div>
+        </div>
+      </section>
 
-      <h3>Pending Company Registrations</h3>
-      <div class="table-container">
-        <table class="companies-table">
-          <thead>
-            <tr><th>Company Name</th><th>Status</th><th>Actions</th><th></th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>InnovateTech Solutions</td>
-              <td><span class="badge pending">PENDING</span></td>
-              <td class="action-buttons">
-                <button class="action-button approve">Approve</button>
-                <button class="action-button reject">Reject</button>
-              </td>
-              <td><button class="action-button view">View</button></td>
-            </tr>
-            <tr>
-              <td>Global Dynamics Inc.</td>
-              <td><span class="badge pending">PENDING</span></td>
-              <td class="action-buttons">
-                <button class="action-button approve">Approve</button>
-                <button class="action-button reject">Reject</button>
-              </td>
-              <td><button class="action-button view">View</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      
+      <section id="users">
+        <h3>Manage Users</h3>
+        <div class="table-container">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="User Name">Priya Sharma</td>
+                <td data-label="Email">priya@example.com</td>
+                <td data-label="Role">Student</td>
+                <td data-label="Status"><span class="badge active">Active</span></td>
+                <td data-label="Action"><button class="action-button reject">Deactivate</button></td>
+              </tr>
+              <tr>
+                <td data-label="User Name">Aditya Singh</td>
+                <td data-label="Email">aditya@example.com</td>
+                <td data-label="Role">Company HR</td>
+                <td data-label="Status"><span class="badge pending">Pending</span></td>
+                <td data-label="Action"><button class="action-button approve">Activate</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
+      <section id="companies">
+        <h3>Pending Company Registrations</h3>
+        <div class="table-container">
+          <table class="companies-table">
+            <thead>
+              <tr>
+                <th>Company Name</th>
+                <th>Status</th>
+                <th>Actions</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Company Name">InnovateTech Solutions</td>
+                <td data-label="Status"><span class="badge pending">PENDING</span></td>
+                <td data-label="Actions">
+                  <button class="action-button approve">Approve</button>
+                  <button class="action-button reject">Reject</button>
+                </td>
+                <td data-label="View"><button class="action-button view">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-      <h3>Pending Job Postings</h3>
-      <div class="table-container">
-        <table class="jobs-table">
-          <thead>
-            <tr><th>Job Title</th><th>Company</th><th>Status</th><th>Actions</th><th></th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Frontend Developer Intern</td>
-              <td>Microsoft India</td>
-              <td><span class="badge pending">PENDING</span></td>
-              <td class="action-buttons">
-                <button class="action-button approve">Approve</button>
-                <button class="action-button reject">Reject</button>
-              </td>
-              <td><button class="action-button view">View</button></td>
-            </tr>
-            <tr>
-              <td>Data Science Intern</td>
-              <td>Google Labs</td>
-              <td><span class="badge pending">PENDING</span></td>
-              <td class="action-buttons">
-                <button class="action-button approve">Approve</button>
-                <button class="action-button reject">Reject</button>
-              </td>
-              <td><button class="action-button view">View</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+ 
+      <section id="jobs">
+        <h3>Pending Job Postings</h3>
+        <div class="table-container">
+          <table class="jobs-table">
+            <thead>
+              <tr>
+                <th>Job Title</th>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Job Title">Frontend Developer Intern</td>
+                <td data-label="Company">Microsoft India</td>
+                <td data-label="Status"><span class="badge pending">PENDING</span></td>
+                <td data-label="Actions">
+                  <button class="action-button approve">Approve</button>
+                  <button class="action-button reject">Reject</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-
-      <h3>Pending Student Registrations</h3>
-      <div class="table-container">
-        <table class="students-table">
-          <thead>
-            <tr><th>Student Name</th><th>Institute</th><th>Status</th><th></th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Priya Sharma</td>
-              <td>Delhi University</td>
-              <td><span class="badge pending">PENDING</span></td>
-              <td><button class="action-button view">View</button></td>
-            </tr>
-            <tr>
-              <td>Aditya Singh</td>
-              <td>IIT Bombay</td>
-              <td><span class="badge pending">PENDING</span></td>
-              <td><button class="action-button view">View</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>Recent System Activities</h3>
-      <div class="table-container">
-        <table class="activities-table">
-          <thead>
-            <tr><th>Activity</th><th>User/Entity</th><th>Type</th><th>Timestamp</th><th>Status</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>New Company Registration</td>
-              <td>InnovateTech Solutions</td>
-              <td>Company</td>
-              <td>2 hours ago</td>
-              <td><span class="badge pending">PENDING APPROVAL</span></td>
-            </tr>
-            <tr>
-              <td>Job Posted</td>
-              <td>Microsoft India</td>
-              <td>Job</td>
-              <td>5 hours ago</td>
-              <td><span class="badge active">ACTIVE</span></td>
-            </tr>
-            <tr>
-              <td>Student Registration</td>
-              <td>Ravi Patel (IIT Delhi)</td>
-              <td>Student</td>
-              <td>1 day ago</td>
-              <td><span class="badge active">ACTIVE</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </main>
   </div>
 
@@ -161,6 +140,7 @@
   <footer>
     &copy; 2025 intern.nation | All Rights Reserved
   </footer>
+
 
   <div id="logout-confirm" class="overlay">
     <div class="confirm-box">
@@ -171,5 +151,20 @@
       </div>
     </div>
   </div>
+
+
+  <div id="profile-section" class="overlay">
+    <div class="confirm-box">
+    <a href="#" class="close-btn">❌</a>
+      <h3>Profile</h3>
+      <div class="confirm-actions">
+        <img src="https://github.com/prbhleeen/intern.nation/blob/main/shipra.png?raw=true" alt="Admin Profile">
+          <h2>Shipra</h2>
+          <p>Email: Shipra@internnation.com</p>
+          <p>Role: Frontend Developer</p>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
