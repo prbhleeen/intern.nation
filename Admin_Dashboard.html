@@ -1,281 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | intern.nation</title>
-    <link rel="stylesheet" href="Admin_Dashboard.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | intern.nation</title>
+  <link rel="stylesheet" href="Admin_Dashboard.css">
 </head>
 <body>
-    <header>
-        <img src="https://github.com/prbhleeen/intern.nation/blob/main/logo.jpeg?raw=true" alt="intern.nation Logo">
-        <h1>intern.nation - Admin Dashboard</h1>
-    </header>
 
-    <div class="dashboard-container">
-        <aside class="sidebar">
-            <ul>
-                <li><a href="#">📊 View All Statistics</a></li>
-                <li><a href="#">👥 Manage Users</a></li>
-                <li><a href="#">🏢 Manage Companies</a></li>
-                <li><a href="#">📝 Approve Job Posts</a></li>
-                <li><a href="#">📅 View Schedules</a></li>
-                <li><a href="#">⚙ System Settings</a></li>
-                <li><a href="#">🚪 Logout</a></li>
-            </ul>
-        </aside>
+  <header>
+    <img src="https://github.com/prbhleeen/intern.nation/blob/main/logo.jpeg?raw=true" alt="intern.nation Logo">
+    <h1>intern.nation - Admin Dashboard</h1>
+  </header>
 
-        <main class="main-content">
-            <h2>Admin Overview</h2>
-            
-            <div class="stats">
-                <div class="stat-card">
-                    <h3>320</h3>
-                    <p>Total Applications</p>
-                </div>
-                <div class="stat-card">
-                    <h3>85</h3>
-                    <p>Active Companies</p>
-                </div>
-                <div class="stat-card">
-                    <h3>540</h3>
-                    <p>Registered Students</p>
-                </div>
-                <div class="stat-card">
-                    <h3>25</h3>
-                    <p>Pending Approvals</p>
-                </div>
-            </div>
 
-            <h3>Pending Company Registrations</h3>
-            <div class="table-container">
-                <table class="companies-table">
-                    <thead>
-                        <tr>
-                            <th>Company Name</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="company-1">
-                            <td>InnovateTech Solutions</td>
-                            <td><span class="badge pending">PENDING</span></td>
-                            <td class="action-buttons">
-                                <button class="action-button approve" data-target="company-1">Approve</button>
-                                <button class="action-button reject" data-target="company-1">Reject</button>
-                            </td>
-                            <td>
-                                <button class="action-button view" data-target="company-1">View</button>
-                            </td>
-                        </tr>
-                        <tr id="company-2">
-                            <td>Global Dynamics Inc.</td>
-                            <td><span class="badge pending">PENDING</span></td>
-                            <td class="action-buttons">
-                                <button class="action-button approve" data-target="company-2">Approve</button>
-                                <button class="action-button reject" data-target="company-2">Reject</button>
-                            </td>
-                            <td>
-                                <button class="action-button view" data-target="company-2">View</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+  <div class="dashboard-container">
+ 
+    <aside class="sidebar">
+      <ul>
+        <li><a href="#">📊 View All Statistics</a></li>
+        <li><a href="#">👥 Manage Users</a></li>
+        <li><a href="#">🏢 Manage Companies</a></li>
+        <li><a href="#">📝 Approve Job Posts</a></li>
+        <li><a href="#">📅 View Schedules</a></li>
+        <li><a href="#">⚙ System Settings</a></li>
+        <li><a href="#logout-confirm">🚪 Logout</a></li>
+      </ul>
+    </aside>
 
-            <h3>Pending Job Postings</h3>
-            <div class="table-container">
-                <table class="jobs-table">
-                    <thead>
-                        <tr>
-                            <th>Job Title</th>
-                            <th>Company</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="job-1">
-                            <td>Frontend Developer Intern</td>
-                            <td>Microsoft India</td>
-                            <td><span class="badge pending">PENDING</span></td>
-                            <td class="action-buttons">
-                                <button class="action-button approve" data-target="job-1">Approve</button>
-                                <button class="action-button reject" data-target="job-1">Reject</button>
-                            </td>
-                            <td>
-                                <button class="action-button view" data-target="job-1">View</button>
-                            </td>
-                        </tr>
-                        <tr id="job-2">
-                            <td>Data Science Intern</td>
-                            <td>Google Labs</td>
-                            <td><span class="badge pending">PENDING</span></td>
-                            <td class="action-buttons">
-                                <button class="action-button approve" data-target="job-2">Approve</button>
-                                <button class="action-button reject" data-target="job-2">Reject</button>
-                            </td>
-                            <td>
-                                <button class="action-button view" data-target="job-2">View</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <main class="main-content">
+      <h2>Admin Overview</h2>
 
-            <h3>Pending Student Registrations</h3>
-            <div class="table-container">
-                <table class="students-table">
-                    <thead>
-                        <tr>
-                            <th>Student Name</th>
-                            <th>Institute</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="student-1">
-                            <td>Priya Sharma</td>
-                            <td>Delhi University</td>
-                            <td><span class="badge pending">PENDING</span></td>
-                            <td>
-                                <button class="action-button view" data-target="student-1">View</button>
-                            </td>
-                        </tr>
-                        <tr id="student-2">
-                            <td>Aditya Singh</td>
-                            <td>IIT Bombay</td>
-                            <td><span class="badge pending">PENDING</span></td>
-                            <td>
-                                <button class="action-button view" data-target="student-2">View</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <div class="stats">
+        <div class="stat-card"><h3>320</h3><p>Total Applications</p></div>
+        <div class="stat-card"><h3>85</h3><p>Active Companies</p></div>
+        <div class="stat-card"><h3>540</h3><p>Registered Students</p></div>
+        <div class="stat-card"><h3>25</h3><p>Pending Approvals</p></div>
+      </div>
 
-            <h3>Recent System Activities</h3>
-            <div class="table-container">
-                <table class="activities-table">
-                    <thead>
-                        <tr>
-                            <th>Activity</th>
-                            <th>User/Entity</th>
-                            <th>Type</th>
-                            <th>Timestamp</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>New Company Registration</td>
-                            <td>InnovateTech Solutions</td>
-                            <td>Company</td>
-                            <td>2 hours ago</td>
-                            <td><span class="badge pending">PENDING APPROVAL</span></td>
-                        </tr>
-                        <tr>
-                            <td>Job Posted</td>
-                            <td>Microsoft India</td>
-                            <td>Job</td>
-                            <td>5 hours ago</td>
-                            <td><span class="badge active">ACTIVE</span></td>
-                        </tr>
-                        <tr>
-                            <td>Student Registration</td>
-                            <td>Ravi Patel (IIT Delhi)</td>
-                            <td>Student</td>
-                            <td>1 day ago</td>
-                            <td><span class="badge active">ACTIVE</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
+      <h3>Pending Company Registrations</h3>
+      <div class="table-container">
+        <table class="companies-table">
+          <thead>
+            <tr><th>Company Name</th><th>Status</th><th>Actions</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>InnovateTech Solutions</td>
+              <td><span class="badge pending">PENDING</span></td>
+              <td class="action-buttons">
+                <button class="action-button approve">Approve</button>
+                <button class="action-button reject">Reject</button>
+              </td>
+              <td><button class="action-button view">View</button></td>
+            </tr>
+            <tr>
+              <td>Global Dynamics Inc.</td>
+              <td><span class="badge pending">PENDING</span></td>
+              <td class="action-buttons">
+                <button class="action-button approve">Approve</button>
+                <button class="action-button reject">Reject</button>
+              </td>
+              <td><button class="action-button view">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <h3>Pending Job Postings</h3>
+      <div class="table-container">
+        <table class="jobs-table">
+          <thead>
+            <tr><th>Job Title</th><th>Company</th><th>Status</th><th>Actions</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Frontend Developer Intern</td>
+              <td>Microsoft India</td>
+              <td><span class="badge pending">PENDING</span></td>
+              <td class="action-buttons">
+                <button class="action-button approve">Approve</button>
+                <button class="action-button reject">Reject</button>
+              </td>
+              <td><button class="action-button view">View</button></td>
+            </tr>
+            <tr>
+              <td>Data Science Intern</td>
+              <td>Google Labs</td>
+              <td><span class="badge pending">PENDING</span></td>
+              <td class="action-buttons">
+                <button class="action-button approve">Approve</button>
+                <button class="action-button reject">Reject</button>
+              </td>
+              <td><button class="action-button view">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <h3>Pending Student Registrations</h3>
+      <div class="table-container">
+        <table class="students-table">
+          <thead>
+            <tr><th>Student Name</th><th>Institute</th><th>Status</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Priya Sharma</td>
+              <td>Delhi University</td>
+              <td><span class="badge pending">PENDING</span></td>
+              <td><button class="action-button view">View</button></td>
+            </tr>
+            <tr>
+              <td>Aditya Singh</td>
+              <td>IIT Bombay</td>
+              <td><span class="badge pending">PENDING</span></td>
+              <td><button class="action-button view">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Recent System Activities</h3>
+      <div class="table-container">
+        <table class="activities-table">
+          <thead>
+            <tr><th>Activity</th><th>User/Entity</th><th>Type</th><th>Timestamp</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>New Company Registration</td>
+              <td>InnovateTech Solutions</td>
+              <td>Company</td>
+              <td>2 hours ago</td>
+              <td><span class="badge pending">PENDING APPROVAL</span></td>
+            </tr>
+            <tr>
+              <td>Job Posted</td>
+              <td>Microsoft India</td>
+              <td>Job</td>
+              <td>5 hours ago</td>
+              <td><span class="badge active">ACTIVE</span></td>
+            </tr>
+            <tr>
+              <td>Student Registration</td>
+              <td>Ravi Patel (IIT Delhi)</td>
+              <td>Student</td>
+              <td>1 day ago</td>
+              <td><span class="badge active">ACTIVE</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+
+  <footer>
+    &copy; 2025 intern.nation | All Rights Reserved
+  </footer>
+
+  <div id="logout-confirm" class="overlay">
+    <div class="confirm-box">
+      <h3>Are you sure you want to logout?</h3>
+      <div class="confirm-actions">
+        <a href="login.html" class="yes">✅ Yes, Logout</a>
+        <a href="#" class="no">❌ Cancel</a>
+      </div>
     </div>
-
-    <footer>
-        &copy; 2025 intern.nation | All Rights Reserved
-    </footer>
-
-    <script>
-        // JavaScript for handling button clicks
-        document.addEventListener('DOMContentLoaded', () => {
-            const approveButtons = document.querySelectorAll('.action-button.approve');
-            const rejectButtons = document.querySelectorAll('.action-button.reject');
-            const viewButtons = document.querySelectorAll('.action-button.view');
-
-            /**
-             * Handles the approval action. Changes the status badge and replaces the action buttons.
-             * @param {Event} event - The click event object.
-             */
-            function handleApprove(event) {
-                const rowId = event.target.getAttribute('data-target');
-                const row = document.getElementById(rowId);
-                if (!row) return;
-
-                const statusCell = row.querySelector('.badge');
-                const actionCell = event.target.parentElement;
-                
-                // Update the status badge
-                statusCell.textContent = 'APPROVED';
-                statusCell.className = 'badge approved';
-                
-                // Replace the approve/reject buttons with an "Approved" badge
-                actionCell.innerHTML = '<span class="badge approved">Approved</span>';
-            }
-
-            /**
-             * Handles the rejection action. Changes the status badge and replaces the action buttons.
-             * @param {Event} event - The click event object.
-             */
-            function handleReject(event) {
-                const rowId = event.target.getAttribute('data-target');
-                const row = document.getElementById(rowId);
-                if (!row) return;
-
-                const statusCell = row.querySelector('.badge');
-                const actionCell = event.target.parentElement;
-
-                // Update the status badge
-                statusCell.textContent = 'REJECTED';
-                statusCell.className = 'badge rejected';
-
-                // Replace the approve/reject buttons with a "Rejected" badge
-                actionCell.innerHTML = '<span class="badge rejected">Rejected</span>';
-            }
-            
-            /**
-             * Handles the view action. Simulates opening a new page for detailed view.
-             * @param {Event} event - The click event object.
-             */
-            function handleView(event) {
-                const rowId = event.target.getAttribute('data-target');
-                // Simulating opening a new page for detailed view
-                const url = `/${rowId}-details.html`;
-                // window.open(url, '_blank'); // Cannot open new windows in this environment
-                console.log(`Simulating view for ${rowId}. In a real app, this would open ${url}.`);
-                // For a more complete user experience, you could create a modal here
-                // to display the details within the same page.
-            }
-
-            // Attach event listeners to all action buttons
-            approveButtons.forEach(button => {
-                button.addEventListener('click', handleApprove);
-            });
-            
-            rejectButtons.forEach(button => {
-                button.addEventListener('click', handleReject);
-            });
-            
-            viewButtons.forEach(button => {
-                button.addEventListener('click', handleView);
-            });
-        });
-    </script>
+  </div>
 </body>
 </html>
