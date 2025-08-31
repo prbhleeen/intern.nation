@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #1F1F4E; /* Deep Indigo Navy */
-    --accent-color: #CBB88B;  /* Soft Beige/Tan */
+    --primary-color: #1F1F4E; 
+    --accent-color: #CBB88B;  
     --background-color: #FFFFFF;
     --text-color: #1F1F4E;
-    --hover-beige: rgb(232, 225, 208);  /* Lighter beige for hovers */
+    --hover-beige: rgb(232, 225, 208);  
     --light-gray: #f8f9fa;
     --border-color: #e9ecef;
     --success-color: #28a745;

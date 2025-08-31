@@ -1,0 +1,151 @@
+body {
+  background-color: var(--hover-beige);
+}
+
+.profile-layout {
+  display: flex;
+  flex: 1;
+  padding: 50px 20px;
+  gap: 200px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: fit-content;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidebar li:hover {
+  background: #f0f4ff;
+}
+
+.sidebar .active {
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Profile Card */
+.profile-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-header {
+  margin-bottom: 25px;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  transition: transform 0.3s ease-in-out; 
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.profile-name {
+  margin-top: 15px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.profile-email {
+  color: #555;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Info list */
+.profile-info ul {
+  list-style: none;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.profile-info li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+/* Button */
+.update-btn {
+  margin-top: 25px;
+  padding: 12px 20px;
+  background: var(--accent-color);
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: 600;
+}
+
+.update-btn:hover {
+  background: var(--hover-beige);
+}
+
+
+@media (max-width: 768px) {
+    
+  .profile-layout {
+    flex-direction: column; 
+    gap: 20px;
+    padding: 20px 10px;
+  }
+
+  .sidebar {
+    width: 100%;  
+    text-align: center;
+  }
+
+  .profile-card {
+    max-width: 100%;
+    padding: 25px;
+  }
+
+  .profile-name {
+    font-size: 20px;
+  }
+
+  .profile-email {
+    font-size: 13px;
+  }
+
+  .profile-info li {
+    font-size: 14px;
+  }
+
+  .update-btn {
+    width: 100%; 
+  }
+}
