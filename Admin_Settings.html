@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - Admin Dashboard</title>
+<link rel="stylesheet" href="Admin_Settings.css">
+</head>
+<body>
+
+<header>
+    <img src="https://github.com/prbhleeen/intern.nation/blob/main/logo.jpeg?raw=true" alt="Logo">
+    <h1>Admin Dashboard</h1>
+</header>
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <ul>
+        <li><a href="Admin_Dashboard.html">👤 Dasboard</a></li>
+        <li><a href="#statistics">📊 View All Statistics</a></li>
+        <li><a href="#users">👥 Manage Users</a></li>
+        <li><a href="#companies">🏢 Manage Companies</a></li>
+        <li><a href="#jobs">📝 Approve Job Posts</a></li>
+        <li><a href="#schedules">📅 View Schedules</a></li>
+        <li><a href="Admin_Settings.html">⚙ System Settings</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <h2>Settings</h2>
+
+        <div class="card">
+            <h3>General</h3>
+            <div class="form-group">
+                <label>intern.nation</label>
+                <input type="text" value="Shipra">
+            </div>
+            <div class="form-group">
+                <label>Admin Email</label>
+                <input type="email" value="Shipra@example.com">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Security</h3>
+            <div class="form-group">
+                <label>Two-Factor Authentication</label>
+                <div class="switch-container">
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                    <span>Enabled</span>
+                </div>
+            </div>
+           </div>
+
+        <div class="card">
+            <h3>Notifications</h3>
+            <div class="form-group">
+                <label>Notification Email</label>
+                <input type="email" value="notifications@example.com">
+            </div>
+            <div class="form-group">
+                <label>Receive Updates</label>
+                <div class="switch-container">
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                    <span>Enabled</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Appearance</h3>
+            <div class="form-group">
+                <label>Dark / Light Mode</label>
+                <div class="switch-container">
+                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                    <span>Light Mode</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="save">Save Changes</button>
+            <button class="cancel">Cancel</button>
+        </div>
+    </main>
+</div>
+
+<footer>
+    © 2023 Admin Dashboard. All Rights Reserved.
+</footer>
+
+</body>
+</html>
