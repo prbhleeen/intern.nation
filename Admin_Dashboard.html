@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | intern.nation</title>
-  <link rel="stylesheet" href="Admin_Dashboard.css">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
 
@@ -25,7 +25,7 @@
         <li><a href="#companies">🏢 Manage Companies</a></li>
         <li><a href="#jobs">📝 Approve Job Posts</a></li>
         <li><a href="#schedules">📅 View Schedules</a></li>
-        <li><a href="Admin_Settings.html">⚙ System Settings</a></li>
+        <li><a href="Settings.html">⚙ System Settings</a></li>
         <li><a href="#logout-confirm">🚪 Logout</a></li>
       </ul>
     </aside>
@@ -55,7 +55,7 @@
                 <th>Email</th>
                 <th>Role</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -64,14 +64,14 @@
                 <td data-label="Email">priya@example.com</td>
                 <td data-label="Role">Student</td>
                 <td data-label="Status"><span class="badge active">Active</span></td>
-                <td data-label="Action"><button class="action-button reject">Deactivate</button></td>
+                <td data-label="View"><button class="action-button view">View</button></td>
               </tr>
               <tr>
                 <td data-label="User Name">Aditya Singh</td>
                 <td data-label="Email">aditya@example.com</td>
                 <td data-label="Role">Company HR</td>
                 <td data-label="Status"><span class="badge pending">Pending</span></td>
-                <td data-label="Action"><button class="action-button approve">Activate</button></td>
+                <td data-label="View"><button class="action-button view">View</button></td>
               </tr>
             </tbody>
           </table>
