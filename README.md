@@ -41,7 +41,7 @@ It connects **students**, **companies**, and **administrators** on one platform,
 
 ## Contributors  
 
-- **Prabhleen** – Student Dashboard
+- **Prabhleen** – Functional student dashboard with job & internship listings, profile management, application tracking, interview schedules, and blogs.
 - **Shagun** – Intro Page, About Us, Contributors, T&C, Privacy Policy, Company Dashboard  
 - **Shipra** – Admin Dashboard 
 - **Saksham** - Login Page for admin, company and students and sign up page for company and students.
