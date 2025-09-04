@@ -8,7 +8,7 @@
     --border-color: #e9ecef;
     --success-color: #28a745;
     --warning-color: #ffc107;
-    --danger-color: #dc3545;
+    --danger-color: #d41d2f;
     --font-family: 'Inter', sans-serif;
 }
 
@@ -38,8 +38,6 @@ header {
     justify-content: space-between;
     align-items: center;
     top: 0;
-    position:static;
-    z-index: 20;
 }
 
 header .logo {
@@ -115,7 +113,10 @@ nav.secondary-nav a {
     min-width: 10ch;
 }
 
-/* MAIN HEADINGS */
+/* MAIN */
+main {
+    margin-bottom: 2rem;
+}
 main h2 {
     font-size: 2rem;
     color: var(--primary-color);

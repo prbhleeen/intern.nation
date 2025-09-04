@@ -102,6 +102,7 @@ nav ul li a:hover {
     border-radius: 5px;
     transition: background 0.3s, color 0.3s;
 }
+
 .login-btn:hover {
     background-color: var(--hover-beige);
     color: var(--primary-color);

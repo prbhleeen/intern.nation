@@ -6,7 +6,7 @@ body {
   display: flex;
   flex: 1;
   padding: 50px 20px;
-  gap: 200px;
+  gap: 150px;
 }
 
 /* Sidebar */
@@ -23,6 +23,10 @@ body {
   list-style: none;
 }
 
+.sidebar a{
+  text-decoration: none;
+  color: var(--text-color);
+}
 .sidebar li {
   padding: 12px 15px;
   border-radius: 8px;
@@ -41,6 +45,13 @@ body {
   color: #fff;
   font-weight: 500;
 }
+
+.sidebar .active:hover{
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 500;
+}
+
 
 /* Profile Card */
 .profile-card {
@@ -148,4 +159,185 @@ body {
   .update-btn {
     width: 100%; 
   }
+}
+
+
+
+
+
+
+/* Applications Section */
+.applications-section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 30px;
+  flex: 1;              
+  max-width: 900px;
+}
+.applications-section h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: var(--primary-color);
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.applications-table th,
+.applications-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  font-size: 15px;
+}
+
+.applications-table th {
+  background: var(--light-gray);
+  font-weight: 600;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status.applied { background: #ffeeba; color: #856404; }
+.status.review { background: #b8daff; color: #004085; }
+.status.shortlisted { background: #d4edda; color: #155724; }
+.status.rejected { background: #f8d7da; color: #721c24; }
+.status.selected { background: #abe1b8; color: #155724; }
+
+.btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  border:  none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: background 0.3s;
+}
+
+.view-btn {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.view-btn:hover {
+  background: #333366;
+}
+
+.withdraw-btn {
+  background: var(--danger-color);
+  color: #fff;
+}
+
+.withdraw-btn:hover {
+  background: #a71d2a;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .applications-table thead {
+    display: none;
+  }
+
+  .applications-table tr {
+    display: block;
+    margin-bottom: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .applications-table td {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+  }
+
+
+}
+
+
+.interview-schedule {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 30px;
+  flex: 1;              
+  max-width: 900px;
+}
+
+.interview-schedule h2 {
+  margin: 20px 0 10px;
+  font-size: 18px;
+  color: var(--primary-color);
+}
+
+.interview-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.interview-table th,
+.interview-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.interview-table thead {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+
+/* Status colors */
+.status-passed {
+  color: green;
+  font-weight: bold;
+}
+.status-rejected {
+  color: red;
+  font-weight: bold;
+}
+
+
+
+
+@media (max-width: 600px) {
+  .interview-table, 
+  .interview-table thead, 
+  .interview-table tbody, 
+  .interview-table th, 
+  .interview-table td, 
+  .interview-table tr {
+    display: block;
+  }
+
+  .interview-table thead tr {
+    display: none; /* hide header */
+  }
+
+  .interview-table tr {
+    margin-bottom: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .interview-table td {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  
 }

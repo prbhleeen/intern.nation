@@ -33,41 +33,84 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <ul>
-        <li class="active">Personal Details</li>
+        <li><a href="myprofile.html">Personal Details</a></li>
         <li><a href="applications.html">View Applications</a></li>
-        <li><a href="interview_schedule.html">Interview Schedule</a></li>
+        <li class="active">Interview Schedule</a></li>
         <li><a href="mycertifications.html">Certifications</a></li>
       </ul>
     </aside>
 
-    <!-- Profile Section -->
-    <section class="profile-card">
-      <div class="profile-header">
-        <img src="../prabhleen.png" alt="Profile Image" class="profile-img">
-        <h2 class="profile-name">Swati Awasthi</h2>
-        <p class="profile-email">swati0711.becse24@chitkara.edu.in</p>
-      </div>
 
-      <div class="profile-info">
-        <ul>
-          <li><strong>Student ID:</strong> 2410990711</li>
-          <li><strong>Name:</strong> Swati Awasthi</li>
-          <li><strong>Email:</strong> swati0711.becse24@chitkara.edu.in</li>
-          <li><strong>Phone:</strong> 9815557616</li>
-          <li><strong>Department:</strong> CSE</li>
-          <li><strong>Year of Study:</strong> 2nd Year</li>
-          <li><strong>CGPA:</strong> 9.5</li>
-          <li><strong>Resume:</strong> <a href="#">View Resume</a></li>
-        </ul>
-      </div>
+<section class="interview-schedule">
+  <h2>Upcoming Interviews</h2>
+  <table class="interview-table">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Position</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>Software Intern</td>
+        <td>2 Sep 2025</td>
+        <td>10:00 AM</td>
+        <td>Online</td>
+      </tr>
+      <tr>
+        <td>Microsoft</td>
+        <td>HR Round</td>
+        <td>9 Sep 2025</td>
+        <td>2:00 PM</td>
+        <td>Offline</td>
+      </tr>
+    <tr>
+        <td>Amazon</td>
+        <td>Tech Round 2</td>
+        <td>12 Sep 2025</td>
+        <td>10:00 AM</td>
+        <td>Online</td>
+      </tr>
 
-      <!-- Update Button -->
-      <button class="update-btn">Update Details</button>
-    </section>
+    </tbody>
+  </table>
+
+  <h2>Completed Interviews</h2>
+  <table class="interview-table">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Position</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Amazon</td>
+        <td>Tech Round 1</td>
+        <td>15 Aug 2025</td>
+        <td class="status-passed">Cleared</td>
+        <td>Moved to next round</td>
+      </tr>
+      <tr>
+        <td>Infosys</td>
+        <td>Systems Engineer</td>
+        <td>10 Aug 2025</td>
+        <td class="status-rejected">Rejected</td>
+        <td>Didn’t clear aptitude</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
   </main>
 
-  <!-- footer  -->
       <footer>
         <div class="map">
             <iframe

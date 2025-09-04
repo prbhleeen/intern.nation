@@ -33,41 +33,79 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <ul>
-        <li class="active">Personal Details</li>
-        <li><a href="applications.html">View Applications</a></li>
+        <li><a href="myprofile.html">Personal Details</a></li>
+        <li class="active">View Applications</a></li>
         <li><a href="interview_schedule.html">Interview Schedule</a></li>
         <li><a href="mycertifications.html">Certifications</a></li>
       </ul>
     </aside>
 
-    <!-- Profile Section -->
-    <section class="profile-card">
-      <div class="profile-header">
-        <img src="../prabhleen.png" alt="Profile Image" class="profile-img">
-        <h2 class="profile-name">Swati Awasthi</h2>
-        <p class="profile-email">swati0711.becse24@chitkara.edu.in</p>
-      </div>
 
-      <div class="profile-info">
-        <ul>
-          <li><strong>Student ID:</strong> 2410990711</li>
-          <li><strong>Name:</strong> Swati Awasthi</li>
-          <li><strong>Email:</strong> swati0711.becse24@chitkara.edu.in</li>
-          <li><strong>Phone:</strong> 9815557616</li>
-          <li><strong>Department:</strong> CSE</li>
-          <li><strong>Year of Study:</strong> 2nd Year</li>
-          <li><strong>CGPA:</strong> 9.5</li>
-          <li><strong>Resume:</strong> <a href="#">View Resume</a></li>
-        </ul>
-      </div>
-
-      <!-- Update Button -->
-      <button class="update-btn">Update Details</button>
+    <!-- Applications Section  -->
+         <!-- Applications Section  -->
+    <section class="applications-section">
+      <h2>My Applications</h2>
+      <table class="applications-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google</td>
+            <td>Software Intern</td>
+            <td><span class="status applied">Applied</span></td>
+            <td>
+              <button class="btn view-btn">View</button>
+              <button class="btn withdraw-btn">Withdraw</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Microsoft</td>
+            <td>Backend Developer</td>
+            <td><span class="status review">Under Review</span></td>
+            <td>
+              <button class="btn view-btn">View</button>
+              <button class="btn withdraw-btn">Withdraw</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Amazon</td>
+            <td>Frontend Engineer</td>
+            <td><span class="status shortlisted">Shortlisted</span></td>
+            <td>
+              <button class="btn view-btn">View</button>
+              <button class="btn withdraw-btn">Withdraw</button>
+            </td>
+          </tr>
+          <tr>
+            <td>IBM</td>
+            <td>Data Analyst</td>
+            <td><span class="status rejected">Rejected</span></td>
+            <td>
+              <button class="btn view-btn">View</button>
+              <button class="btn withdraw-btn">Withdraw</button>
+            </td>
+          </tr>
+          <tr>
+            <td>OpenAI</td>
+            <td>AI Research Intern</td>
+            <td><span class="status selected">Selected</span></td>
+            <td>
+              <button class="btn view-btn">View</button>
+              <button class="btn withdraw-btn">Withdraw</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
   </main>
 
-  <!-- footer  -->
       <footer>
         <div class="map">
             <iframe
