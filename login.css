@@ -107,7 +107,7 @@ body {
   text-align: left;
 }
 
-.form input {
+.form input, .form select {
   width: 100%;
   padding: 0.6rem;
   border: 1px solid #ccc;
