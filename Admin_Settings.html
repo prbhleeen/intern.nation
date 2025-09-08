@@ -16,78 +16,98 @@
 <div class="dashboard-container">
     <aside class="sidebar">
         <ul>
-        <li><a href="Admin_Dashboard.html">👤 Dasboard</a></li>
-        <li><a href="#statistics">📊 View All Statistics</a></li>
-        <li><a href="#users">👥 Manage Users</a></li>
-        <li><a href="#companies">🏢 Manage Companies</a></li>
-        <li><a href="#jobs">📝 Approve Job Posts</a></li>
-        <li><a href="#schedules">📅 View Schedules</a></li>
-        <li><a href="Admin_Settings.html">⚙ System Settings</a></li>
+            <li><a href="Dashboard.html">👤 Dashboard</a></li>
+            <li><a href="#statistics">📊 View All Statistics</a></li>
+            <li><a href="#users">👥 Manage Users</a></li>
+            <li><a href="#companies">🏢 Manage Companies</a></li>
+            <li><a href="#jobs">📝 Approve Job Posts</a></li>
+            <li><a href="#schedules">📅 View Schedules</a></li>
+            <li><a href="Settings.html">⚙ System Settings</a></li>
         </ul>
     </aside>
 
     <main class="main-content">
         <h2>Settings</h2>
 
-        <div class="card">
-            <h3>General</h3>
-            <div class="form-group">
-                <label>intern.nation</label>
-                <input type="text" value="Shipra">
-            </div>
-            <div class="form-group">
-                <label>Admin Email</label>
-                <input type="email" value="Shipra@example.com">
-            </div>
-        </div>
+        
+        <form id="settingsForm">
 
-        <div class="card">
-            <h3>Security</h3>
-            <div class="form-group">
-                <label>Two-Factor Authentication</label>
-                <div class="switch-container">
-                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
-                    <span>Enabled</span>
+            <div class="card">
+                <h3>General</h3>
+                <div class="form-group">
+                    <label for="site-name">Site Name</label>
+                    <input type="text" id="site-name" name="site_name" value="intern.nation">
+                </div>
+                <div class="form-group">
+                    <label for="admin-email">Admin Email</label>
+                    <input type="email" id="admin-email" name="admin_email" value="Shipra@example.com">
                 </div>
             </div>
-           </div>
 
-        <div class="card">
-            <h3>Notifications</h3>
-            <div class="form-group">
-                <label>Notification Email</label>
-                <input type="email" value="notifications@example.com">
-            </div>
-            <div class="form-group">
-                <label>Receive Updates</label>
-                <div class="switch-container">
-                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
-                    <span>Enabled</span>
+            <div class="card">
+                <h3>Security</h3>
+                <div class="form-group">
+                    <label for="two-factor">Two-Factor Authentication</label>
+                    <div class="switch-container">
+                        <label class="switch">
+                            <input type="checkbox" id="two-factor" name="two_factor" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Enabled</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="card">
-            <h3>Appearance</h3>
-            <div class="form-group">
-                <label>Dark / Light Mode</label>
-                <div class="switch-container">
-                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
-                    <span>Light Mode</span>
+            <div class="card">
+                <h3>Notifications</h3>
+                <div class="form-group">
+                    <label for="notification-email">Notification Email</label>
+                    <input type="email" id="notification-email" name="notification_email" value="notifications@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="receive-updates">Receive Updates</label>
+                    <div class="switch-container">
+                        <label class="switch">
+                            <input type="checkbox" id="receive-updates" name="receive_updates" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Enabled</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="buttons">
-            <button class="save">Save Changes</button>
-            <button class="cancel">Cancel</button>
-        </div>
+            <div class="card">
+                <h3>Appearance</h3>
+                <div class="form-group">
+                    <label for="dark-mode">Dark / Light Mode</label>
+                    <div class="switch-container">
+                        <label class="switch">
+                            <input type="checkbox" id="dark-mode" name="dark_mode">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Light Mode</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="save">Save Changes</button>
+                <button type="reset" class="cancel">Cancel</button>
+            </div>
+        </form>
     </main>
 </div>
 
 <footer>
     © 2025 Admin Dashboard. All Rights Reserved.
 </footer>
+
+<script>
+document.getElementById("settingsForm").addEventListener("submit", function(e) {
+    e.preventDefault(); 
+    window.location.href = "Dashboard.html";
+});
+</script>
 
 </body>
 </html>
