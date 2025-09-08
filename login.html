@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | Intern.Nation</title>
   <link rel="stylesheet" href="login.css">
-  <link rel="icon" href="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg">    
+  <link rel="icon" href="logo.jpeg">
 </head>
 <body>
   <section class="card">
     <header class="logo-section">
-      <img src="https://raw.githubusercontent.com/prbhleeen/intern.nation/2ce1f38b11eff07447dff46e30bb75106eef253c/logo.jpeg"
-           alt="Intern.Nation Logo" class="logo-img">
+      <img src="logo.jpeg" alt="Intern.Nation Logo" class="logo-img">
       <div>
         <h1 class="site-title">intern.nation</h1>
         <p class="tagline">Connecting Talent with Opportunity</p>
@@ -20,7 +19,7 @@
 
     <h2>Login</h2>
 
-  
+    <!-- role selector -->
     <div class="role-selector">
       <input type="radio" name="role" id="student-tab" checked>
       <label for="student-tab">Student</label>
@@ -33,7 +32,7 @@
     </div>
 
     <div class="forms">
-      <!-- Student Form -->
+      <!-- student form -->
       <form class="form" id="student" action="student_dashboard/student_dashboard.html" method="get">
         <label>Email</label>
         <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter email" required name="email">
@@ -41,26 +40,16 @@
         <label>Password</label>
         <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
 
-<<<<<<< Updated upstream
-=======
-        <button type="submit">Sign In</button>
-        <p class="links"><a href="#">Forgot password?</a></p>
-        <p class="links">New here? <a href="signup.html">Create account</a></p>
-      </form>
->>>>>>> 1bb8665492dd35a44a7a1350bc0ac32a4b931bb1
-=======
->>>>>>> Stashed changes
         <label>Student ID</label>
-        <input type="text" pattern="[0-9]{10}" placeholder="Enter Student ID" required name="studentId">
+        <input type="text" pattern="[0-9]{10}" placeholder="Enter 10-digit Student ID" required name="studentId">
 
         <button type="submit">Sign In</button>
         <p class="links"><a href="forgot_password.html">Forgot password?</a></p>
         <p class="links">New here? <a href="signup.html">Create account</a></p>
       </form>
-<<<<<<< Updated upstream
 
-      <!-- Company Form -->
-      <form class="form" id="company" action="companydashboard.html" method="get">
+      <!-- company form -->
+      <form class="form" id="company" action="companydashboard.html" method="get" style="display:none;">
         <label>Company Email</label>
         <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter company email" required name="email">
 
@@ -68,15 +57,15 @@
         <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
 
         <label>Company ID</label>
-        <input type="text" pattern="[0-9]{10}" placeholder="Enter company code" required name="companyId">
+        <input type="text" pattern="[0-9]{10}" placeholder="Enter 10-digit Company ID" required name="companyId">
 
         <button type="submit">Sign In</button>
         <p class="links"><a href="forgot_password.html">Forgot password?</a></p>
         <p class="links">New here? <a href="signup.html">Create account</a></p>
       </form>
 
-      <!-- Admin Form -->
-      <form class="form" id="admin" action="Admin_Dashboard.html" method="get">
+      <!-- admin form -->
+      <form class="form" id="admin" action="Admin_Dashboard.html" method="get" style="display:none;">
         <label>Admin Email</label>
         <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter admin email" required name="email">
 
@@ -84,108 +73,33 @@
         <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
 
         <label>Admin ID</label>
-        <input type="text" pattern="[0-9]{10}" placeholder="Enter admin ID" required name="adminId">
+        <input type="text" pattern="[0-9]{10}" placeholder="Enter 10-digit Admin ID" required name="adminId">
 
         <button type="submit">Sign In</button>
         <p class="links"><a href="forgot_password.html">Forgot password?</a></p>
-=======
-=======
-        <button type="submit">Sign In</button>
-        <p class="links"><a href="#">Forgot password?</a></p>
-        <p class="links">New here? <a href="signup.html">Create account</a></p>
-      </form>
->>>>>>> 1bb8665492dd35a44a7a1350bc0ac32a4b931bb1
-
-      <!-- Company Form -->
-      <form class="form" id="company" action="companydashboard.html" method="get">
-        <label>Company Email</label>
-        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter company email" required name="email">
-
-        <label>Password</label>
-        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
-
-        <label>Company ID</label>
-        <input type="text" pattern="[0-9]{10}" placeholder="Enter company code" required name="companyId">
-
-<<<<<<< HEAD
-      <button type="submit">Sign In</button>
-      <p class="links"><a href="forgot_password.html">Forgot password?</a></p>
-      <p class="links">New here? <a href="signup.html">Create account</a></p>
-    </form>
-=======
-        <button type="submit">Sign In</button>
-        <p class="links"><a href="#">Forgot password?</a></p>
-        <p class="links">New here? <a href="signup.html">Create account</a></p>
-      </form>
->>>>>>> 1bb8665492dd35a44a7a1350bc0ac32a4b931bb1
-
-      <!-- Admin Form -->
-      <form class="form" id="admin" action="Admin_Dashboard.html" method="get">
-        <label>Admin Email</label>
-        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter admin email" required name="email">
-
-        <label>Password</label>
-        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
-
-<<<<<<< HEAD
-      <label>Admin ID</label>
-      <input type="text" placeholder="Enter admin ID" required name="adminId">
-
-      <button type="submit">Sign In</button>
-      <p class="links"><a href="forgot_password.html">Forgot password?</a></p>
-      <p class="links">New here? <a href="signup.html">Create account</a></p>
-    </form>
-=======
-        <label>Admin ID</label>
-        <input type="text" pattern="[0-9]{10}" placeholder="Enter admin ID" required name="adminId">
->>>>>>> 1bb8665492dd35a44a7a1350bc0ac32a4b931bb1
-
-        <button type="submit">Sign In</button>
-        <p class="links"><a href="#">Forgot password?</a></p>
->>>>>>> Stashed changes
         <p class="links">New here? <a href="signup.html">Create account</a></p>
       </form>
     </div>
   </section>
+
   <script>
-<<<<<<< Updated upstream
+    const forms = document.querySelectorAll(".form");
+    const radios = document.querySelectorAll("input[name='role']");
 
-  const forms = document.querySelectorAll(".form");
-  const radios = document.querySelectorAll("input[name='role']");
+    function showForm(role) {
+      forms.forEach(f => f.style.display = "none");
+      document.getElementById(role).style.display = "block";
+    }
 
-  function showForm(role) {
-    forms.forEach(f => f.style.display = "none");
-    document.getElementById(role).style.display = "block";
-  }
-
-=======
-   
-  const forms = document.querySelectorAll(".form");
-  const radios = document.querySelectorAll("input[name='role']");
-
-  function showForm(role) {
-    forms.forEach(f => f.style.display = "none");
-    document.getElementById(role).style.display = "block";
-  }
-
->>>>>>> Stashed changes
-  radios.forEach(radio => {
-    radio.addEventListener("change", () => {
-      if (radio.id === "student-tab") showForm("student");
-      if (radio.id === "company-tab") showForm("company");
-      if (radio.id === "admin-tab") showForm("admin");
+    radios.forEach(radio => {
+      radio.addEventListener("change", () => {
+        if (radio.id === "student-tab") showForm("student");
+        if (radio.id === "company-tab") showForm("company");
+        if (radio.id === "admin-tab") showForm("admin");
+      });
     });
-  });
 
-<<<<<<< Updated upstream
-  showForm("student");
-
-=======
-
-  showForm("student");
-
-
->>>>>>> Stashed changes
+    showForm("student");
   </script>
 </body>
 </html>
