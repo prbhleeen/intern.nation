@@ -105,10 +105,19 @@ header img {
 }
 
 .switch-container {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 8px;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.switch-container > span {
+    font-size: 14px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;   
 }
 
 .switch {
