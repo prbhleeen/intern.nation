@@ -158,13 +158,35 @@
     <a href="#" class="close-btn">❌</a>
       <h3>Profile</h3>
       <div class="confirm-actions">
-        <img src="https://github.com/prbhleeen/intern.nation/blob/main/shipra.png?raw=true" alt="Admin Profile">
-          <h2>Shipra</h2>
-          <p>Email: Shipra@internnation.com</p>
-          <p>Role: Frontend Developer</p>
+        <img src="https://github.com/prbhleeen/intern.nation/blob/main/shipra.png?raw=true" alt="Admin Profile" id="admin-img">
+          <h2 id="admin-name">Admin</h2>
+          <p id="admin-email">Email: admin@internnation.com</p>
+          <p>Role: Admin</p>
       </div>
     </div>
   </div>
+
+<script>
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  if (!userInfo || userInfo.role !== 'admin') {
+    window.location.href = 'login.html';
+  }
+
+  // Populate profile
+  if (userInfo) {
+    document.getElementById('admin-name').textContent = userInfo.name || 'Admin';
+    document.getElementById('admin-email').textContent = 'Email: ' + userInfo.email;
+    if (userInfo.picture) {
+      document.getElementById('admin-img').src = userInfo.picture;
+    }
+  }
+
+  // Logout functionality
+  document.querySelector('a[href="#logout-confirm"]').addEventListener('click', () => {
+    localStorage.removeItem('userInfo');
+    window.location.href = 'login.html';
+  });
+</script>
 
 </body>
 </html>

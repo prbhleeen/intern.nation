@@ -119,6 +119,46 @@
 
     showForm("student");
 
+    // Handle form submits for authentication
+    document.getElementById('student').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const userInfo = {
+        role: 'student',
+        email: formData.get('email'),
+        studentId: formData.get('studentId'),
+        authProvider: 'form'
+      };
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      window.location.href = 'student_dashboard/student_dashboard.html';
+    });
+
+    document.getElementById('company').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const userInfo = {
+        role: 'company',
+        email: formData.get('email'),
+        companyId: formData.get('companyId'),
+        authProvider: 'form'
+      };
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      window.location.href = 'companydashboard.html';
+    });
+
+    document.getElementById('admin').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const userInfo = {
+        role: 'admin',
+        email: formData.get('email'),
+        adminId: formData.get('adminId'),
+        authProvider: 'form'
+      };
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      window.location.href = 'Admin_Dashboard.html';
+    });
+
     function handleCredentialResponse(response) {
       const responsePayload = decodeJwtResponse(response.credential);
       const userInfo = {

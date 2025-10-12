@@ -103,6 +103,26 @@
   <footer>
     &copy; 2025 intern.nation | All Rights Reserved
   </footer>
+
+<script>
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  if (!userInfo || userInfo.role !== 'company') {
+    window.location.href = 'login.html';
+  }
+
+  // Add logout functionality
+  const header = document.querySelector('header');
+  const logoutLink = document.createElement('a');
+  logoutLink.href = '#';
+  logoutLink.textContent = 'Logout';
+  logoutLink.style.cssText = 'position: absolute; top: 10px; right: 10px; color: white; text-decoration: none;';
+  header.appendChild(logoutLink);
+  logoutLink.addEventListener('click', () => {
+    localStorage.removeItem('userInfo');
+    window.location.href = 'login.html';
+  });
+</script>
+
 </body>
 </html>
 
