@@ -1,0 +1,4 @@
+- [x] Edit signup.html: Add Google Sign-In script in head, button div after h2, and JavaScript for initialization and callback.
+- [x] Edit login.html: Add Google Sign-In script in head, button div after h2, and JavaScript for initialization and callback.
+- [x] Note: Replace 'YOUR_CLIENT_ID' with actual Google Client ID from Google Cloud Console.
+- [x] Test: Run the site locally and verify sign-in redirects to student_dashboard.
