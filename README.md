@@ -1,4 +1,4 @@
-# 💼 Intern.Nation – Campus Internship & Placement Portal
+# 💼 intern.nation – Campus Internship & Placement Portal
 
 **Intern.Nation** is a web-based platform designed to streamline campus internship and placement activities.  
 It connects **students**, **companies**, and **administrators** on one platform, making the recruitment process more transparent and efficient.  
