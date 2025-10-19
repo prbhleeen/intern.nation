@@ -125,6 +125,59 @@ body {
   background: var(--hover-beige);
 }
 
+/* update details input fields */
+#yearInput,
+#cgpaInput,
+#resumeInput {
+  margin-left: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#yearInput:focus,
+#cgpaInput:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 3px rgba(203, 184, 139, 0.5);
+  outline: none;
+}
+
+.edit-btn-container {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #aaa;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.cancel-btn:hover {
+  background-color: #888;
+}
 
 @media (max-width: 768px) {
     
