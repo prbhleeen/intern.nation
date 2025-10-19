@@ -73,7 +73,6 @@ body {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--primary-color);
   transition: transform 0.3s ease-in-out; 
 }
 

@@ -12,8 +12,7 @@
 </head>
 
 <body>
-  <!-- Header -->
-  <header>
+    <header>
     <h1 class="logo">
       <img src="images/logo.jpeg" alt="Logo">
       <span class="logo-text"><span>intern.</span><span>nation</span></span>
@@ -26,12 +25,9 @@
   </header>
 
 
+    <main class="profile-layout">
 
-  <!-- Layout -->
-  <main class="profile-layout">
-
-    <!-- Sidebar -->
-    <aside class="sidebar">
+        <aside class="sidebar">
       <ul>
         <li class="active">Personal Details</li>
         <li><a href="applications.html">View Applications</a></li>
@@ -40,126 +36,134 @@
       </ul>
     </aside>
 
-    <!-- Profile Section -->
-    <section class="profile-card">
+        <section class="profile-card">
       <div class="profile-header">
-        <img src="../prabhleen.png" alt="Profile Image" class="profile-img">
-        <h2 class="profile-name">Swati Awasthi</h2>
-        <p class="profile-email">swati0711.becse24@chitkara.edu.in</p>
+        <img src="./images/profile.png" alt="Profile Image" class="profile-img">
+                <h2 class="profile-name" id="profileName">Loading Name...</h2>
+        <p class="profile-email" id="profileEmail">Loading Email...</p>
       </div>
 
       <div class="profile-info">
-        <ul>
-          <li><strong>Student ID:</strong> 2410990711</li>
-          <li><strong>Name:</strong> Swati Awasthi</li>
-          <li><strong>Email:</strong> swati0711.becse24@chitkara.edu.in</li>
-          <li><strong>Phone:</strong> 9815557616</li>
-          <li><strong>Department:</strong> CSE</li>
-          <li><strong>Year of Study:</strong> 2nd Year</li>
-          <li><strong>CGPA:</strong> 9.5</li>
-          <li><strong>Resume:</strong> <a href="#">View Resume</a></li>
+                <ul id="profile-info-list">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </div>
 
-      <!-- Update Button -->
-      <button class="update-btn">Update Details</button>
+            <button class="update-btn" id="updateBtn">Update Details</button>
     </section>
 
   </main>
 
-  <!-- footer  -->
-      <footer>
-        <div class="map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219978.4307960164!2d76.39695632500003!3d30.51643020000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc3233b6ffff9%3A0xdd39a7652fb7bbf3!2sTuring%20Block%20%2C%20Chitkara%20University!5e0!3m2!1sen!2sin!4v1755414298816!5m2!1sen!2sin"
-                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="footer-links">
-            <p><b>Contact:</b> <a href="mailto:contact@intern.nation">contact@intern.nation</a></p>
-            <p><b>Support:</b> <a href="mailto:support@intern.nation">support@intern.nation</a></p>
-            <p><b>Our Address:</b> 302, 3rd Floor, Turing Block, Chitkara University, Punjab.</p>
-            <p><a href="../index.html">Home</a> | <a href="../about.html">About Us</a> | <a href="blogs/blogs.html">Blog</a> | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms & Conditions</a></p>
-        </div>
-    </footer>
-
-
+    <footer>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219978.4307960164!2d76.39695632500003!3d30.51643020000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc3233b6ffff9%3A0xdd39a7652fb7bbf3!2sTuring%20Block%20%2C%20Chitkara%20University!5e0!3m2!1sen!2sin!4v1755414298816!5m2!1sen!2sin"
+        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="footer-links">
+      <p><b>Contact:</b> <a href="mailto:contact@intern.nation">contact@intern.nation</a></p>
+      <p><b>Support:</b> <a href="mailto:support@intern.nation">support@intern.nation</a></p>
+      <p><b>Our Address:</b> 302, 3rd Floor, Turing Block, Chitkara University, Punjab.</p>
+      <p><a href="../index.html">Home</a> | <a href="../about.html">About Us</a> | <a href="blogs/blogs.html">Blog</a> | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms & Conditions</a></p>
+    </div>
+  </footer>
 </body>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
-    const updateBtn = document.getElementById("updateBtn");
-    const profileList = document.getElementById("profile-info-list");
-    let editing = false;
+document.addEventListener("DOMContentLoaded", () => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
+  const updateBtn = document.getElementById("updateBtn");
+  const profileList = document.getElementById("profile-info-list");
+  
+  // FIX: Select header elements
+  const profileName = document.getElementById("profileName");
+  const profileEmail = document.getElementById("profileEmail");
 
-    // Load existing details
-    function loadProfile() {
-      const lis = profileList.querySelectorAll("li");
-      lis[0].innerHTML = `<strong>Student ID:</strong> ${userInfo.studentId || "N/A"}`;
-      lis[1].innerHTML = `<strong>Name:</strong> ${userInfo.name || "N/A"}`;
-      lis[2].innerHTML = `<strong>Email:</strong> ${userInfo.email || "N/A"}`;
-      lis[3].innerHTML = `<strong>Phone:</strong> ${userInfo.phone || "N/A"}`;
-      lis[4].innerHTML = `<strong>Department:</strong> ${userInfo.course || "N/A"}`;
-      lis[5].innerHTML = `<strong>Year of Study:</strong> ${userInfo.year || "N/A"}`;
-      lis[6].innerHTML = `<strong>CGPA:</strong> ${userInfo.cgpa || "N/A"}`;
-      lis[7].innerHTML = `<strong>Resume:</strong> ${userInfo.resume
+  let editing = false;
+
+  function loadProfile() {
+    // Update the Header
+    profileName.textContent = userInfo.name || "N/A";
+    profileEmail.textContent = userInfo.email || "N/A";
+
+    // Create the list items based on the current userInfo
+    profileList.innerHTML = `
+      <li><strong>Student ID:</strong> ${userInfo.studentId || "N/A"}</li>
+      <li><strong>Name:</strong> ${userInfo.name || "N/A"}</li>
+      <li><strong>Email:</strong> ${userInfo.email || "N/A"}</li>
+      <li><strong>Phone:</strong> ${userInfo.phone || "N/A"}</li>
+      <li><strong>Department:</strong> ${userInfo.department || "N/A"}</li>
+      <li><strong>Year of Study:</strong> ${userInfo.year || "N/A"}</li>
+      <li><strong>CGPA:</strong> ${userInfo.cgpa || "N/A"}</li>
+      <li><strong>Resume:</strong> ${
+        userInfo.resume
           ? `<a href="${userInfo.resume}" target="_blank">View Resume</a>`
           : `<a href="#">No Resume Uploaded</a>`
-        }`;
-    }
+      }</li>
+    `;
+  }
 
-    loadProfile();
+  loadProfile();
 
+  if (updateBtn) {
     updateBtn.addEventListener("click", () => {
       if (editing) return;
       editing = true;
       updateBtn.style.display = "none";
-
+      
+      // Use the list items created by loadProfile for editing
       const lis = profileList.querySelectorAll("li");
+      // Since the list is dynamically generated in loadProfile, we can target them by index:
       const yearLi = lis[5];
       const cgpaLi = lis[6];
       const resumeLi = lis[7];
 
-      // Replace Year and CGPA text with inputs
       const currentYear = userInfo.year || "";
       const currentCgpa = userInfo.cgpa || "";
 
       yearLi.innerHTML = `
-      <strong>Year of Study:</strong>
-      <select id="yearInput">
-        <option value="" disabled>Select Year</option>
-        <option value="1st Year" ${currentYear === "1st Year" ? "selected" : ""}>1st Year</option>
-        <option value="2nd Year" ${currentYear === "2nd Year" ? "selected" : ""}>2nd Year</option>
-        <option value="3rd Year" ${currentYear === "3rd Year" ? "selected" : ""}>3rd Year</option>
-        <option value="4th Year" ${currentYear === "4th Year" ? "selected" : ""}>4th Year</option>
-      </select>
-    `;
+        <strong>Year of Study:</strong>
+        <select id="yearInput">
+          <option value="" disabled>Select Year</option>
+          <option value="1st Year" ${currentYear === "1st Year" ? "selected" : ""}>1st Year</option>
+          <option value="2nd Year" ${currentYear === "2nd Year" ? "selected" : ""}>2nd Year</option>
+          <option value="3rd Year" ${currentYear === "3rd Year" ? "selected" : ""}>3rd Year</option>
+          <option value="4th Year" ${currentYear === "4th Year" ? "selected" : ""}>4th Year</option>
+        </select>
+      `;
 
       cgpaLi.innerHTML = `
-      <strong>CGPA:</strong>
-      <input type="number" id="cgpaInput" min="0" max="10" step="0.01" value="${currentCgpa}" placeholder="Enter CGPA">
-    `;
+        <strong>CGPA:</strong>
+        <input type="number" id="cgpaInput" min="0" max="10" step="0.01" value="${currentCgpa}" placeholder="Enter CGPA">
+      `;
 
       resumeLi.innerHTML = `
-      <strong>Resume:</strong>
-      <input type="file" id="resumeInput" accept=".pdf,.doc,.docx">
-    `;
+        <strong>Resume:</strong>
+        <input type="file" id="resumeInput" accept=".pdf,.doc,.docx">
+      `;
 
-      // Add save/cancel buttons
       const btnContainer = document.createElement("div");
       btnContainer.classList.add("edit-btn-container");
       btnContainer.innerHTML = `
-      <button id="saveBtn" class="save-btn">Save Details</button>
-      <button id="cancelBtn" class="cancel-btn">Cancel</button>
-    `;
-      profileList.parentElement.appendChild(btnContainer);
+        <button id="saveBtn" class="save-btn">Save Details</button>
+        <button id="cancelBtn" class="cancel-btn">Cancel</button>
+      `;
+      // Append buttons below the profile card
+      profileList.closest('.profile-card').appendChild(btnContainer);
 
       document.getElementById("cancelBtn").addEventListener("click", () => {
         btnContainer.remove();
         editing = false;
         updateBtn.style.display = "inline-block";
-        loadProfile();
+        loadProfile(); // Reloads the original data
       });
 
       document.getElementById("saveBtn").addEventListener("click", () => {
@@ -167,9 +171,11 @@
         const newCgpa = document.getElementById("cgpaInput").value;
         const resumeFile = document.getElementById("resumeInput").files[0];
 
+        // Update data only if a value is provided
         if (newYear) userInfo.year = newYear;
         if (newCgpa) userInfo.cgpa = newCgpa;
         if (resumeFile) {
+          // For resume, store the file name or a URL for local display/testing
           const fileURL = URL.createObjectURL(resumeFile);
           userInfo.resume = fileURL;
         }
@@ -180,21 +186,21 @@
         btnContainer.remove();
         editing = false;
         updateBtn.style.display = "inline-block";
-        loadProfile();
+        loadProfile(); // Reloads the page with new saved data
       });
     });
-  });
+  } else {
+    console.error("Error: The 'Update Details' button with ID 'updateBtn' was not found.");
+  }
+});
 
-  // Add logout functionality
-  const logoutLink = document.createElement('li');
-  logoutLink.innerHTML = '<a href="#" id="logout">Logout</a>';
-  document.querySelector('.main-nav ul').appendChild(logoutLink);
-  document.getElementById('logout').addEventListener('click', () => {
-    localStorage.removeItem('userInfo');
-    window.location.href = '../login.html';
-  });
-
+// Logout link (kept from your original script)
+const logoutLink = document.createElement('li');
+logoutLink.innerHTML = '<a href="#" id="logout">Logout</a>';
+document.querySelector('.main-nav ul').appendChild(logoutLink);
+document.getElementById('logout').addEventListener('click', () => {
+  localStorage.removeItem('userInfo');
+  window.location.href = '../login.html';
+});
 </script>
-
-
 </html>
