@@ -263,6 +263,8 @@ body {
 .status.shortlisted { background: #d4edda; color: #155724; }
 .status.rejected { background: #f8d7da; color: #721c24; }
 .status.selected { background: #abe1b8; color: #155724; }
+.status.withdrawn{ color: red;   font-size: 13px; font-weight: bold; }
+.actions-withdrawn {color: red;   font-size: 13px; font-weight: bold; }
 
 .btn {
   padding: 6px 12px;
