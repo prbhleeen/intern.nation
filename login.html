@@ -23,7 +23,10 @@
     <div class="google-signin">
       <div id="g_id_onload"
            data-client_id="YOUR_CLIENT_ID.apps.googleusercontent.com"
-           data-callback="handleCredentialResponse">
+           data-callback="handleCredentialResponse"
+           data-context="signin"
+           data-ux_mode="popup"
+           data-auto_prompt="false">
       </div>
       <div class="g_id_signin"
            data-type="standard"
@@ -33,6 +36,9 @@
            data-size="large"
            data-logo_alignment="left">
       </div>
+      <p id="google-error" style="color: red; font-size: 0.8rem; display: none; margin-top: 5px;">
+        Google Sign-In is not configured. Please set up OAuth credentials in Google Cloud Console.
+      </p>
     </div>
     <hr style="margin: 1rem 0; border: none; border-top: 1px solid #ccc;">
     <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">Or sign in with email</p>
@@ -119,6 +125,20 @@
 
     showForm("student");
 
+    // Check if Google Sign-In is configured
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+          // Google Sign-In is loaded
+          console.log('Google Sign-In loaded successfully');
+        } else {
+          // Google Sign-In failed to load
+          document.getElementById('google-error').textContent = 'Google Sign-In is not configured. Please set up OAuth credentials in Google Cloud Console.';
+          document.getElementById('google-error').style.display = 'block';
+        }
+      }, 2000); // Wait 2 seconds for script to load
+    });
+
     // Handle form submits for authentication
     document.getElementById('student').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -160,17 +180,23 @@
     });
 
     function handleCredentialResponse(response) {
-      const responsePayload = decodeJwtResponse(response.credential);
-      const userInfo = {
-        name: responsePayload.name,
-        email: responsePayload.email,
-        picture: responsePayload.picture,
-        id: responsePayload.sub,
-        authProvider: 'google'
-      };
-      localStorage.setItem('userInfo', JSON.stringify(userInfo));
-      // Redirect to student dashboard (default role)
-      window.location.href = 'student_dashboard/student_dashboard.html';
+      try {
+        const responsePayload = decodeJwtResponse(response.credential);
+        const userInfo = {
+          name: responsePayload.name,
+          email: responsePayload.email,
+          picture: responsePayload.picture,
+          id: responsePayload.sub,
+          authProvider: 'google'
+        };
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
+        // Redirect to student dashboard (default role)
+        window.location.href = 'student_dashboard/student_dashboard.html';
+      } catch (error) {
+        console.error('Google Sign-In error:', error);
+        document.getElementById('google-error').textContent = 'Google Sign-In failed. Please try again or use email login.';
+        document.getElementById('google-error').style.display = 'block';
+      }
     }
 
     function decodeJwtResponse(token) {
