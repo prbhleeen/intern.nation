@@ -1,1 +1,1 @@
-- [ ] Add certification display section to mycertifications.html with sample certifications
+- [x] Add certification display section to mycertifications.html with sample certifications
