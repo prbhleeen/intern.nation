@@ -107,6 +107,35 @@
   </footer>
 
 <script>
+   document.addEventListener("DOMContentLoaded", () => {
+      // ✅ Load user info
+      const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
+
+      // If not logged in, redirect to login page
+      if (!userInfo.email) {
+        alert("You must log in first!");
+        window.location.href = "login.html";
+        return;
+      }
+
+      // ✅ Update profile info
+      const profileName = document.querySelector(".profile-name");
+      const profileEmail = document.querySelector(".profile-email");
+
+      if (profileName) profileName.textContent = userInfo.name || "Admin";
+      if (profileEmail) profileEmail.textContent = `Email: ${userInfo.email}`;
+
+      // ✅ Logout logic
+      const logoutBtn = document.getElementById("confirmLogout");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          localStorage.removeItem("userInfo");
+          alert("Logged out successfully!");
+          window.location.href = "login.html";
+        });
+      }
+    });
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   if (!userInfo || userInfo.role !== 'company') {
     window.location.href = 'login.html';
@@ -130,9 +159,9 @@
     <a href="#!" class="close-btn" onclick="window.location.hash=''; return false;">✖</a>
     <h3 class="profile-title">Profile</h3>
     <div class="profile-content">
-      <img src="saksham.png" alt="Company Profile">
-      <h2 class="profile-name">Saksham</h2>
-      <p class="profile-email">Email: saksham@company.com</p>
+      <img src="shagun.png" alt="Company Profile">
+      <h2 class="profile-name">Shagun</h2>
+      <p class="profile-email">Email: shagun@company.com</p>
       <p class="profile-role">Role: Company HR</p>
     </div>
   </div>
