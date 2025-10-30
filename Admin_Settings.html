@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Admin_Settings.css" />
     <link rel="icon" type="jpeg" href="https://github.com/prbhleeen/intern.nation/blob/main/logo.jpeg?raw=true">
     <style>
-        /* Optional: smooth transition when switching themes */
+
         * {
             transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
         }
@@ -109,13 +109,13 @@
     </footer>
 
     <script>
-        // Handle Save button redirect
+        
         document.getElementById("settingsForm").addEventListener("submit", function (e) {
             e.preventDefault();
             window.location.href = "Dashboard.html";
         });
 
-        // Load saved theme on page load
+        
         document.addEventListener("DOMContentLoaded", () => {
             const savedTheme = localStorage.getItem("theme") || "light";
             document.documentElement.setAttribute("data-theme", savedTheme);
