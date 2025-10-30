@@ -174,24 +174,24 @@
 
   <script>
      document.addEventListener("DOMContentLoaded", () => {
-      // ✅ Load user info
+      
       const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
 
-      // If not logged in, redirect to login page
+     
       if (!userInfo.email) {
         alert("You must log in first!");
         window.location.href = "login.html";
         return;
       }
 
-      // ✅ Update profile info
-      const profileName = document.querySelector(".profile-name");
+      
+       const profileName = document.querySelector(".profile-name");
       const profileEmail = document.querySelector(".profile-email");
 
       if (profileName) profileName.textContent = userInfo.name || "Admin";
       if (profileEmail) profileEmail.textContent = `Email: ${userInfo.email}`;
 
-      // ✅ Logout logic
+  
       const logoutBtn = document.getElementById("confirmLogout");
       if (logoutBtn) {
         logoutBtn.addEventListener("click", (e) => {
@@ -203,11 +203,11 @@
       }
     });
     document.addEventListener("DOMContentLoaded", () => {
-      // Apply saved theme
+     
       const savedTheme = localStorage.getItem("theme") || "light";
       document.documentElement.setAttribute("data-theme", savedTheme);
 
-      // Restore saved statuses
+
       const savedStatuses = JSON.parse(localStorage.getItem("adminStatuses")) || {};
       document.querySelectorAll("table tbody tr").forEach(row => {
         const key = row.querySelector("td:first-child")?.textContent?.trim();
@@ -218,7 +218,7 @@
         }
       });
 
-      // Handle Approve / Reject buttons
+      
       const approveButtons = document.querySelectorAll(".action-button.approve");
       const rejectButtons = document.querySelectorAll(".action-button.reject");
 
@@ -248,7 +248,7 @@
       }
 
 
-      // ✅ Handle "View" button clicks
+     
       document.querySelectorAll(".action-button.view").forEach(button => {
         button.addEventListener("click", () => {
           const section = button.closest("section");
@@ -264,7 +264,7 @@
         });
       });
 
-      // Simple toast message
+     
       function showToast(message) {
         const toast = document.createElement("div");
         toast.textContent = message;
