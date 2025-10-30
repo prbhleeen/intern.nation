@@ -83,18 +83,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateBtn = document.getElementById("updateBtn");
   const profileList = document.getElementById("profile-info-list");
   
-  // FIX: Select header elements
+  
   const profileName = document.getElementById("profileName");
   const profileEmail = document.getElementById("profileEmail");
 
   let editing = false;
 
   function loadProfile() {
-    // Update the Header
+    
     profileName.textContent = userInfo.name || "N/A";
     profileEmail.textContent = userInfo.email || "N/A";
 
-    // Create the list items based on the current userInfo
+    
     profileList.innerHTML = `
       <li><strong>Student ID:</strong> ${userInfo.studentId || "N/A"}</li>
       <li><strong>Name:</strong> ${userInfo.name || "N/A"}</li>
@@ -119,9 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
       editing = true;
       updateBtn.style.display = "none";
       
-      // Use the list items created by loadProfile for editing
+      
       const lis = profileList.querySelectorAll("li");
-      // Since the list is dynamically generated in loadProfile, we can target them by index:
+      
       const yearLi = lis[5];
       const cgpaLi = lis[6];
       const resumeLi = lis[7];
@@ -156,14 +156,14 @@ document.addEventListener("DOMContentLoaded", () => {
         <button id="saveBtn" class="save-btn">Save Details</button>
         <button id="cancelBtn" class="cancel-btn">Cancel</button>
       `;
-      // Append buttons below the profile card
+      
       profileList.closest('.profile-card').appendChild(btnContainer);
 
       document.getElementById("cancelBtn").addEventListener("click", () => {
         btnContainer.remove();
         editing = false;
         updateBtn.style.display = "inline-block";
-        loadProfile(); // Reloads the original data
+        loadProfile(); 
       });
 
       document.getElementById("saveBtn").addEventListener("click", () => {
@@ -171,11 +171,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const newCgpa = document.getElementById("cgpaInput").value;
         const resumeFile = document.getElementById("resumeInput").files[0];
 
-        // Update data only if a value is provided
+        
         if (newYear) userInfo.year = newYear;
         if (newCgpa) userInfo.cgpa = newCgpa;
         if (resumeFile) {
-          // For resume, store the file name or a URL for local display/testing
+          
           const fileURL = URL.createObjectURL(resumeFile);
           userInfo.resume = fileURL;
         }
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btnContainer.remove();
         editing = false;
         updateBtn.style.display = "inline-block";
-        loadProfile(); // Reloads the page with new saved data
+        loadProfile(); 
       });
     });
   } else {
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Logout link (kept from your original script)
+
 const logoutLink = document.createElement('li');
 logoutLink.innerHTML = '<a href="#" id="logout">Logout</a>';
 document.querySelector('.main-nav ul').appendChild(logoutLink);
