@@ -88,7 +88,7 @@
         <p class="links">New here? <a href="signup.html">Create account</a></p>
       </form>
 
-      <!-- admin form -->
+      <!--admin form-->
       <form class="form" id="admin" action="Admin_Dashboard.html" method="get" style="display:none;">
         <label>Admin Email</label>
         <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter admin email" required name="email">
@@ -129,17 +129,17 @@
     window.addEventListener('load', function() {
       setTimeout(() => {
         if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
-          // Google Sign-In is loaded
+          
           console.log('Google Sign-In loaded successfully');
         } else {
-          // Google Sign-In failed to load
+        
           document.getElementById('google-error').textContent = 'Google Sign-In is not configured. Please set up OAuth credentials in Google Cloud Console.';
           document.getElementById('google-error').style.display = 'block';
         }
       }, 2000); // Wait 2 seconds for script to load
     });
 
-    // Handle form submits for authentication
+  
     document.getElementById('student').addEventListener('submit', function(e) {
       e.preventDefault();
       const formData = new FormData(e.target);
