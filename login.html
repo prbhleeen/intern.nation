@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | Intern.Nation</title>
-  <link rel="stylesheet" href="login.css">
-  <link rel="icon" href="logo.jpeg">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="icon" href="assets/logo.jpeg">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
   <section class="card">
     <header class="logo-section">
-      <img src="logo.jpeg" alt="Intern.Nation Logo" class="logo-img">
+      <img src="assets/logo.jpeg" alt="Intern.Nation Logo" class="logo-img">
       <div>
         <h1 class="site-title">intern.nation</h1>
         <p class="tagline">Connecting Talent with Opportunity</p>
@@ -73,7 +73,7 @@
       </form>
 
       <!-- company form -->
-      <form class="form" id="company" action="companydashboard.html" method="get" style="display:none;">
+      <form class="form" id="company" action="company_dashboard/companydashboard.html" method="get" style="display:none;">
         <label>Company Email</label>
         <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter company email" required name="email">
 
@@ -89,7 +89,7 @@
       </form>
 
       <!--admin form-->
-      <form class="form" id="admin" action="Admin_Dashboard.html" method="get" style="display:none;">
+      <form class="form" id="admin" action="admin_dashboard/Admin_Dashboard.html" method="get" style="display:none;">
         <label>Admin Email</label>
         <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter admin email" required name="email">
 
@@ -163,7 +163,7 @@
         authProvider: 'form'
       };
       localStorage.setItem('userInfo', JSON.stringify(userInfo));
-      window.location.href = 'companydashboard.html';
+      window.location.href = 'company_dashboard/companydashboard.html';
     });
 
     document.getElementById('admin').addEventListener('submit', function(e) {
@@ -176,7 +176,7 @@
         authProvider: 'form'
       };
       localStorage.setItem('userInfo', JSON.stringify(userInfo));
-      window.location.href = 'Admin_Dashboard.html';
+      window.location.href = 'admin_dashboard/Admin_Dashboard.html';
     });
 
     function handleCredentialResponse(response) {
