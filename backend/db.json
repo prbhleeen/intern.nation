@@ -1,5 +1,16 @@
 {
-  "students": [],
+  "students": [
+    {
+      "name": "Prabhleen Kaur",
+      "email": "prabhleen0742.becse24@chitkara.edu.in",
+      "password": "Prabhleen@123",
+      "studentId": "2410990742",
+      "college": "Chitkara University",
+      "department": "CSE",
+      "role": "student",
+      "id": 1762619912034
+    }
+  ],
   "companies": [],
   "admins": [
     {
