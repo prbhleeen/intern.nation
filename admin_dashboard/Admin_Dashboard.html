@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | intern.nation</title>
-  <link rel="stylesheet" href="Admin_Dashboard.css">
-  <link rel="icon" type="jpeg" href="https://github.com/prbhleeen/intern.nation/blob/main/logo.jpeg?raw=true">
+  <link rel="stylesheet" href="../css/Admin_Dashboard.css">
+  <link rel="icon" type="jpeg" href="../assets/logo.jpeg">
 </head>
 
 <body>
 
   <header>
-    <img src="https://github.com/prbhleeen/intern.nation/blob/main/logo.jpeg?raw=true" alt="intern.nation Logo">
+    <img src="../assets/logo.jpeg" alt="intern.nation Logo">
     <h1>intern.nation - Admin Dashboard</h1>
   </header>
 
@@ -164,7 +164,7 @@
       <a href="#!" class="close-btn" onclick="window.location.hash=''; return false;">✖</a>
       <h3 class="profile-title">Profile</h3>
       <div class="profile-content">
-        <img src="https://github.com/prbhleeen/intern.nation/blob/main/shipra.png?raw=true" alt="Admin Profile">
+        <img src="../assets/shipra.png" alt="Admin Profile">
         <h2 class="profile-name">Shipra</h2>
         <p class="profile-email">Email: Shipra@internnation.com</p>
         <p class="profile-role">Role: Admin</p>
@@ -180,7 +180,7 @@
      
       if (!userInfo.email) {
         alert("You must log in first!");
-        window.location.href = "login.html";
+        window.location.href = "../login.html";
         return;
       }
 
@@ -198,7 +198,7 @@
           e.preventDefault();
           localStorage.removeItem("userInfo");
           alert("Logged out successfully!");
-          window.location.href = "login.html";
+          window.location.href = "../login.html";
         });
       }
     });
