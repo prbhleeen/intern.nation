@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COMPANY DASHBOARD | intern.nation</title>
-  <link rel="stylesheet" href="companydashboard.css">
-  <link rel="icon" type="jpeg" href="logo.jpeg">
+  <link rel="stylesheet" href="../css/companydashboard.css">
+  <link rel="icon" type="jpeg" href="../assets/logo.jpeg">
 </head>
 <body>
   <header>
-    <img src="logo.jpeg" alt="intern.nation Logo">
+    <img src="../assets/logo.jpeg" alt="intern.nation Logo">
     <h1>intern.nation - Company Dashboard</h1>
   </header>
 
@@ -114,7 +114,7 @@
       // If not logged in, redirect to login page
       if (!userInfo.email) {
         alert("You must log in first!");
-        window.location.href = "login.html";
+        window.location.href = "../login.html";
         return;
       }
 
@@ -132,13 +132,13 @@
           e.preventDefault();
           localStorage.removeItem("userInfo");
           alert("Logged out successfully!");
-          window.location.href = "login.html";
+          window.location.href = "../login.html";
         });
       }
     });
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   if (!userInfo || userInfo.role !== 'company') {
-    window.location.href = 'login.html';
+    window.location.href = '../login.html';
   }
 
   // Add logout functionality
@@ -150,7 +150,7 @@
   header.appendChild(logoutLink);
   logoutLink.addEventListener('click', () => {
     localStorage.removeItem('userInfo');
-    window.location.href = 'login.html';
+    window.location.href = '../login.html';
   });
 </script>
 
@@ -159,7 +159,7 @@
     <a href="#!" class="close-btn" onclick="window.location.hash=''; return false;">✖</a>
     <h3 class="profile-title">Profile</h3>
     <div class="profile-content">
-      <img src="shagun.png" alt="Company Profile">
+      <img src="../assets/shagun.png" alt="Company Profile">
       <h2 class="profile-name">Shagun</h2>
       <p class="profile-email">Email: shagun@company.com</p>
       <p class="profile-role">Role: Company HR</p>
