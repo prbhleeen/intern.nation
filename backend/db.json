@@ -1,0 +1,15 @@
+{
+  "students": [],
+  "companies": [],
+  "admins": [
+    {
+      "id": 1,
+      "name": "Shipra",
+      "email": "admin@internnation.com",
+      "password": "Admin@123",
+      "role": "admin"
+    }
+  ],
+  "drives": [],
+  "applications": []
+}
