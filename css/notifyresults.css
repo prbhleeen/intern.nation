@@ -29,7 +29,7 @@ header img {
   border-radius: 6px;
 }
 
-.dashboard-container {
+/* .dashboard-container {
   display: flex;
   min-height: 90vh;
 }
@@ -64,7 +64,7 @@ header img {
   background: var(--accent);
   color: var(--primary);
   font-weight: 600;
-}
+} */
 
 .main-content {
   flex: 1;
