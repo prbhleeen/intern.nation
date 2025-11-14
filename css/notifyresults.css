@@ -1,0 +1,205 @@
+:root {
+  --primary: #1F1F4E;
+  --accent: #CBB88B;
+  --bg-light: #F7F7FB;
+  --card-bg: #FFFFFF;
+  --text: #333;
+  --selected: #4CAF50;
+  --rejected: #F44336;
+  --pending: #FF9800;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-light);
+  color: var(--text);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+}
+header img {
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 90vh;
+}
+
+.sidebar {
+  width: 230px;
+  background: var(--primary);
+  color: white;
+  padding: 20px 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 18px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 6px;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px 40px;
+  background: var(--bg-light);
+}
+
+h2 {
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.applicants-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.applicant-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+.applicant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.applicant-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.applicant-card h3 {
+  margin: 5px 0;
+  color: var(--primary);
+}
+
+.applicant-card p {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.status-dropdown {
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--primary);
+  width: 100%;
+}
+
+.status-dropdown.Selected {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: var(--selected);
+  color: var(--selected);
+}
+.status-dropdown.Rejected {
+  background: rgba(244, 67, 54, 0.1);
+  border-color: var(--rejected);
+  color: var(--rejected);
+}
+.status-dropdown.Pending {
+  background: rgba(255, 152, 0, 0.1);
+  border-color: var(--pending);
+  color: var(--pending);
+}
+
+button.email-btn {
+  margin-top: 10px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
+}
+button.email-btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.action-bar {
+  margin-top: 25px;
+  text-align: center;
+}
+
+#sendNotifications {
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#sendNotifications:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.toast {
+  position: fixed;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--primary);
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: bottom 0.5s ease;
+}
+
+.toast.show {
+  bottom: 30px;
+}
+
+footer {
+  text-align: center;
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+}
