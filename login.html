@@ -6,11 +6,15 @@
   <title>Login | Intern.Nation</title>
   <link rel="stylesheet" href="css/login.css">
   <link rel="icon" href="assets/logo.jpeg">
+  
+  
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="js/login.js" defer></script>
 </head>
+
 <body>
   <section class="card">
-
+]
     <header class="logo-section">
       <img src="assets/logo.jpeg" alt="Intern.Nation Logo" class="logo-img">
       <div>
@@ -21,13 +25,13 @@
 
     <h2>Login</h2>
 
+    
     <div class="google-signin">
       <div id="g_id_onload"
-           data-client_id="1075814952266-5r0qc8594gb703kqescj901nse0fag52.apps.googleusercontent.com"
+           data-client_id="611433776528-lq0j7smemh6p7qqg65sgtub6rch7arpp.apps.googleusercontent.com"
            data-callback="handleCredentialResponse"
            data-context="signin"
-           data-ux_mode="popup"
-           data-auto_prompt="false">
+           data-ux_mode="popup">
       </div>
 
       <div class="g_id_signin"
@@ -36,17 +40,17 @@
            data-theme="outline"
            data-text="sign_in_with"
            data-size="large"
-           data-logo_alignment="left">
-      </div>
+           data-logo_alignment="left"></div>
 
-      <p id="google-error" style="color: red; font-size: 0.8rem; display: none; margin-top: 5px;">
-        Google Sign-In failed. Please try again.
+      <p id="google-error" style="display:none; color:red; font-size: 0.8rem;">
+        Google Sign-In failed. Try again.
       </p>
     </div>
 
-    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #ccc;">
-    <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">Or sign in with email</p>
+    <hr>
+    <p style="text-align:center; color:#666;">Or sign in with email</p>
 
+    
     <div class="role-selector">
       <input type="radio" name="role" id="student-tab" checked>
       <label for="student-tab">Student</label>
@@ -58,48 +62,57 @@
       <label for="company-tab">Company</label>
     </div>
 
- 
+    
     <div class="forms">
 
-      <form class="form" id="student" action="#" method="get">
+      
+      <form class="form" id="student" action="#" method="post">
         <label>Email</label>
-        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter email" required name="email">
+        <input type="email" placeholder="Enter email" required name="email">
+
         <label>Password</label>
-        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
+        <input type="password" placeholder="Enter password" required name="password">
+
         <label>Student ID</label>
-        <input type="text" pattern="[0-9]{10}" placeholder="Enter 10-digit Student ID" required name="studentId">
+        <input type="text" placeholder="Enter 10-digit Student ID" required name="studentId">
+
         <button type="submit">Sign In</button>
+
         <p class="links"><a href="forgot_password.html">Forgot password?</a></p>
         <p class="links">New here? <a href="signup.html">Create account</a></p>
       </form>
-
-      <form class="form" id="company" action="#" method="get" style="display:none;">
+      <form class="form" id="company" action="#" method="post" style="display:none;">
         <label>Company Email</label>
-        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter company email" required name="email">
+        <input type="email" placeholder="Enter email" required name="email">
+
         <label>Password</label>
-        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
+        <input type="password" placeholder="Enter password" required name="password">
+
         <label>Company ID</label>
-        <input type="text" pattern="[0-9]{10}" placeholder="Enter 10-digit Company ID" required name="companyId">
+        <input type="text" placeholder="Enter 10-digit Company ID" required name="companyId">
+
         <button type="submit">Sign In</button>
+
         <p class="links"><a href="forgot_password.html">Forgot password?</a></p>
         <p class="links">New here? <a href="signup.html">Create account</a></p>
       </form>
 
-      <form class="form" id="admin" action="#" method="get" style="display:none;">
+      <form class="form" id="admin" action="#" method="post" style="display:none;">
         <label>Admin Email</label>
-        <input type="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter admin email" required name="email">
+        <input type="email" placeholder="Enter email" required name="email">
+
         <label>Password</label>
-        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" placeholder="Enter password" required name="password">
+        <input type="password" placeholder="Enter password" required name="password">
+
         <label>Admin ID</label>
-        <input type="text" pattern="[0-9]{10}" placeholder="Enter 10-digit Admin ID" required name="adminId">
+        <input type="text" placeholder="Enter 10-digit Admin ID" required name="adminId">
+
         <button type="submit">Sign In</button>
+
         <p class="links"><a href="forgot_password.html">Forgot password?</a></p>
         <p class="links">New here? <a href="signup.html">Create account</a></p>
       </form>
-
     </div>
   </section>
-
-  <script src="js/login.js"></script>
 </body>
 </html>
