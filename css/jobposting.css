@@ -25,42 +25,34 @@ header img {
 }
 
 .sidebar {
-  width: 220px;
-  background: #1F1F4E;
-  color: white;
-  padding: 20px 10px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  width: 250px;
+  background-color: var(--primary-color);
+  padding-top: 1rem;
 }
+
 .sidebar ul {
   list-style: none;
   padding: 0;
-}
-.sidebar ul li {
-  margin: 0; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
-}
-.sidebar ul li:last-child {
-    border-bottom: none; 
+  margin: 0;
 }
 
-.sidebar ul li a {
+.sidebar li {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.8rem 1.2rem;
   color: white;
   text-decoration: none;
-  font-size: 15px;
-  display: block;
-  padding: 12px 8px; 
-  border-radius: 6px;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s ease;
 }
-.sidebar ul li a:hover {
-  background: #CBB88B;
-  color: #1F1F4E;
+
+.sidebar a:hover, .sidebar a.active {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
 }
-.sidebar ul li a.active {
-  background: #CBB88B;
-  color: #1F1F4E;
-  font-weight: bold;
-}
+
 
 .main-content {
   flex: 1;
