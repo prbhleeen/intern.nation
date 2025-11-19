@@ -14,7 +14,7 @@ body, html {
   height: 100%;
   font-family: 'Poppins', Arial, sans-serif;
   color: white;
-  background-color: var(--primary-color); /* Static blue background */
+  background-color: var(--primary-color);
   overflow-x: hidden;
 }
 
@@ -48,7 +48,7 @@ nav ul li a:hover {
   color: var(--hover-beige);
 }
 
-/* Contact Section */
+
 .contact-section {
   text-align: center;
   padding: 120px 40px 100px;
@@ -124,7 +124,87 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Social Icons */
+
+.contact-form-container {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 40px 30px;
+  width: 80%;
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+  animation: fadeInUp 1s ease-in-out;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.contact-form-container h2 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.contact-form-container p {
+  color: var(--hover-beige);
+  margin-bottom: 25px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 3px 15px rgba(203,184,139,0.5);
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--hover-beige);   
+  opacity: 1;                 
+}
+
+
+.contact-form textarea {
+  height: 130px;
+  resize: none;
+}
+
+.btn-submit {
+  background: var(--accent-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+  box-shadow: 0 3px 15px rgba(203,184,139,0.4);
+}
+
+.btn-submit:hover {
+  background: var(--hover-beige);
+  transform: scale(1.05);
+}
+
+
+
 .socials {
   margin-top: 70px;
 }
@@ -157,6 +237,8 @@ nav ul li a:hover {
   transform: scale(1.1);
 }
 
+
+
 footer {
   position: fixed;
   bottom: 0;
@@ -178,7 +260,8 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Animation */
+
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
