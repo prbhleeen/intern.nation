@@ -1,3 +1,4 @@
+
 const forms = document.querySelectorAll(".form");
 const radios = document.querySelectorAll("input[name='role']");
 
@@ -5,6 +6,7 @@ function showForm(role) {
   forms.forEach(f => f.style.display = "none");
   document.getElementById(role).style.display = "block";
 }
+
 
 radios.forEach(radio => {
   radio.addEventListener("change", () => {
@@ -15,6 +17,7 @@ radios.forEach(radio => {
 });
 
 showForm("student");
+
 
 function handleCredentialResponse(response) {
   try {
@@ -47,51 +50,26 @@ function decodeJwt(token) {
       .map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
       .join("")
   );
-
   return JSON.parse(jsonPayload);
 }
 
-document.getElementById("student").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const formData = new FormData(e.target);
+function processForm(id, role, redirect) {
+  document.getElementById(id).addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
 
-  const userInfo = {
-    role: "student",
-    email: formData.get("email"),
-    studentId: formData.get("studentId"),
-    authProvider: "form"
-  };
+    const userInfo = {
+      role: role,
+      email: formData.get("email"),
+      id: formData.get(role + "Id") || null,
+      authProvider: "form"
+    };
 
-  localStorage.setItem("userInfo", JSON.stringify(userInfo));
-  window.location.href = "student_dashboard/student_dashboard.html";
-});
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    window.location.href = redirect;
+  });
+}
 
-document.getElementById("company").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-
-  const userInfo = {
-    role: "company",
-    email: formData.get("email"),
-    companyId: formData.get("companyId"),
-    authProvider: "form"
-  };
-
-  localStorage.setItem("userInfo", JSON.stringify(userInfo));
-  window.location.href = "company_dashboard/companydashboard.html";
-});
-
-document.getElementById("admin").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-
-  const userInfo = {
-    role: "admin",
-    email: formData.get("email"),
-    adminId: formData.get("adminId"),
-    authProvider: "form"
-  };
-
-  localStorage.setItem("userInfo", JSON.stringify(userInfo));
-  window.location.href = "admin_dashboard/Admin_Dashboard.html";
-});
+processForm("student", "student", "student_dashboard/student_dashboard.html");
+processForm("company", "company", "company_dashboard/companydashboard.html");
+processForm("admin", "admin", "admin_dashboard/Admin_Dashboard.html");
