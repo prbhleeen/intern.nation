@@ -6,8 +6,7 @@
   <title>Login | Intern.Nation</title>
   <link rel="stylesheet" href="css/login.css">
   <link rel="icon" href="assets/logo.jpeg">
-  
-  
+
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="js/login.js" defer></script>
 </head>
@@ -50,7 +49,6 @@
     <hr>
     <p style="text-align:center; color:#666;">Or sign in with email</p>
 
-    
     <div class="role-selector">
       <input type="radio" name="role" id="student-tab" checked>
       <label for="student-tab">Student</label>
@@ -64,8 +62,7 @@
 
     
     <div class="forms">
-
-      
+      <!-- Student Form -->
       <form class="form" id="student" action="#" method="post">
         <label>Email</label>
         <input type="email" placeholder="Enter email" required name="email">
@@ -81,6 +78,8 @@
         <p class="links"><a href="forgot_password.html">Forgot password?</a></p>
         <p class="links">New here? <a href="signup.html">Create account</a></p>
       </form>
+
+     
       <form class="form" id="company" action="#" method="post" style="display:none;">
         <label>Company Email</label>
         <input type="email" placeholder="Enter email" required name="email">
@@ -97,6 +96,7 @@
         <p class="links">New here? <a href="signup.html">Create account</a></p>
       </form>
 
+      
       <form class="form" id="admin" action="#" method="post" style="display:none;">
         <label>Admin Email</label>
         <input type="email" placeholder="Enter email" required name="email">
