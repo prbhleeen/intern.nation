@@ -11,7 +11,18 @@
       "id": 1762619912034
     }
   ],
-  "companies": [],
+  "companies": [
+    {
+      "companyName": "TCS",
+      "email": "tcs@gmail.com",
+      "password": "thisisTCS@123",
+      "companyId": "1234567899",
+      "industry": "IT",
+      "location": "Bangalore",
+      "role": "company",
+      "id": 1763593369852
+    }
+  ],
   "admins": [
     {
       "id": 1,
@@ -21,6 +32,259 @@
       "role": "admin"
     }
   ],
-  "drives": [],
-  "applications": []
+  "drives": [
+    {
+      "postType": "Internship",
+      "jobTitle": "Software Development Intern",
+      "department": "Engineering",
+      "locationType": "On-Site",
+      "openings": 3,
+      "salary": "12000 / month",
+      "duration": "6 months",
+      "description": "Work with the engineering team to build scalable web applications.",
+      "skills": [
+        "Javascript",
+        "Node.js",
+        "React"
+      ],
+      "deadline": "2025-12-20",
+      "postedOn": "2025-11-19T23:16:26.471Z",
+      "companyId": 1763593369852,
+      "companyName": "TCS",
+      "id": 1763594186556
+    },
+    {
+      "postType": "Job",
+      "jobTitle": "Junior Data Analyst",
+      "department": "Data Science",
+      "locationType": "On-Site",
+      "openings": 6,
+      "salary": "6,50,000 / annum",
+      "duration": "Permanent",
+      "description": "Analyze data and generate insights.",
+      "skills": [
+        "SQL",
+        "Python",
+        "Excel"
+      ],
+      "deadline": "2025-12-28",
+      "postedOn": "2025-11-19T23:21:03.514Z",
+      "companyId": 1763593369852,
+      "companyName": "TCS",
+      "id": 1763594463564
+    },
+    {
+      "postType": "Internship",
+      "jobTitle": "UI/UX Design Intern",
+      "department": "Design",
+      "locationType": "Remote",
+      "openings": 2,
+      "salary": "15,000 / month",
+      "duration": "4 months",
+      "description": "Assist in designing mobile and web interfaces.",
+      "skills": [
+        "Figma",
+        "Adobe XD"
+      ],
+      "deadline": "2025-12-10",
+      "postedOn": "2025-11-18T14:10:00.000Z",
+      "companyId": 1764000000123,
+      "companyName": "Adobe",
+      "id": 1764000012345
+    },
+    {
+      "postType": "Job",
+      "jobTitle": "Backend Engineer",
+      "department": "Engineering",
+      "locationType": "Hybrid",
+      "openings": 4,
+      "salary": "10,00,000 / annum",
+      "duration": "Permanent",
+      "description": "Work on backend APIs and microservices.",
+      "skills": [
+        "Node.js",
+        "MongoDB",
+        "Docker"
+      ],
+      "deadline": "2025-12-30",
+      "postedOn": "2025-11-17T10:00:00.000Z",
+      "companyId": 1764100000456,
+      "companyName": "Amazon",
+      "id": 1764100023456
+    },
+    {
+      "postType": "Job",
+      "jobTitle": "Frontend Developer",
+      "department": "Engineering",
+      "locationType": "Remote",
+      "openings": 5,
+      "salary": "8,50,000 / annum",
+      "duration": "Permanent",
+      "description": "Build responsive UI components.",
+      "skills": [
+        "React",
+        "HTML",
+        "CSS"
+      ],
+      "deadline": "2025-12-25",
+      "postedOn": "2025-11-15T09:20:00.000Z",
+      "companyId": 1765000000101,
+      "companyName": "Google",
+      "id": 1765000008101
+    },
+    {
+      "postType": "Internship",
+      "jobTitle": "Marketing Intern",
+      "department": "Marketing",
+      "locationType": "Hybrid",
+      "openings": 3,
+      "salary": "10,000 / month",
+      "duration": "3 months",
+      "description": "Assist with digital marketing campaigns.",
+      "skills": [
+        "SEO",
+        "Social Media"
+      ],
+      "deadline": "2025-12-18",
+      "postedOn": "2025-11-14T12:30:00.000Z",
+      "companyId": 1765200000202,
+      "companyName": "Flipkart",
+      "id": 1765200008202
+    },
+    {
+      "postType": "Job",
+      "jobTitle": "Systems Engineer",
+      "department": "IT",
+      "locationType": "On-Site",
+      "openings": 7,
+      "salary": "7,20,000 / annum",
+      "duration": "Permanent",
+      "description": "Assist in maintaining enterprise systems.",
+      "skills": [
+        "Linux",
+        "Networking"
+      ],
+      "deadline": "2025-12-21",
+      "postedOn": "2025-11-13T16:40:00.000Z",
+      "companyId": 1765300000303,
+      "companyName": "Infosys",
+      "id": 1765300008303
+    },
+    {
+      "postType": "Internship",
+      "jobTitle": "Cloud Engineering Intern",
+      "department": "Cloud",
+      "locationType": "Remote",
+      "openings": 2,
+      "salary": "18,000 / month",
+      "duration": "5 months",
+      "description": "Learn cloud deployments and automation.",
+      "skills": [
+        "AWS",
+        "Docker"
+      ],
+      "deadline": "2025-12-26",
+      "postedOn": "2025-11-12T10:10:00.000Z",
+      "companyId": 1765400000404,
+      "companyName": "Microsoft",
+      "id": 1765400008404
+    },
+    {
+      "postType": "Job",
+      "jobTitle": "Cybersecurity Analyst",
+      "department": "Security",
+      "locationType": "Hybrid",
+      "openings": 4,
+      "salary": "9,00,000 / annum",
+      "duration": "Permanent",
+      "description": "Monitor and secure infrastructure.",
+      "skills": [
+        "SIEM",
+        "Risk Analysis"
+      ],
+      "deadline": "2025-12-24",
+      "postedOn": "2025-11-11T14:50:00.000Z",
+      "companyId": 1765500000505,
+      "companyName": "Cisco",
+      "id": 1765500008505
+    },
+    {
+      "postType": "Internship",
+      "jobTitle": "Business Analyst Intern",
+      "department": "Business",
+      "locationType": "On-Site",
+      "openings": 2,
+      "salary": "12,000 / month",
+      "duration": "2 months",
+      "description": "Assist business analysis team.",
+      "skills": [
+        "Excel",
+        "Communication"
+      ],
+      "deadline": "2025-12-22",
+      "postedOn": "2025-11-10T09:00:00.000Z",
+      "companyId": 1765600000606,
+      "companyName": "Deloitte",
+      "id": 1765600008606
+    },
+    {
+      "postType": "Job",
+      "jobTitle": "Product Manager",
+      "department": "Product",
+      "locationType": "On-Site",
+      "openings": 2,
+      "salary": "15,00,000 / annum",
+      "duration": "Permanent",
+      "description": "Manage product lifecycle and roadmap.",
+      "skills": [
+        "Leadership",
+        "Communication"
+      ],
+      "deadline": "2025-12-29",
+      "postedOn": "2025-11-09T11:22:00.000Z",
+      "companyId": 1765700000707,
+      "companyName": "Tesla",
+      "id": 1765700008707
+    },
+    {
+      "postType": "Internship",
+      "jobTitle": "Content Writing Intern",
+      "department": "Content",
+      "locationType": "Remote",
+      "openings": 4,
+      "salary": "8,000 / month",
+      "duration": "3 months",
+      "description": "Write content for blogs and websites.",
+      "skills": [
+        "Writing",
+        "SEO"
+      ],
+      "deadline": "2025-12-15",
+      "postedOn": "2025-11-08T13:10:00.000Z",
+      "companyId": 1765800000808,
+      "companyName": "Zomato",
+      "id": 1765800008808
+    },
+    {
+      "postType": "Job",
+      "jobTitle": "DevOps Engineer",
+      "department": "DevOps",
+      "locationType": "Hybrid",
+      "openings": 3,
+      "salary": "12,00,000 / annum",
+      "duration": "Permanent",
+      "description": "Automate CI/CD and maintain cloud infra.",
+      "skills": [
+        "CI/CD",
+        "Kubernetes"
+      ],
+      "deadline": "2025-12-27",
+      "postedOn": "2025-11-07T18:45:00.000Z",
+      "companyId": 1765900000909,
+      "companyName": "Netflix",
+      "id": 1765900008909
+    }
+  ],
+  "applications": [
+  ]
 }

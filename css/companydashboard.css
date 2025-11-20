@@ -4,7 +4,7 @@
   --background-color: #FFFFFF;
   --text-color: #1F1F4E;
   --hover-beige: rgb(232, 225, 208); 
-
+}
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -280,4 +280,4 @@ footer {
     opacity: 1;
     transform: scale(1);
   }
-}
+} 

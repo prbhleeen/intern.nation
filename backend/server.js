@@ -86,6 +86,67 @@ app.post("/api/login", (req, res) => {
   res.json({ message: "Login successful", user });
 });
 
+// 🆕 Create a new Drive (Job/Internship)
+app.post("/api/drives", (req, res) => {
+  const db = loadDB();
+  const drive = req.body;
+
+  drive.id = Date.now(); // generate unique ID
+  db.drives.push(drive);
+  saveDB(db);
+
+  res.json({ message: "Drive created successfully!", drive });
+});
+
+// 🔍 Get all drives for students
+app.get("/api/drives", (req, res) => {
+  const db = loadDB();
+  res.json(db.drives);
+});
+
+// 📝 Student applies for a drive
+app.post("/api/applications", (req, res) => {
+  const db = loadDB();
+  const application = req.body;
+
+  // Prevent duplicate applications
+  const exists = db.applications.find(
+    a => a.studentId === application.studentId && a.driveId === application.driveId
+  );
+
+  if (exists) {
+    return res.status(400).json({ message: "Already applied to this drive" });
+  }
+
+  application.id = Date.now();
+  application.status = "Applied";
+  application.appliedOn = new Date().toISOString();
+
+  db.applications.push(application);
+  saveDB(db);
+
+  res.json({ message: "Application submitted successfully", application });
+});
+
+app.put("/api/applications/:id", (req, res) => {
+  const db = loadDB();
+  const appId = parseInt(req.params.id);
+
+  const application = db.applications.find(a => a.id === appId);
+
+  if (!application) return res.status(404).json({ message: "Application not found" });
+
+  application.status = req.body.status || application.status;
+  saveDB(db);
+
+  res.json({ message: "Application updated", application });
+});
+
+app.get("/api/applications", (req, res) => {
+  const db = loadDB();
+  res.json(db.applications);
+});
+
 // ✅ Health Check
 app.get("/", (req, res) => {
   res.send("Intern.Nation backend is running ✅");

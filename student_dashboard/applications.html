@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Applications | intern.nation</title>
+
   <link rel="icon" type="image/jpeg" href="../assets/logo.jpeg">
   <link rel="stylesheet" href="../css/student_dashboard.css">
   <link rel="stylesheet" href="../css/profile.css">
@@ -12,148 +13,171 @@
 </head>
 
 <body>
-  <!-- Header -->
-  <header>
-    <h1 class="logo">
+
+<header>
+  <h1 class="logo">
       <img src="../assets/logo.jpeg" alt="Logo">
-      <span class="logo-text"><span>intern.</span><span>nation</span></span>
-    </h1>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="student_dashboard.html">Back to Dashboard</a></li>
-      </ul>
-    </nav>
-  </header>
+    <span class="logo-text"><span>intern.</span><span>nation</span></span>
+  </h1>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="student_dashboard.html">Back to Dashboard</a></li>
+    </ul>
+  </nav>
+</header>
 
+<main class="profile-layout">
 
+  <aside class="sidebar">
+    <ul>
+      <li><a href="myprofile.html">Personal Details</a></li>
+      <li class="active">View Applications</li>
+      <li><a href="interview_schedule.html">Interview Schedule</a></li>
+      <li><a href="mycertifications.html">Certifications</a></li>
+    </ul>
+  </aside>
 
-  <!-- Layout -->
-  <main class="profile-layout">
+  <section class="applications-section">
+    <h2>My Applications</h2>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <ul>
-        <li><a href="myprofile.html">Personal Details</a></li>
-        <li class="active">View Applications</a></li>
-        <li><a href="interview_schedule.html">Interview Schedule</a></li>
-        <li><a href="mycertifications.html">Certifications</a></li>
-      </ul>
-    </aside>
+    <table class="applications-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Position</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
+      <tbody id="applicationsBody">
+        <!-- Dynamic rows inserted here -->
+      </tbody>
+      
+    </table>
+  </section>
 
-    <!-- Applications Section  -->
-         <!-- Applications Section  -->
-    <section class="applications-section">
-      <h2>My Applications</h2>
-      <table class="applications-table">
-        <thead>
-          <tr>
-            <th>Company</th>
-            <th>Position</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Google</td>
-            <td>Software Intern</td>
-            <td><span class="status applied">Applied</span></td>
-            <td>
-              <button class="btn view-btn">View</button>
-              <button class="btn withdraw-btn">Withdraw</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Microsoft</td>
-            <td>Backend Developer</td>
-            <td><span class="status review">Under Review</span></td>
-            <td>
-              <button class="btn view-btn">View</button>
-              <button class="btn withdraw-btn">Withdraw</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Amazon</td>
-            <td>Frontend Engineer</td>
-            <td><span class="status shortlisted">Shortlisted</span></td>
-            <td>
-              <button class="btn view-btn">View</button>
-              <button class="btn withdraw-btn">Withdraw</button>
-            </td>
-          </tr>
-          <tr>
-            <td>IBM</td>
-            <td>Data Analyst</td>
-            <td><span class="status rejected">Rejected</span></td>
-            <!-- <td>
-              <button class="btn view-btn">View</button>
-              <button class="btn withdraw-btn">Withdraw</button>
-            </td> -->
-          </tr>
-          <tr>
-            <td>OpenAI</td>
-            <td>AI Research Intern</td>
-            <td><span class="status selected">Selected</span></td>
-            <td>
-              <button class="btn view-btn">View</button>
-              <button class="btn withdraw-btn">Withdraw</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+</main>
 
-  </main>
+<footer>
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219978.4307960164!2d76.39695632500003!3d30.51643020000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc3233b6ffff9%3A0xdd39a7652fb7bbf3!2sTuring%20Block%20%2C%20Chitkara%20University!5e0!3m2!1sen!2sin!4v1755414298816!5m2!1sen!2sin"
+            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
 
-      <footer>
-        <div class="map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219978.4307960164!2d76.39695632500003!3d30.51643020000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc3233b6ffff9%3A0xdd39a7652fb7bbf3!2sTuring%20Block%20%2C%20Chitkara%20University!5e0!3m2!1sen!2sin!4v1755414298816!5m2!1sen!2sin"
-                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="footer-links">
-            <p><b>Contact:</b> <a href="mailto:contact@intern.nation">contact@intern.nation</a></p>
-            <p><b>Support:</b> <a href="mailto:support@intern.nation">support@intern.nation</a></p>
-            <p><b>Our Address:</b> 302, 3rd Floor, Turing Block, Chitkara University, Punjab.</p>
-            <p><a href="../index.html">Home</a> | <a href="../about.html">About Us</a> | <a href="blogs.html">Blog</a> | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms & Conditions</a></p>
-        </div>
-    </footer>
+    <div class="footer-links">
+      <p><b>Contact:</b> <a href="mailto:contact@intern.nation">contact@intern.nation</a></p>
+      <p><b>Support:</b> <a href="mailto:support@intern.nation">support@intern.nation</a></p>
+      <p><b>Our Address:</b> 302, 3rd Floor, Turing Block, Chitkara University, Punjab.</p>
+      <p><a href="../index.html">Home</a> | <a href="../about.html">About Us</a> | <a href="blogs.html">Blog</a> | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms & Conditions</a></p>
+    </div>
+</footer>
+
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", loadApplications);
 
-  const viewButtons = document.querySelectorAll(".view-btn");
-  viewButtons.forEach(button => {
-    button.addEventListener("click", event => {
-      const row = event.target.closest("tr");
-      const company = row.querySelector("td:nth-child(1)").textContent;
-      const position = row.querySelector("td:nth-child(2)").textContent;
-      const url = `details.html?company=${encodeURIComponent(company)}&position=${encodeURIComponent(position)}`;
-      window.location.href = url;
+async function loadApplications() {
+
+  // ------------------ STUDENT LOGIN CHECK ------------------
+  const student = JSON.parse(localStorage.getItem("userInfo"));
+  if (!student || student.role !== "student") {
+    window.location.href = "../login.html";
+    return;
+  }
+
+  const tbody = document.getElementById("applicationsBody");
+
+  try {
+
+    // ------------------ FETCH APPLICATIONS ------------------
+    const appRes = await fetch("http://localhost:5000/api/applications");
+    const applications = await appRes.json();
+
+    // Only show applications of THIS student
+    const myApps = applications.filter(app => app.studentId === student.id);
+
+    // If no applications → show message
+    if (myApps.length === 0) {
+      tbody.innerHTML = `
+        <tr><td colspan="4" style="text-align:center; padding:20px;">No applications found.</td></tr>
+      `;
+      return;
+    }
+
+    // ------------------ FETCH DRIVES TO MAP NAMES ------------------
+    const drivesRes = await fetch("http://localhost:5000/api/drives");
+    const drives = await drivesRes.json();
+
+    // ------------------ BUILD ROWS ------------------
+    tbody.innerHTML = ""; // clear old data
+
+    myApps.forEach(app => {
+      // find the drive details for this application
+      const drive = drives.find(d => d.id == app.driveId);
+
+      const company = drive ? drive.companyName : "Unknown";
+      const position = drive ? drive.jobTitle : "Unknown";
+
+      const statusClass = app.status.toLowerCase().replace(" ", "-"); // e.g. "Under Review" → "under-review"
+
+      const row = `
+        <tr data-id="${app.id}">
+          <td>${company}</td>
+          <td>${position}</td>
+          <td><span class="status ${statusClass}">${app.status}</span></td>
+<td>
+  ${
+    app.status === "Withdrawn"
+      ? `<span class="actions-withdrawn">N.A.</span>`
+      : `<button class="btn view-btn">View</button>
+         <button class="btn withdraw-btn">Withdraw</button>`
+  }
+</td>
+        </tr>
+      `;
+
+      tbody.insertAdjacentHTML("beforeend", row);
     });
-  });
 
-  const withdrawButtons = document.querySelectorAll(".withdraw-btn");
-  withdrawButtons.forEach(button => {
-    button.addEventListener("click", event => {
-      const row = event.target.closest("tr");
-      const company = row.querySelector("td:nth-child(1)").textContent;
-      const confirmWithdraw = confirm(`Are you sure you want to withdraw your application from ${company}?`);
-
-      if (confirmWithdraw) {
-        const statusCell = row.querySelector("td:nth-child(3)");
-        const actionCell = row.querySelector("td:nth-child(4)");
-
-        // Update both status and actions
-        statusCell.innerHTML = '<span class="status withdrawn">Withdrawn</span>';
-        actionCell.innerHTML = '<span class="actions-withdrawn">N.A.</span>';
-      }
+    // ------------------ VIEW BUTTON ------------------
+    document.querySelectorAll(".view-btn").forEach(btn => {
+      btn.addEventListener("click", e => {
+        const row = e.target.closest("tr");
+        const appId = row.getAttribute("data-id");
+        window.location.href = `application-details.html?id=${appId}`;
+      });
     });
-  });
 
-});
+    // ------------------ WITHDRAW BUTTON ------------------
+    document.querySelectorAll(".withdraw-btn").forEach(btn => {
+      btn.addEventListener("click", async e => {
+        const row = e.target.closest("tr");
+        const appId = row.getAttribute("data-id");
+
+        if (!confirm("Are you sure you want to withdraw this application?")) return;
+
+        // update UI instantly
+        row.querySelector("td:nth-child(3)").innerHTML =
+          `<span class="status withdrawn">Withdrawn</span>`;
+        row.querySelector("td:nth-child(4)").innerHTML =
+          `<span class="actions-withdrawn">N.A.</span>`;
+        
+        // OPTIONAL: update in backend too
+        await fetch(`http://localhost:5000/api/applications/${appId}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status: "Withdrawn" })
+        });
+      });
+    });
+
+  } catch (error) {
+    console.error("Error loading applications:", error);
+    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">Error loading applications.</td></tr>`;
+  }
+}
 </script>
 
 </body>

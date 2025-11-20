@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Details | intern.nation</title>
+  <title>Apply for Drive | intern.nation</title>
+
   <link rel="stylesheet" href="../css/student_dashboard.css">
   <link rel="stylesheet" href="../css/application-form.css">
   <link rel="icon" type="image/jpeg" href="../assets/logo.jpeg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <header>
@@ -25,52 +28,39 @@
 </header>
 
 <section id="applicationForm" class="application-form">
-  <h3>Application Form</h3>
+  <h3>Apply for Drive</h3>
+
+  <p><strong>Company:</strong> <span id="companyName"></span></p>
+  <p><strong>Role:</strong> <span id="jobTitle"></span></p>
+  <p><strong>Location:</strong> <span id="location"></span></p>
+
+  <hr><br>
+
   <form id="jobApplicationForm">
+
     <div class="form-group">
-      <label for="fullName">Full Name</label>
-      <input type="text" id="fullName" name="fullName" required>
+      <label>Your Name</label>
+      <input type="text" id="fullName" readonly>
     </div>
 
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+      <label>Email</label>
+      <input type="email" id="email" readonly>
     </div>
 
     <div class="form-group">
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+      <label>Department</label>
+      <input type="text" id="department" readonly>
     </div>
 
     <div class="form-group">
-      <label for="year">Year of Study</label>
-      <select id="year" name="year" required>
-        <option value="">Select Year</option>
-        <option value="1">1st Year</option>
-        <option value="2">2nd Year</option>
-        <option value="3">3rd Year</option>
-        <option value="4">4th Year</option>
-      </select>
+      <label>Upload Resume</label>
+      <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
     </div>
 
     <div class="form-group">
-      <label for="department">Department</label>
-      <input type="text" id="department" name="department" placeholder="e.g., CSE, ECE, ME" required>
-    </div>
-
-    <div class="form-group">
-      <label for="cgpa">CGPA</label>
-      <input type="number" id="cgpa" name="cgpa" step="0.01" min="0" max="10" required>
-    </div>
-
-    <div class="form-group">
-      <label for="resume">Upload Resume</label>
-      <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-    </div>
-
-    <div class="form-group">
-      <label for="coverLetter">Cover Letter</label>
-      <textarea id="coverLetter" name="coverLetter" rows="4"></textarea>
+      <label>Cover Letter</label>
+      <textarea id="coverLetter" rows="4"></textarea>
     </div>
 
     <button type="submit" class="submit-btn">Submit Application</button>
@@ -78,27 +68,95 @@
 </section>
 
 <footer>
-    <div class="map">
-        <iframe src="https://www.google.com/maps/embed?..."></iframe>
-    </div>
     <div class="footer-links">
-        <p><b>Contact:</b> <a href="mailto:contact@intern.nation">contact@intern.nation</a></p>
-        <p><b>Support:</b> <a href="mailto:support@intern.nation">support@intern.nation</a></p>
-        <p><b>Our Address:</b> 302, 3rd Floor, Turing Block, Chitkara University, Punjab.</p>
-        <p><a href="../index.html">Home</a> | <a href="../about.html">About Us</a> | 
-           <a href="blogs.html">Blog</a> | <a href="../privacy.html">Privacy Policy</a> | 
-           <a href="../terms.html">Terms & Conditions</a></p>
+        <p><b>Contact:</b> contact@intern.nation</p>
+        <p><b>Support:</b> support@intern.nation</p>
+        <p><b>Address:</b> Turing Block, Chitkara University</p>
     </div>
 </footer>
 
+
 <script>
-  document.getElementById("jobApplicationForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stop form from refreshing the page
-    alert("Application Form submitted successfully!");
-    window.location.href = "student_dashboard.html"; // redirect after alert
+  // -------------------------
+  // 1️⃣ Validate student login
+  // -------------------------
+  const student = JSON.parse(localStorage.getItem("userInfo"));
+  if (!student || student.role !== "student") {
+    window.location.href = "../login.html";
+  }
+
+  // Autofill student details
+  document.getElementById("fullName").value = student.name;
+  document.getElementById("email").value = student.email;
+  document.getElementById("department").value = student.department || "N/A";
+
+  // -------------------------
+  // 2️⃣ Get driveId from URL
+  // -------------------------
+  const params = new URLSearchParams(window.location.search);
+  const driveId = params.get("driveId");
+
+  // -------------------------
+  // 3️⃣ Fetch drive details
+  // -------------------------
+  async function loadDrive() {
+    const res = await fetch("http://localhost:5000/api/drives");
+    const drives = await res.json();
+    const drive = drives.find(d => d.id == driveId);
+
+    if (!drive) {
+      alert("Drive not found");
+      return;
+    }
+
+    document.getElementById("companyName").textContent = drive.companyName;
+    document.getElementById("jobTitle").textContent = drive.jobTitle;
+    document.getElementById("location").textContent = drive.locationType;
+  }
+
+  loadDrive();
+
+  // -------------------------
+  // 4️⃣ Submit Application
+  // -------------------------
+  document.getElementById("jobApplicationForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const applicationData = {
+      id: Date.now(),
+      driveId: driveId,
+      studentId: student.id,
+      companyName: document.getElementById("companyName").textContent,
+      jobTitle: document.getElementById("jobTitle").textContent,
+      resume: document.getElementById("resume").value.split("\\").pop(), // filename only
+      coverLetter: document.getElementById("coverLetter").value,
+      status: "Applied",
+      appliedOn: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/applications", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(applicationData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        alert(result.message);
+        return;
+      }
+
+      alert("Application submitted successfully!");
+      window.location.href = "applications.html";
+
+    } catch (err) {
+      alert("Error submitting application.");
+      console.error(err);
+    }
   });
 </script>
-
 
 </body>
 </html>

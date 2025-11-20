@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Job Details | intern.nation</title>
+
   <link rel="stylesheet" href="../css/student_dashboard.css">
   <link rel="stylesheet" href="../css/job_details.css">
-    <link rel="icon" type="image/jpeg" href="../assets/logo.jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="../assets/logo.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <header>
@@ -24,47 +26,115 @@
         </nav>
     </header>
 
+
 <main class="job-details-container">
+
+    <!-- JOB HEADER -->
     <section class="job-header">
-      <img id="companyLogo" class="company-logo-large" alt="Company Logo" src="../assets/microsoft.jpg">
+      <img id="companyLogo" class="company-logo-large" src="../assets/default.png" alt="Company Logo"
+        onerror="this.src='../assets/default.png'">
+
       <div class="job-header-info">
-        <h2 id="jobTitle" class="job-title">Software Developer Trainee</h2>
-        <p id="companyName" class="company-name">Microsoft</p>
-        <p id="salary" class="salary">10,00,000 / annum</p>
+        <h2 id="jobTitle">Loading...</h2>
+        <p id="companyName" class="company-name"></p>
+        <p id="salary" class="salary"></p>
       </div>
     </section>
 
+    <!-- JOB DETAILS SECTION -->
     <section class="job-info">
       <h3>Drive Details</h3>
       <ul>
-        <li><strong>Drive ID:</strong> <span id="driveId">DRV101</span></li>
-        <li><strong>Drive Date:</strong> <span id="driveDate">15th September</span></li>
-        <li><strong>Location:</strong> <span id="location">Bangalore</span></li>
-        <li><strong>Eligibility Criteria:</strong> <span id="eligibility">B.Tech CSE/IT, CGPA>=8.0</span></li>
+        <li><strong>Drive ID:</strong> <span id="driveId"></span></li>
+        <li><strong>Posted On:</strong> <span id="driveDate"></span></li>
+        <li><strong>Location:</strong> <span id="location"></span></li>
+        <li><strong>Duration:</strong> <span id="duration"></span></li>
+        <li><strong>Openings:</strong> <span id="openings"></span></li>
+        <li><strong>Skills Required:</strong> <span id="skills"></span></li>
+        <li><strong>Description:</strong> <span id="description"></span></li>
       </ul>
     </section>
 
     <section class="job-action">
-  <a href="application-form.html" class="apply-btn">Apply Now</a>
-</section>
+        <a id="applyBtn" href="#" class="apply-btn">Apply Now</a>
+    </section>
 
-  </main>
+</main>
 
 
-    <footer>
-        <div class="map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219978.4307960164!2d76.39695632500003!3d30.51643020000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc3233b6ffff9%3A0xdd39a7652fb7bbf3!2sTuring%20Block%20%2C%20Chitkara%20University!5e0!3m2!1sen!2sin!4v1755414298816!5m2!1sen!2sin"
-                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="footer-links">
-            <p><b>Contact:</b> <a href="mailto:contact@intern.nation">contact@intern.nation</a></p>
-            <p><b>Support:</b> <a href="mailto:support@intern.nation">support@intern.nation</a></p>
-            <p><b>Our Address:</b> 302, 3rd Floor, Turing Block, Chitkara University, Punjab.</p>
-            <p><a href="../index.html">Home</a> | <a href="../about.html">About Us</a> | <a href="blogs.html">Blog</a> | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms & Conditions</a></p>
-        </div>
-    </footer>
+<footer>
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219978.4307960164!2d76.39695632500003!3d30.51643020000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc3233b6ffff9%3A0xdd39a7652fb7bbf3!2sTuring%20Block%20%2C%20Chitkara%20University!5e0!3m2!1sen!2sin!4v1755414298816!5m2!1sen!2sin"
+            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
 
-  </body>
+    <div class="footer-links">
+      <p><b>Contact:</b> <a href="mailto:contact@intern.nation">contact@intern.nation</a></p>
+      <p><b>Support:</b> <a href="mailto:support@intern.nation">support@intern.nation</a></p>
+      <p><b>Our Address:</b> 302, 3rd Floor, Turing Block, Chitkara University, Punjab.</p>
+      <p><a href="../index.html">Home</a> | <a href="../about.html">About Us</a> | <a href="blogs.html">Blog</a> | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms & Conditions</a></p>
+    </div>
+</footer>
+
+
+<script>
+
+  // 1️⃣ Read drive ID from URL (job_details.html?id=12345)
+  const params = new URLSearchParams(window.location.search);
+  const driveId = params.get("id");
+
+  if (!driveId) {
+    alert("Invalid drive ID");
+  }
+
+  // 2️⃣ Fetch the drive details
+  async function loadDriveDetails() {
+    try {
+      const res = await fetch("http://localhost:5000/api/drives");
+      const drives = await res.json();
+
+      // Find the correct drive
+      const drive = drives.find(d => d.id == driveId);
+
+      if (!drive) {
+        alert("Drive not found");
+        return;
+      }
+
+      // 3️⃣ Fill in the UI
+
+      document.getElementById("jobTitle").textContent = drive.jobTitle;
+      document.getElementById("companyName").textContent = drive.companyName;
+      document.getElementById("salary").textContent = drive.salary;
+
+      document.getElementById("driveId").textContent = drive.id;
+      document.getElementById("driveDate").textContent = new Date(drive.postedOn).toDateString();
+      document.getElementById("location").textContent = drive.locationType;
+      document.getElementById("duration").textContent = drive.duration || "N/A";
+      document.getElementById("openings").textContent = drive.openings;
+      document.getElementById("skills").textContent = drive.skills.join(", ");
+      document.getElementById("description").textContent = drive.description;
+
+      // Logo file auto detect
+      const logoName = drive.companyName.toLowerCase().split(" ")[0] + ".png";
+      document.getElementById("companyLogo").src = "../assets/" + logoName;
+
+      // Apply Now → pass drive ID
+document.getElementById("applyBtn").addEventListener("click", (e) => {
+  e.preventDefault();
+  window.location.href = `application-form.html?driveId=${drive.id}`;
+});
+
+    } catch (error) {
+      console.error("Error loading drive:", error);
+      alert("Unable to load drive details.");
+    }
+  }
+
+  loadDriveDetails();
+
+</script>
+
+</body>
 </html>
